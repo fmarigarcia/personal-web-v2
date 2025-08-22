@@ -58,10 +58,10 @@ describe('NavigationContext', () => {
             const { result } = renderHook(() => useNavigation(), { wrapper });
 
             act(() => {
-                result.current.setCurrentSection(SECTIONS.PROJECTS);
+                result.current.setCurrentSection(SECTIONS.EXPERIENCE);
             });
 
-            expect(result.current.currentSection).toBe(SECTIONS.PROJECTS);
+            expect(result.current.currentSection).toBe(SECTIONS.EXPERIENCE);
         });
 
         it('should update scrolling state', () => {

@@ -10,7 +10,6 @@ jest.mock('react-i18next', () => ({
                 'nav.home': 'Home',
                 'nav.about': 'About',
                 'nav.experience': 'Experience',
-                'nav.projects': 'Projects',
                 'nav.contact': 'Contact',
             };
             return translations[key] || key;
@@ -42,9 +41,9 @@ describe('DotNavigation', () => {
     it('should render navigation dots for all sections', () => {
         renderDotNavigation();
 
-        // Should have 5 dots (one for each section)
+        // Should have 4 dots (one for each section)
         const dots = screen.getAllByRole('button');
-        expect(dots).toHaveLength(5);
+        expect(dots).toHaveLength(4);
 
         // Check aria-labels contain section names
         expect(
@@ -55,9 +54,6 @@ describe('DotNavigation', () => {
         ).toBeInTheDocument();
         expect(
             screen.getByRole('button', { name: /go to experience section/i })
-        ).toBeInTheDocument();
-        expect(
-            screen.getByRole('button', { name: /go to projects section/i })
         ).toBeInTheDocument();
         expect(
             screen.getByRole('button', { name: /go to contact section/i })
