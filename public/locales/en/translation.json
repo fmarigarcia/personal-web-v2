@@ -1,0 +1,27 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "hero": {
+        "name": "Francisco Mari García",
+        "title": "Full Stack Developer",
+        "description": "Passionate about creating exceptional digital experiences"
+    },
+    "about": {
+        "title": "About Me",
+        "description": "I'm a passionate full stack developer..."
+    },
+    "experience": {
+        "title": "Experience"
+    },
+    "projects": {
+        "title": "Projects"
+    },
+    "contact": {
+        "title": "Get In Touch"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "name": "Francisco Mari García",
+        "title": "Desarrollador Full Stack",
+        "description": "Apasionado por crear experiencias digitales excepcionales"
+    },
+    "about": {
+        "title": "Sobre Mí",
+        "description": "Soy un desarrollador full stack apasionado..."
+    },
+    "experience": {
+        "title": "Experiencia"
+    },
+    "projects": {
+        "title": "Proyectos"
+    },
+    "contact": {
+        "title": "Ponte en Contacto"
+    }
+}
