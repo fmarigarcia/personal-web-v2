@@ -6,7 +6,7 @@ export const About: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Section id={SECTIONS.ABOUT} backgroundColor="white">
+        <Section id={SECTIONS.ABOUT} backgroundColor="white" fullHeight>
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

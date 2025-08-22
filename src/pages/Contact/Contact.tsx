@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 import { SECTIONS } from '@utils/constants';
 import { Section } from '@components/ui/Section';
+import { inputClasses, buttonVariants } from '@utils/classNames';
 
 interface ContactForm {
     name: string;
@@ -161,7 +163,7 @@ export const Contact: React.FC = () => {
     ];
 
     return (
-        <Section id={SECTIONS.CONTACT} backgroundColor="gray-50">
+        <Section id={SECTIONS.CONTACT} backgroundColor="gray-50" fullHeight>
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -248,7 +250,7 @@ export const Contact: React.FC = () => {
                                         value={form.name}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                        className={inputClasses}
                                         placeholder="Your Name"
                                     />
                                 </div>
@@ -266,7 +268,7 @@ export const Contact: React.FC = () => {
                                         value={form.email}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                        className={inputClasses}
                                         placeholder="your.email@example.com"
                                     />
                                 </div>
@@ -313,9 +315,17 @@ export const Contact: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full px-6 py-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                className={clsx(
+                                    'w-full', // Keep width full for form button
+                                    {
+                                        [buttonVariants.primary]: !isSubmitting,
+                                        [buttonVariants.disabled]: isSubmitting,
+                                    }
+                                )}
                             >
-                                {isSubmitting ? 'Sending...' : 'Send Message'}
+                                {isSubmitting
+                                    ? t('contact.sending')
+                                    : t('contact.sendMessage')}
                             </button>
                         </form>
                     </div>

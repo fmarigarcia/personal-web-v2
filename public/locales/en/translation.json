@@ -62,6 +62,8 @@
         "title": "Projects"
     },
     "contact": {
-        "title": "Get In Touch"
+        "title": "Get In Touch",
+        "sending": "Sending...",
+        "sendMessage": "Send Message"
     }
 }

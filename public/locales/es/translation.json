@@ -62,6 +62,8 @@
         "title": "Proyectos"
     },
     "contact": {
-        "title": "Ponte en Contacto"
+        "title": "Ponte en Contacto",
+        "sending": "Enviando...",
+        "sendMessage": "Enviar Mensaje"
     }
 }
