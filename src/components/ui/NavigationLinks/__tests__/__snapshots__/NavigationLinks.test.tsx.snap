@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationLinks should match snapshot 1`] = `
+<div
+  class="hidden md:flex items-center space-x-8 "
+>
+  <button
+    aria-label="Go to Home section"
+    class="text-sm font-medium transition-colors hover:text-blue-600 text-blue-600"
+    type="button"
+  >
+    Home
+  </button>
+  <button
+    aria-label="Go to About section"
+    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    type="button"
+  >
+    About
+  </button>
+  <button
+    aria-label="Go to Experience section"
+    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    type="button"
+  >
+    Experience
+  </button>
+  <button
+    aria-label="Go to Projects section"
+    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    type="button"
+  >
+    Projects
+  </button>
+  <button
+    aria-label="Go to Contact section"
+    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    type="button"
+  >
+    Contact
+  </button>
+</div>
+`;

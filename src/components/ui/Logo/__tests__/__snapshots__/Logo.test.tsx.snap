@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo should match snapshot 1`] = `
+<div
+  class="flex items-center "
+>
+  <button
+    aria-label="Go to home"
+    class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+    type="button"
+  >
+    FM
+  </button>
+</div>
+`;

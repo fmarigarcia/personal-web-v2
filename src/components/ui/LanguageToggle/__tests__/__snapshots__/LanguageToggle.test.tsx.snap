@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageToggle should match snapshot 1`] = `
+<div
+  class="flex items-center space-x-2 "
+>
+  <button
+    aria-label="Switch to English"
+    class="text-sm font-medium px-2 py-1 rounded transition-colors bg-blue-600 text-white"
+    type="button"
+  >
+    EN
+  </button>
+  <button
+    aria-label="Switch to Spanish"
+    class="text-sm font-medium px-2 py-1 rounded transition-colors text-gray-700 hover:text-blue-600"
+    type="button"
+  >
+    ES
+  </button>
+</div>
+`;
