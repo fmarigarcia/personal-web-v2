@@ -7,16 +7,56 @@
         "contact": "Contacto"
     },
     "hero": {
-        "name": "Francisco Mari García",
-        "title": "Desarrollador Full Stack",
-        "description": "Apasionado por crear experiencias digitales excepcionales"
+        "name": "Francisco Marí García",
+        "title": "Ingeniero Full Stack Senior",
+        "description": "Especializado en arquitecturas web escalables y soluciones de alto rendimiento. Actualmente dirijo el desarrollo frontend de la plataforma e-commerce de Zara, optimizando la experiencia de millones de usuarios diarios."
     },
     "about": {
         "title": "Sobre Mí",
-        "description": "Soy un desarrollador full stack apasionado..."
+        "description": "Ingeniero Full Stack Senior con más de 7 años de trayectoria profesional, especializado en arquitecturas web escalables y de alto rendimiento. Destaco por traducir conceptos de negocio complejos en soluciones técnicas elegantes, manteniendo siempre altos estándares de calidad mediante TDD, integración continua y prácticas de código limpio."
     },
     "experience": {
-        "title": "Experiencia"
+        "title": "Experiencia",
+        "exp1": {
+            "position": "Ingeniero Frontend Senior",
+            "duration": "Ene 2025 - Presente",
+            "desc1": "Liderando iniciativas técnicas para la optimización y evolución del frontend de la plataforma e-commerce global de Zara",
+            "desc2": "Implementando componentes React.js de alto rendimiento bajo arquitectura de micro-frontends con fuerte énfasis en accesibilidad y UX",
+            "desc3": "Colaboración estrecha con equipos de diseño y producto para implementar características innovadoras que mejoran la experiencia de compra",
+            "desc4": "Trabajando con tecnologías de vanguardia para servir a millones de usuarios diarios en todo el mundo"
+        },
+        "exp2": {
+            "position": "Ingeniero Full Stack Senior",
+            "duration": "Jul 2022 - Ene 2025",
+            "desc1": "Lideré el desarrollo técnico de plataforma SaaS de RRHH para la industria hotelera, escalando de 5k a +30k usuarios activos",
+            "desc2": "Arquitecturé e implementé soluciones backend de alto rendimiento en Elixir, logrando tiempos de respuesta <100ms incluso durante picos de carga",
+            "desc3": "Creé librería de componentes React.js reutilizable que aceleró el desarrollo de nuevas funcionalidades en un 35%",
+            "desc4": "Implementé estrategias avanzadas de seguridad y protección de datos según GDPR, pasando auditorías externas"
+        },
+        "exp3": {
+            "position": "Desarrollador Full Stack Mid/Senior",
+            "duration": "Feb 2020 - Jul 2022",
+            "desc1": "Líder técnico para un nuevo producto de la empresa - sistema interconectado de salas de bingo",
+            "desc2": "Desarrollo full-stack usando Node.js, React.js y Phaser.js con enfoque en UX y comunicación sincronizada",
+            "desc3": "Implementé funcionalidades de juego en tiempo real con conexiones WebSocket",
+            "desc4": "Diseñé arquitectura escalable para entorno de juego multi-terminal"
+        },
+        "exp4": {
+            "position": "Desarrollador Full Stack Junior",
+            "duration": "Sep 2019 - Ene 2020",
+            "desc1": "Desarrollé aplicaciones web usando frameworks modernos de JavaScript",
+            "desc2": "Colaboré en múltiples proyectos de clientes con diversos requisitos técnicos",
+            "desc3": "Adquirí experiencia en el ciclo de vida del desarrollo full-stack",
+            "desc4": "Participé en revisiones de código y procesos de desarrollo ágil"
+        },
+        "exp5": {
+            "position": "Desarrollador Backend Junior",
+            "duration": "Ago 2018 - Ago 2019",
+            "desc1": "Inicié mi carrera profesional desarrollando soluciones backend para clientes empresariales",
+            "desc2": "Aprendí mejores prácticas de la industria en desarrollo de software",
+            "desc3": "Trabajé con sistemas de gran escala y arquitectura empresarial",
+            "desc4": "Establecí las bases en desarrollo backend e integración de sistemas"
+        }
     },
     "projects": {
         "title": "Proyectos"

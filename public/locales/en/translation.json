@@ -7,16 +7,56 @@
         "contact": "Contact"
     },
     "hero": {
-        "name": "Francisco Mari García",
-        "title": "Full Stack Developer",
-        "description": "Passionate about creating exceptional digital experiences"
+        "name": "Francisco Marí García",
+        "title": "Senior Full Stack Engineer",
+        "description": "Specialized in scalable web architectures and high-performance solutions. Currently leading frontend development for Zara's e-commerce platform, optimizing the experience for millions of daily users."
     },
     "about": {
         "title": "About Me",
-        "description": "I'm a passionate full stack developer..."
+        "description": "Senior Full Stack Engineer with over 7 years of professional experience, specializing in scalable web architectures and high-performance solutions. I excel at translating complex business concepts into elegant technical solutions, maintaining high quality standards through TDD, continuous integration, and clean code practices."
     },
     "experience": {
-        "title": "Experience"
+        "title": "Experience",
+        "exp1": {
+            "position": "Senior Frontend Engineer",
+            "duration": "Jan 2025 - Present",
+            "desc1": "Leading technical initiatives for optimization and evolution of Zara's global e-commerce platform frontend",
+            "desc2": "Implementing high-performance React.js components under micro-frontend architecture with strong emphasis on accessibility and UX",
+            "desc3": "Close collaboration with design and product teams for implementing innovative features that enhance shopping experience",
+            "desc4": "Working with cutting-edge technologies to serve millions of daily users worldwide"
+        },
+        "exp2": {
+            "position": "Senior Full Stack Engineer",
+            "duration": "Jul 2022 - Jan 2025",
+            "desc1": "Led technical development of HR SaaS platform for hospitality industry, scaling from 5k to +30k active users",
+            "desc2": "Architected and implemented high-performance backend solutions in Elixir, achieving <100ms response times even during peak loads",
+            "desc3": "Created reusable React.js component library that accelerated new feature development by 35%",
+            "desc4": "Implemented advanced security and data protection strategies according to GDPR, passing external audits"
+        },
+        "exp3": {
+            "position": "Mid/Senior Full Stack Developer",
+            "duration": "Feb 2020 - Jul 2022",
+            "desc1": "Technical leader for a new company product - interconnected bingo hall system",
+            "desc2": "Full-stack development using Node.js, React.js and Phaser.js with focus on UX and synchronized communication",
+            "desc3": "Implemented real-time gaming features with WebSocket connections",
+            "desc4": "Designed scalable architecture for multi-terminal gaming environment"
+        },
+        "exp4": {
+            "position": "Junior Full Stack Developer",
+            "duration": "Sep 2019 - Jan 2020",
+            "desc1": "Developed web applications using modern JavaScript frameworks",
+            "desc2": "Collaborated on multiple client projects with diverse technical requirements",
+            "desc3": "Gained experience in full-stack development lifecycle",
+            "desc4": "Participated in code reviews and agile development processes"
+        },
+        "exp5": {
+            "position": "Junior Backend Developer",
+            "duration": "Aug 2018 - Aug 2019",
+            "desc1": "Started professional career developing backend solutions for enterprise clients",
+            "desc2": "Learned industry best practices in software development",
+            "desc3": "Worked with large-scale systems and enterprise architecture",
+            "desc4": "Foundation in backend development and system integration"
+        }
     },
     "projects": {
         "title": "Projects"
