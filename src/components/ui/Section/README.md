@@ -4,11 +4,12 @@ A reusable wrapper component for page sections that ensures proper spacing and f
 
 ## Features
 
-- **Automatic navbar offset**: Accounts for the fixed header height using `SCROLL_OFFSET` constant
+- **CSS-based navbar offset**: Uses CSS classes instead of inline styles for better performance
 - **Full viewport height**: Option to make sections fill the entire viewport
 - **Predefined backgrounds**: White, gray-50, or gradient backgrounds
 - **Flexible content**: Accepts any React children
 - **Responsive padding**: Consistent horizontal padding and responsive vertical spacing
+- **Clean styling**: No inline styles, all styling via CSS classes
 
 ## Props
 
@@ -73,7 +74,7 @@ interface SectionProps {
 ### Full Height Sections (`fullHeight={true}`)
 
 - **Height**: `min-h-screen` - fills entire viewport
-- **Top padding**: `${SCROLL_OFFSET}px` - accounts for fixed navbar
+- **Top padding**: `section-navbar-offset` CSS class (80px) - accounts for fixed navbar
 - **Bottom padding**: `0px` - content determines height
 - **Content wrapper**: `min-h-screen flex flex-col justify-center py-20`
 
@@ -81,15 +82,17 @@ interface SectionProps {
 
 - **Height**: Content-driven (no min-height)
 - **Top padding**: `0px` - no navbar offset needed
-- **Bottom padding**: `5rem` - consistent section spacing
+- **Bottom padding**: `pb-20` class (5rem) - consistent section spacing
 - **Content wrapper**: `py-20` - standard section padding
 
 ## Implementation Notes
 
-1. **Navbar Integration**: Uses `SCROLL_OFFSET` constant (80px) from utils to account for fixed header
-2. **Responsive Design**: Includes `px-6` for horizontal padding on all screen sizes
-3. **Content Flow**: Regular sections stack naturally, full-height sections fill viewport
-4. **TypeScript**: Fully typed with comprehensive interface
+1. **CSS Classes**: Uses `section-navbar-offset` CSS class (80px) for navbar spacing
+2. **No Inline Styles**: All styling handled via CSS classes for better performance
+3. **Responsive Design**: Includes `px-6` for horizontal padding on all screen sizes
+4. **Content Flow**: Regular sections stack naturally, full-height sections fill viewport
+5. **TypeScript**: Fully typed with comprehensive interface
+6. **CSS File**: Component styles defined in `Section.css`
 
 ## Current Usage in Project
 

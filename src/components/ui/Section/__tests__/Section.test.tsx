@@ -58,15 +58,17 @@ describe('Section', () => {
         render(<Section {...defaultProps} fullHeight />);
 
         const section = document.getElementById('test-section');
-        expect(section).toHaveStyle({ paddingTop: '80px' });
+        expect(section).toHaveClass('section-navbar-offset'); // Uses CSS class instead of inline style
+        expect(section).toHaveClass('min-h-screen');
+        expect(section).not.toHaveAttribute('style'); // No inline style needed
     });
 
     it('should have correct padding styles for regular sections', () => {
         render(<Section {...defaultProps} />);
 
         const section = document.getElementById('test-section');
-        expect(section).toHaveStyle({ paddingTop: '0' });
-        expect(section).toHaveStyle({ paddingBottom: '5rem' });
+        expect(section).toHaveClass('pb-20'); // Uses Tailwind class instead of inline style
+        expect(section).not.toHaveAttribute('style'); // No style attribute for regular sections
     });
 
     it('should match snapshot', () => {
