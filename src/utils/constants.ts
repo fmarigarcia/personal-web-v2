@@ -3,7 +3,6 @@ export const SECTIONS = {
     HERO: 'hero',
     ABOUT: 'about',
     EXPERIENCE: 'experience',
-    PROJECTS: 'projects',
     CONTACT: 'contact',
 } as const;
 
@@ -15,7 +14,6 @@ export const NAVIGATION_ITEMS = [
         labelKey: 'nav.experience',
         href: '#experience',
     },
-    { id: SECTIONS.PROJECTS, labelKey: 'nav.projects', href: '#projects' },
     { id: SECTIONS.CONTACT, labelKey: 'nav.contact', href: '#contact' },
 ];
 

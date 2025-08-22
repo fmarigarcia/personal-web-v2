@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section should match snapshot 1`] = `
+<section
+  class="relative px-6 bg-white"
+  id="test-section"
+  style="padding-top: 0px; padding-bottom: 5rem;"
+>
+  <div
+    class="py-20"
+  >
+    <div>
+      Test content
+    </div>
+  </div>
+</section>
+`;
+
+exports[`Section should match snapshot with full height and gradient 1`] = `
+<section
+  class="relative px-6 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 custom-hero"
+  id="test-section"
+  style="padding-top: 80px; padding-bottom: 0px;"
+>
+  <div
+    class="min-h-screen flex flex-col justify-center py-20"
+  >
+    <div>
+      Test content
+    </div>
+  </div>
+</section>
+`;

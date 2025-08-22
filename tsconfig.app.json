@@ -30,7 +30,8 @@
             "@utils/*": ["./src/utils/*"],
             "@types/*": ["./src/types/*"],
             "@pages/*": ["./src/pages/*"],
-            "@lib/*": ["./src/lib/*"]
+            "@lib/*": ["./src/lib/*"],
+            "@data/*": ["./src/data/*"]
         }
     },
     "include": ["src"]
