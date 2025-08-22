@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 import { useNavigation } from '@contexts/NavigationContext';
 import { NAVIGATION_ITEMS } from '@utils/constants';
 
@@ -16,16 +17,20 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({
     const { currentSection } = useNavigation();
 
     return (
-        <div className={`hidden md:flex items-center space-x-8 ${className}`}>
+        <div
+            className={clsx('hidden md:flex items-center space-x-8', className)}
+        >
             {NAVIGATION_ITEMS.map((item) => (
                 <button
                     key={item.id}
                     onClick={() => onNavClick(item.id)}
-                    className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                        currentSection === item.id
-                            ? 'text-blue-600'
-                            : 'text-gray-700'
-                    }`}
+                    className={clsx(
+                        'text-sm font-medium transition-colors hover:text-blue-600',
+                        {
+                            'text-blue-600': currentSection === item.id,
+                            'text-gray-700': currentSection !== item.id,
+                        }
+                    )}
                     type="button"
                     aria-label={`Go to ${t(item.labelKey)} section`}
                 >

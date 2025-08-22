@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 interface MobileMenuButtonProps {
     onClick?: () => void;
@@ -14,7 +15,10 @@ export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
     return (
         <button
             onClick={onClick}
-            className={`md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors ${className}`}
+            className={clsx(
+                'md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors',
+                className
+            )}
             type="button"
             aria-label={isOpen ? 'Close mobile menu' : 'Open mobile menu'}
             aria-expanded={isOpen}

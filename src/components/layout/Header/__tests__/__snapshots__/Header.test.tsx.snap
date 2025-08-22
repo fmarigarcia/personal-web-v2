@@ -14,7 +14,7 @@ exports[`Header should match snapshot 1`] = `
       role="navigation"
     >
       <div
-        class="flex items-center "
+        class="flex items-center"
       >
         <button
           aria-label="Go to home"
@@ -25,7 +25,7 @@ exports[`Header should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="hidden md:flex items-center space-x-8 "
+        class="hidden md:flex items-center space-x-8"
       >
         <button
           aria-label="Go to Home section"
@@ -60,7 +60,7 @@ exports[`Header should match snapshot 1`] = `
         class="flex items-center space-x-4"
       >
         <div
-          class="flex items-center space-x-2 "
+          class="flex items-center space-x-2"
         >
           <button
             aria-label="Switch to English"
@@ -80,7 +80,7 @@ exports[`Header should match snapshot 1`] = `
         <button
           aria-expanded="false"
           aria-label="Open mobile menu"
-          class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors "
+          class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
           type="button"
         >
           <svg

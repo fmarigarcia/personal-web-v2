@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 import { useNavigation } from '@contexts/NavigationContext';
 import { useSmoothScroll } from '@hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '@utils/constants';
@@ -21,7 +22,10 @@ export const DotNavigation: React.FC<DotNavigationProps> = ({
 
     return (
         <nav
-            className={`fixed right-6 top-1/2 -translate-y-1/2 z-40 ${className}`}
+            className={clsx(
+                'fixed right-6 top-1/2 -translate-y-1/2 z-40',
+                className
+            )}
             aria-label="Section navigation"
             role="navigation"
         >
@@ -31,29 +35,30 @@ export const DotNavigation: React.FC<DotNavigationProps> = ({
                         <button
                             onClick={() => handleDotClick(item.id)}
                             aria-label={`Go to ${t(item.labelKey)} section`}
-                            className={`
-                                relative block w-3 h-3 rounded-full border-2 
-                                transition-all duration-300 ease-in-out
-                                hover:scale-125 focus:outline-none focus:ring-2 
-                                focus:ring-blue-500 focus:ring-offset-2
-                                ${
-                                    currentSection === item.id
-                                        ? 'bg-blue-600 border-blue-600 scale-110'
-                                        : 'bg-transparent border-gray-400 hover:border-blue-500'
+                            className={clsx(
+                                'relative block w-3 h-3 rounded-full border-2',
+                                'transition-all duration-300 ease-in-out',
+                                'hover:scale-125 focus:outline-none focus:ring-2',
+                                'focus:ring-blue-500 focus:ring-offset-2',
+                                {
+                                    'bg-blue-600 border-blue-600 scale-110':
+                                        currentSection === item.id,
+                                    'bg-transparent border-gray-400 hover:border-blue-500':
+                                        currentSection !== item.id,
                                 }
-                            `}
+                            )}
                             type="button"
                         >
                             {/* Tooltip */}
                             <span
-                                className="
-                                    absolute right-full mr-3 px-2 py-1 
-                                    bg-gray-900 text-white text-xs rounded 
-                                    opacity-0 pointer-events-none 
-                                    transition-opacity duration-200
-                                    whitespace-nowrap top-1/2 -translate-y-1/2
-                                    group-hover:opacity-100
-                                "
+                                className={clsx(
+                                    'absolute right-full mr-3 px-2 py-1',
+                                    'bg-gray-900 text-white text-xs rounded',
+                                    'opacity-0 pointer-events-none',
+                                    'transition-opacity duration-200',
+                                    'whitespace-nowrap top-1/2 -translate-y-1/2',
+                                    'group-hover:opacity-100'
+                                )}
                             >
                                 {t(item.labelKey)}
                             </span>

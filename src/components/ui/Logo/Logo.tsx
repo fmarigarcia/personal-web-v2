@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 interface LogoProps {
     onClick?: () => void;
@@ -7,7 +8,7 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ onClick, className = '' }) => {
     return (
-        <div className={`flex items-center ${className}`}>
+        <div className={clsx('flex items-center', className)}>
             <button
                 onClick={onClick}
                 className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 interface LanguageToggleProps {
     className?: string;
@@ -15,18 +16,14 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({
     };
 
     const getButtonClasses = (lang: 'en' | 'es') => {
-        const baseClasses =
-            'text-sm font-medium px-2 py-1 rounded transition-colors';
-        const activeClasses = 'bg-blue-600 text-white';
-        const inactiveClasses = 'text-gray-700 hover:text-blue-600';
-
-        return `${baseClasses} ${
-            i18n.language === lang ? activeClasses : inactiveClasses
-        }`;
+        return clsx('text-sm font-medium px-2 py-1 rounded transition-colors', {
+            'bg-blue-600 text-white': i18n.language === lang,
+            'text-gray-700 hover:text-blue-600': i18n.language !== lang,
+        });
     };
 
     return (
-        <div className={`flex items-center space-x-2 ${className}`}>
+        <div className={clsx('flex items-center space-x-2', className)}>
             <button
                 onClick={() => handleLanguageChange('en')}
                 className={getButtonClasses('en')}

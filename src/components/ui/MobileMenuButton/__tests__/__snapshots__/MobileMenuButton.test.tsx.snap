@@ -4,7 +4,7 @@ exports[`MobileMenuButton should match snapshot when closed 1`] = `
 <button
   aria-expanded="false"
   aria-label="Open mobile menu"
-  class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors "
+  class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
   type="button"
 >
   <svg
@@ -27,7 +27,7 @@ exports[`MobileMenuButton should match snapshot when open 1`] = `
 <button
   aria-expanded="true"
   aria-label="Close mobile menu"
-  class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors "
+  class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
   type="button"
 >
   <svg

@@ -2,7 +2,7 @@
 
 exports[`NavigationLinks should match snapshot 1`] = `
 <div
-  class="hidden md:flex items-center space-x-8 "
+  class="hidden md:flex items-center space-x-8"
 >
   <button
     aria-label="Go to Home section"
