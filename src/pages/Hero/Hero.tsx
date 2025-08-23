@@ -37,13 +37,13 @@ export const Hero: React.FC = () => {
                         onClick={() => handleNavigation(SECTIONS.CONTACT)}
                         className={buttonVariants.primary}
                     >
-                        Get In Touch
+                        {t('hero.getInTouch')}
                     </button>
                     <button
                         onClick={() => handleNavigation(SECTIONS.EXPERIENCE)}
                         className={buttonVariants.secondary}
                     >
-                        View Experience
+                        {t('hero.viewExperience')}
                     </button>
                 </div>
 

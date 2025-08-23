@@ -123,9 +123,9 @@ export const Experience: React.FC = () => {
                         {/* Legend */}
                         <div className="text-center text-sm text-gray-500 mt-8">
                             <p className="hidden sm:block">
-                                Hover to preview • Click to select
+                                {t('experience.hoverPreview')}
                             </p>
-                            <p className="sm:hidden">Tap to select</p>
+                            <p className="sm:hidden">{t('experience.tapSelect')}</p>
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@ export const Experience: React.FC = () => {
                                 {/* Technologies */}
                                 <div>
                                     <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
-                                        Technologies & Skills
+                                        {t('experience.technologiesSkills')}
                                     </h4>
                                     <div className="flex flex-wrap gap-2">
                                         {displayedExp.technologies.map(

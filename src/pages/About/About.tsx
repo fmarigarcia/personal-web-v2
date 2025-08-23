@@ -33,11 +33,11 @@ export const About: React.FC = () => {
                             </p>
                         </div>
 
-                        {/* Skills Grid - Updated with real skills from CV */}
+                        {/* Skills Grid */}
                         <div className="grid grid-cols-2 gap-4 mt-8">
                             <div className="p-4 bg-gray-50 rounded-lg">
                                 <h4 className="font-semibold text-gray-900 mb-2">
-                                    Frontend
+                                    {t('about.skills.frontend')}
                                 </h4>
                                 <div className="text-sm text-gray-600 space-y-1">
                                     <div>React.js ⭐⭐⭐⭐⭐</div>
@@ -48,7 +48,7 @@ export const About: React.FC = () => {
                             </div>
                             <div className="p-4 bg-gray-50 rounded-lg">
                                 <h4 className="font-semibold text-gray-900 mb-2">
-                                    Backend
+                                    {t('about.skills.backend')}
                                 </h4>
                                 <div className="text-sm text-gray-600 space-y-1">
                                     <div>Elixir ⭐⭐⭐⭐</div>
@@ -59,24 +59,24 @@ export const About: React.FC = () => {
                             </div>
                             <div className="p-4 bg-gray-50 rounded-lg">
                                 <h4 className="font-semibold text-gray-900 mb-2">
-                                    Tools & Practices
+                                    {t('about.skills.toolsPractices')}
                                 </h4>
                                 <div className="text-sm text-gray-600 space-y-1">
-                                    <div>Clean Code ⭐⭐⭐⭐⭐</div>
-                                    <div>AI Tooling ⭐⭐⭐⭐</div>
-                                    <div>TDD, CI/CD</div>
+                                    <div>{t('about.skills.cleanCode')} ⭐⭐⭐⭐⭐</div>
+                                    <div>{t('about.skills.aiTooling')} ⭐⭐⭐⭐</div>
+                                    <div>{t('about.skills.tddCicd')}</div>
                                     <div>Figma ⭐⭐⭐⭐</div>
                                 </div>
                             </div>
                             <div className="p-4 bg-gray-50 rounded-lg">
                                 <h4 className="font-semibold text-gray-900 mb-2">
-                                    Languages
+                                    {t('about.skills.languages')}
                                 </h4>
                                 <div className="text-sm text-gray-600 space-y-1">
-                                    <div>Spanish (Native)</div>
-                                    <div>Catalan (Native)</div>
-                                    <div>English (C1)</div>
-                                    <div>Teamwork ⭐⭐⭐⭐⭐</div>
+                                    <div>{t('about.skills.spanish')}</div>
+                                    <div>{t('about.skills.catalan')}</div>
+                                    <div>{t('about.skills.english')}</div>
+                                    <div>{t('about.skills.teamwork')} ⭐⭐⭐⭐⭐</div>
                                 </div>
                             </div>
                         </div>

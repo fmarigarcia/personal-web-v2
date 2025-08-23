@@ -4,19 +4,38 @@
         "about": "About",
         "experience": "Experience",
         "projects": "Projects",
-        "contact": "Contact"
+        "contact": "Contact",
+        "mainNavigation": "Main navigation"
     },
     "hero": {
         "name": "Francisco Marí García",
         "title": "Senior Full Stack Engineer",
-        "description": "Specialized in scalable web architectures and high-performance solutions. Currently leading frontend development for Zara's e-commerce platform, optimizing the experience for millions of daily users."
+        "description": "Specialized in scalable web architectures and high-performance solutions. Currently leading frontend development for Zara's e-commerce platform, optimizing the experience for millions of daily users.",
+        "getInTouch": "Get In Touch",
+        "viewExperience": "View Experience"
     },
     "about": {
         "title": "About Me",
-        "description": "Senior Full Stack Engineer with over 7 years of professional experience, specializing in scalable web architectures and high-performance solutions. I excel at translating complex business concepts into elegant technical solutions, maintaining high quality standards through TDD, continuous integration, and clean code practices."
+        "description": "Senior Full Stack Engineer with over 7 years of professional experience, specializing in scalable web architectures and high-performance solutions. I excel at translating complex business concepts into elegant technical solutions, maintaining high quality standards through TDD, continuous integration, and clean code practices.",
+        "skills": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "toolsPractices": "Tools & Practices",
+            "languages": "Languages",
+            "cleanCode": "Clean Code",
+            "aiTooling": "AI Tooling",
+            "tddCicd": "TDD, CI/CD",
+            "teamwork": "Teamwork",
+            "spanish": "Spanish (Native)",
+            "catalan": "Catalan (Native)",
+            "english": "English (C1)"
+        }
     },
     "experience": {
         "title": "Experience",
+        "technologiesSkills": "Technologies & Skills",
+        "hoverPreview": "Hover to preview • Click to select",
+        "tapSelect": "Tap to select",
         "exp1": {
             "position": "Senior Frontend Engineer",
             "duration": "Jan 2025 - Present",
@@ -63,7 +82,28 @@
     },
     "contact": {
         "title": "Get In Touch",
+        "subtitle": "Have a project in mind or just want to chat? I'd love to hear from you. Let's discuss how we can work together to bring your ideas to life.",
+        "letsConnect": "Let's Connect",
+        "followMe": "Follow Me",
+        "sendMessage": "Send a Message",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "namePlaceholder": "Your Name",
+        "emailPlaceholder": "your.email@example.com",
+        "subjectPlaceholder": "What's this about?",
+        "messagePlaceholder": "Tell me about your project or just say hello!",
         "sending": "Sending...",
-        "sendMessage": "Send Message"
+        "send": "Send Message",
+        "successMessage": "Thank you for your message! I'll get back to you soon.",
+        "phone": "Phone",
+        "location": "Location",
+        "locationValue": "Algemesí, Spain"
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn", 
+        "twitter": "Twitter"
     }
 }

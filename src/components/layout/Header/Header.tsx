@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@contexts/NavigationContext';
 import { Logo } from '@components/ui/Logo';
 import { NavigationLinks } from '@components/ui/NavigationLinks';
@@ -5,6 +6,7 @@ import { LanguageToggle } from '@components/ui/LanguageToggle';
 import { MobileMenuButton } from '@components/ui/MobileMenuButton';
 
 export const Header: React.FC = () => {
+    const { t } = useTranslation();
     const { navigateToSection } = useNavigation();
 
     const handleNavClick = (sectionId: string) => {
@@ -22,7 +24,7 @@ export const Header: React.FC = () => {
                 <nav
                     className="flex items-center justify-between"
                     role="navigation"
-                    aria-label="Main navigation"
+                    aria-label={t('nav.mainNavigation')}
                 >
                     <Logo onClick={() => handleNavClick('hero')} />
 

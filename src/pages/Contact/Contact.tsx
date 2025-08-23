@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
                     />
                 </svg>
             ),
-            title: 'Email',
+            title: t('contact.methods.email'),
             value: 'fran.mari.94@gmail.com',
             href: 'mailto:fran.mari.94@gmail.com',
         },
@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
                     />
                 </svg>
             ),
-            title: 'Phone',
+            title: t('contact.methods.phone'),
             value: '+34 663 607 700',
             href: 'tel:+34663607700',
         },
@@ -110,7 +110,7 @@ export const Contact: React.FC = () => {
                     />
                 </svg>
             ),
-            title: 'Location',
+            title: t('contact.methods.location'),
             value: 'Algemesí, Spain',
             href: '#',
         },
@@ -118,7 +118,7 @@ export const Contact: React.FC = () => {
 
     const socialLinks = [
         {
-            name: 'GitHub',
+            name: t('social.github'),
             href: 'https://github.com/fmarigarcia',
             icon: (
                 <svg
@@ -135,7 +135,7 @@ export const Contact: React.FC = () => {
             ),
         },
         {
-            name: 'LinkedIn',
+            name: t('social.linkedin'),
             href: 'https://linkedin.com/in/francisco-mari-garcia',
             icon: (
                 <svg
@@ -148,7 +148,7 @@ export const Contact: React.FC = () => {
             ),
         },
         {
-            name: 'Twitter',
+            name: t('social.twitter'),
             href: 'https://twitter.com/fmarigarcia',
             icon: (
                 <svg
@@ -171,9 +171,7 @@ export const Contact: React.FC = () => {
                     </h2>
                     <div className="w-24 h-1 bg-blue-600 mx-auto mb-6" />
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Have a project in mind or just want to chat? I'd love to
-                        hear from you. Let's discuss how we can work together to
-                        bring your ideas to life.
+                        {t('contact.subtitle')}
                     </p>
                 </div>
 
@@ -182,7 +180,7 @@ export const Contact: React.FC = () => {
                     <div className="space-y-8">
                         <div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                                Let's Connect
+                                {t('contact.letsConnect')}
                             </h3>
                             <div className="space-y-4">
                                 {contactMethods.map((method) => (
@@ -210,7 +208,7 @@ export const Contact: React.FC = () => {
                         {/* Social Links */}
                         <div>
                             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                                Follow Me
+                                {t('contact.followMe')}
                             </h3>
                             <div className="flex space-x-4">
                                 {socialLinks.map((social) => (
@@ -232,7 +230,7 @@ export const Contact: React.FC = () => {
                     {/* Contact Form */}
                     <div className="bg-white rounded-2xl shadow-sm p-8">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                            Send a Message
+                            {t('contact.form.title')}
                         </h3>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid sm:grid-cols-2 gap-4">
@@ -241,7 +239,7 @@ export const Contact: React.FC = () => {
                                         htmlFor="name"
                                         className="block text-sm font-medium text-gray-700 mb-2"
                                     >
-                                        Name *
+                                        {t('contact.form.name')} *
                                     </label>
                                     <input
                                         type="text"
@@ -251,7 +249,7 @@ export const Contact: React.FC = () => {
                                         onChange={handleInputChange}
                                         required
                                         className={inputClasses}
-                                        placeholder="Your Name"
+                                        placeholder={t('contact.form.namePlaceholder')}
                                     />
                                 </div>
                                 <div>
@@ -259,7 +257,7 @@ export const Contact: React.FC = () => {
                                         htmlFor="email"
                                         className="block text-sm font-medium text-gray-700 mb-2"
                                     >
-                                        Email *
+                                        {t('contact.form.email')} *
                                     </label>
                                     <input
                                         type="email"
@@ -269,7 +267,7 @@ export const Contact: React.FC = () => {
                                         onChange={handleInputChange}
                                         required
                                         className={inputClasses}
-                                        placeholder="your.email@example.com"
+                                        placeholder={t('contact.form.emailPlaceholder')}
                                     />
                                 </div>
                             </div>
@@ -279,7 +277,7 @@ export const Contact: React.FC = () => {
                                     htmlFor="subject"
                                     className="block text-sm font-medium text-gray-700 mb-2"
                                 >
-                                    Subject *
+                                    {t('contact.form.subject')} *
                                 </label>
                                 <input
                                     type="text"
@@ -289,7 +287,7 @@ export const Contact: React.FC = () => {
                                     onChange={handleInputChange}
                                     required
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    placeholder="What's this about?"
+                                    placeholder={t('contact.form.subjectPlaceholder')}
                                 />
                             </div>
 
@@ -298,7 +296,7 @@ export const Contact: React.FC = () => {
                                     htmlFor="message"
                                     className="block text-sm font-medium text-gray-700 mb-2"
                                 >
-                                    Message *
+                                    {t('contact.form.message')} *
                                 </label>
                                 <textarea
                                     id="message"
@@ -308,7 +306,7 @@ export const Contact: React.FC = () => {
                                     required
                                     rows={5}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    placeholder="Tell me about your project or just say hello!"
+                                    placeholder={t('contact.form.messagePlaceholder')}
                                 />
                             </div>
 

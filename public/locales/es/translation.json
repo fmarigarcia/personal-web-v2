@@ -1,22 +1,41 @@
 {
     "nav": {
         "home": "Inicio",
-        "about": "Sobre mí",
+        "about": "Acerca de",
         "experience": "Experiencia",
         "projects": "Proyectos",
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "mainNavigation": "Navegación principal"
     },
     "hero": {
         "name": "Francisco Marí García",
         "title": "Ingeniero Full Stack Senior",
-        "description": "Especializado en arquitecturas web escalables y soluciones de alto rendimiento. Actualmente dirijo el desarrollo frontend de la plataforma e-commerce de Zara, optimizando la experiencia de millones de usuarios diarios."
+        "description": "Especializado en arquitecturas web escalables y soluciones de alto rendimiento. Actualmente dirijo el desarrollo frontend de la plataforma e-commerce de Zara, optimizando la experiencia de millones de usuarios diarios.",
+        "getInTouch": "Ponte en Contacto",
+        "viewExperience": "Ver Experiencia"
     },
     "about": {
         "title": "Sobre Mí",
-        "description": "Ingeniero Full Stack Senior con más de 7 años de trayectoria profesional, especializado en arquitecturas web escalables y de alto rendimiento. Destaco por traducir conceptos de negocio complejos en soluciones técnicas elegantes, manteniendo siempre altos estándares de calidad mediante TDD, integración continua y prácticas de código limpio."
+        "description": "Ingeniero Full Stack Senior con más de 7 años de trayectoria profesional, especializado en arquitecturas web escalables y de alto rendimiento. Destaco por traducir conceptos de negocio complejos en soluciones técnicas elegantes, manteniendo siempre altos estándares de calidad mediante TDD, integración continua y prácticas de código limpio.",
+        "skills": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "toolsPractices": "Herramientas y Prácticas",
+            "languages": "Idiomas",
+            "cleanCode": "Código Limpio",
+            "aiTooling": "Herramientas IA",
+            "tddCicd": "TDD, CI/CD",
+            "teamwork": "Trabajo en Equipo",
+            "spanish": "Español (Nativo)",
+            "catalan": "Catalán (Nativo)",
+            "english": "Inglés (C1)"
+        }
     },
     "experience": {
         "title": "Experiencia",
+        "technologiesSkills": "Tecnologías y Habilidades",
+        "hoverPreview": "Pasa el cursor para previsualizar • Clic para seleccionar",
+        "tapSelect": "Toca para seleccionar",
         "exp1": {
             "position": "Ingeniero Frontend Senior",
             "duration": "Ene 2025 - Presente",
@@ -63,7 +82,28 @@
     },
     "contact": {
         "title": "Ponte en Contacto",
+        "subtitle": "¿Tienes un proyecto en mente o simplemente quieres charlar? Me encantaría escucharte. Hablemos sobre cómo podemos trabajar juntos para dar vida a tus ideas.",
+        "letsConnect": "Conectemos",
+        "followMe": "Sígueme",
+        "sendMessage": "Enviar un Mensaje",
+        "name": "Nombre",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "namePlaceholder": "Tu Nombre",
+        "emailPlaceholder": "tu.email@ejemplo.com",
+        "subjectPlaceholder": "¿De qué se trata?",
+        "messagePlaceholder": "¡Cuéntame sobre tu proyecto o simplemente saluda!",
         "sending": "Enviando...",
-        "sendMessage": "Enviar Mensaje"
+        "send": "Enviar Mensaje",
+        "successMessage": "¡Gracias por tu mensaje! Te responderé pronto.",
+        "phone": "Teléfono",
+        "location": "Ubicación",
+        "locationValue": "Algemesí, España"
+    },
+    "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn", 
+        "twitter": "Twitter"
     }
 }
