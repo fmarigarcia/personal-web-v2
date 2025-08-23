@@ -37,7 +37,9 @@ const mockDisconnect = jest.fn();
 const mockUnobserve = jest.fn();
 
 class MockIntersectionObserver {
-    constructor(private callback: IntersectionObserverCallback) {
+    private callback: IntersectionObserverCallback;
+
+    constructor(callback: IntersectionObserverCallback) {
         this.callback = callback;
     }
 
