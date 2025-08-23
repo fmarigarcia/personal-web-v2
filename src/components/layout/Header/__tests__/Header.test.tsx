@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Header } from '../Header';
 import { NavigationProvider } from '@contexts/NavigationContext';
+import { Header } from '../Header';
 
 // Mock i18next
 jest.mock('react-i18next', () => ({

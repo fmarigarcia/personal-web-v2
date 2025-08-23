@@ -1,1 +1,6 @@
-export { NavigationProvider, useNavigation } from './NavigationContext';
+export {
+    NavigationContext,
+    type NavigationContextType,
+} from './NavigationContext';
+export { NavigationProvider } from './NavigationProvider';
+export { useNavigation } from './useNavigation';

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { NavigationLinks } from '../NavigationLinks';
 import { NavigationProvider } from '@contexts/NavigationContext';
+import { NavigationLinks } from '../NavigationLinks';
 
 // Mock i18next
 jest.mock('react-i18next', () => ({

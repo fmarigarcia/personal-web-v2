@@ -1,6 +1,7 @@
 import { render, renderHook, act } from '@testing-library/react';
-import { NavigationProvider, useNavigation } from '../NavigationContext';
 import { SECTIONS } from '@utils/constants';
+import { NavigationProvider } from '../NavigationProvider';
+import { useNavigation } from '../useNavigation';
 
 // Mock intersection observer
 const mockIntersectionObserver = jest.fn();

@@ -21,7 +21,7 @@ exports[`Section should match snapshot with full height and gradient 1`] = `
   id="test-section"
 >
   <div
-    class="min-h-screen flex flex-col justify-center py-20"
+    class="flex flex-col justify-center py-20"
   >
     <div>
       Test content

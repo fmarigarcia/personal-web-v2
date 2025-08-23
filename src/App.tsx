@@ -1,4 +1,5 @@
 import { NavigationProvider } from '@contexts/NavigationContext';
+import { useSectionNavigation } from '@hooks/useSectionNavigation';
 import { Header } from '@components/layout/Header';
 import { DotNavigation } from '@components/ui/DotNavigation';
 import { Hero } from '@pages/Hero';
@@ -7,20 +8,32 @@ import { Experience } from '@pages/Experience';
 import { Contact } from '@pages/Contact';
 import './App.css';
 
+function AppContent() {
+    // Initialize section navigation with scroll interception
+    useSectionNavigation({
+        rootMargin: '-80px 0px -30% 0px', // Account for header and better detection
+        throttleDelay: 300, // Wait 300ms between navigation events
+    });
+
+    return (
+        <div className="min-h-screen bg-white">
+            <Header />
+            <DotNavigation />
+
+            <main>
+                <Hero />
+                <About />
+                <Experience />
+                <Contact />
+            </main>
+        </div>
+    );
+}
+
 function App() {
     return (
         <NavigationProvider>
-            <div className="min-h-screen bg-white">
-                <Header />
-                <DotNavigation />
-
-                <main>
-                    <Hero />
-                    <About />
-                    <Experience />
-                    <Contact />
-                </main>
-            </div>
+            <AppContent />
         </NavigationProvider>
     );
 }

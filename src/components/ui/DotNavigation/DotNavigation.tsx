@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { useNavigation } from '@contexts/NavigationContext';
-import { useSmoothScroll } from '@hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '@utils/constants';
 
 interface DotNavigationProps {
@@ -13,11 +12,12 @@ export const DotNavigation: React.FC<DotNavigationProps> = ({
     className = '',
 }) => {
     const { t } = useTranslation();
-    const { currentSection } = useNavigation();
-    const { scrollToElement } = useSmoothScroll();
+    const { currentSection, navigateToSection } = useNavigation();
 
     const handleDotClick = (sectionId: string) => {
-        scrollToElement(sectionId);
+        if (navigateToSection) {
+            navigateToSection(sectionId);
+        }
     };
 
     return (

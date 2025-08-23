@@ -1,12 +1,18 @@
 import { useTranslation } from 'react-i18next';
-import { useSmoothScroll } from '@hooks/useSmoothScroll';
+import { useNavigation } from '@contexts/NavigationContext';
 import { SECTIONS } from '@utils/constants';
 import { Section } from '@components/ui/Section';
 import { buttonVariants, headingClasses } from '@utils/classNames';
 
 export const Hero: React.FC = () => {
     const { t } = useTranslation();
-    const { scrollToElement } = useSmoothScroll();
+    const { navigateToSection } = useNavigation();
+
+    const handleNavigation = (sectionId: string) => {
+        if (navigateToSection) {
+            navigateToSection(sectionId);
+        }
+    };
 
     return (
         <Section
@@ -28,13 +34,13 @@ export const Hero: React.FC = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <button
-                        onClick={() => scrollToElement(SECTIONS.CONTACT)}
+                        onClick={() => handleNavigation(SECTIONS.CONTACT)}
                         className={buttonVariants.primary}
                     >
                         Get In Touch
                     </button>
                     <button
-                        onClick={() => scrollToElement(SECTIONS.EXPERIENCE)}
+                        onClick={() => handleNavigation(SECTIONS.EXPERIENCE)}
                         className={buttonVariants.secondary}
                     >
                         View Experience

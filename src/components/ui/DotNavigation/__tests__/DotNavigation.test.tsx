@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { DotNavigation } from '../DotNavigation';
-import { NavigationProvider } from '@contexts/NavigationContext';
 
 // Mock i18next
 jest.mock('react-i18next', () => ({
@@ -17,25 +16,22 @@ jest.mock('react-i18next', () => ({
     }),
 }));
 
-// Mock hooks
-const mockScrollToElement = jest.fn();
-jest.mock('@hooks/useSmoothScroll', () => ({
-    useSmoothScroll: () => ({
-        scrollToElement: mockScrollToElement,
+// Mock the navigation context
+const mockNavigateToSection = jest.fn();
+jest.mock('@contexts/NavigationContext', () => ({
+    useNavigation: () => ({
+        currentSection: 'hero',
+        navigateToSection: mockNavigateToSection,
     }),
 }));
 
 describe('DotNavigation', () => {
     beforeEach(() => {
-        mockScrollToElement.mockClear();
+        mockNavigateToSection.mockClear();
     });
 
     const renderDotNavigation = (props = {}) => {
-        return render(
-            <NavigationProvider>
-                <DotNavigation {...props} />
-            </NavigationProvider>
-        );
+        return render(<DotNavigation {...props} />);
     };
 
     it('should render navigation dots for all sections', () => {
@@ -68,7 +64,7 @@ describe('DotNavigation', () => {
         });
         fireEvent.click(aboutDot);
 
-        expect(mockScrollToElement).toHaveBeenCalledWith('about');
+        expect(mockNavigateToSection).toHaveBeenCalledWith('about');
     });
 
     it('should highlight the current section', () => {

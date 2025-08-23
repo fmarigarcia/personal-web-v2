@@ -38,7 +38,7 @@ export const Section: React.FC<SectionProps> = ({
             )}
         >
             {fullHeight ? (
-                <div className="min-h-screen flex flex-col justify-center py-20">
+                <div className="flex flex-col justify-center py-20">
                     {children}
                 </div>
             ) : (

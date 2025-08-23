@@ -17,7 +17,7 @@ export const NAVIGATION_ITEMS = [
     { id: SECTIONS.CONTACT, labelKey: 'nav.contact', href: '#contact' },
 ];
 
-export const SCROLL_OFFSET = 80; // Offset for fixed header
+export const SCROLL_OFFSET = 0; // Offset for fixed header
 export const SCROLL_DURATION = 800; // Smooth scroll duration in ms
 
 // Animation constants
