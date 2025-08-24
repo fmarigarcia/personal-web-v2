@@ -1,7 +1,7 @@
 import { buttonVariants } from '@utils/classNames';
 
-interface ButtonProps {
-    variant?: 'primary' | 'secondary';
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: 'primary' | 'secondary' | 'disabled';
     onClick?: () => void;
     children: React.ReactNode;
     disabled?: boolean;
@@ -14,16 +14,20 @@ export const Button: React.FC<ButtonProps> = ({
     children,
     disabled = false,
     className = '',
+    type = 'button',
+    ...props
 }) => {
-    const baseClasses =
-        variant === 'primary'
-            ? buttonVariants.primary
-            : buttonVariants.secondary;
-
+    const baseClasses = buttonVariants[variant] || buttonVariants.primary;
     const classes = `${baseClasses} ${className}`.trim();
 
     return (
-        <button onClick={onClick} disabled={disabled} className={classes}>
+        <button
+            onClick={onClick}
+            disabled={disabled}
+            className={classes}
+            type={type}
+            {...props}
+        >
             {children}
         </button>
     );

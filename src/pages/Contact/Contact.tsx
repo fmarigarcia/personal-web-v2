@@ -1,8 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
+import { HiPaperAirplane } from 'react-icons/hi2';
 import { SECTIONS } from '@utils/constants';
-import { Section, ContactMethodCard, SocialLinkButton } from '@components/ui';
-import { inputClasses, buttonVariants } from '@utils/classNames';
+import {
+    Section,
+    ContactMethodCard,
+    SocialLinkButton,
+    Button,
+} from '@components/ui';
+import { inputClasses } from '@utils/classNames';
 import { useContact } from './useContact';
 
 export const Contact: React.FC = () => {
@@ -148,21 +153,19 @@ export const Contact: React.FC = () => {
                                 />
                             </div>
 
-                            <button
+                            <Button
                                 type="submit"
+                                variant={isSubmitting ? 'disabled' : 'primary'}
                                 disabled={isSubmitting}
-                                className={clsx(
-                                    'w-full', // Keep width full for form button
-                                    {
-                                        [buttonVariants.primary]: !isSubmitting,
-                                        [buttonVariants.disabled]: isSubmitting,
-                                    }
-                                )}
+                                className="w-full"
                             >
-                                {isSubmitting
-                                    ? t('contact.sending')
-                                    : t('contact.sendMessage')}
-                            </button>
+                                <span className="flex items-center justify-between gap-2 w-full">
+                                    {isSubmitting
+                                        ? t('contact.sending')
+                                        : t('contact.sendMessage')}
+                                    <HiPaperAirplane className="w-5 h-5" />
+                                </span>
+                            </Button>
                         </form>
                     </div>
                 </div>
