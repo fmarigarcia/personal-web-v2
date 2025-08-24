@@ -9,7 +9,10 @@ interface UseSectionNavigationOptions {
 }
 
 interface UseSectionNavigationReturn {
-    navigateToSection: (sectionId: string) => void;
+    data: Record<string, never>;
+    actions: {
+        navigateToSection: (sectionId: string) => void;
+    };
 }
 
 export const useSectionNavigation = (
@@ -21,7 +24,8 @@ export const useSectionNavigation = (
         setIsScrolling,
         setNavigateToSection,
     } = useNavigation();
-    const { scrollToElement } = useSmoothScroll();
+    const { actions: smoothScrollActions } = useSmoothScroll();
+    const { scrollToElement } = smoothScrollActions;
 
     const {
         rootMargin = '-80px 0px -20% 0px', // Account for header
@@ -304,6 +308,9 @@ export const useSectionNavigation = (
     }, [setNavigateToSection]);
 
     return {
-        navigateToSection,
+        data: {} as Record<string, never>,
+        actions: {
+            navigateToSection,
+        },
     };
 };

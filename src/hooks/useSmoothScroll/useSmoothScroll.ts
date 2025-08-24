@@ -9,7 +9,10 @@ interface ScrollOptions {
 }
 
 interface UseSmoothScrollReturn {
-    scrollToElement: (elementId: string, options?: ScrollOptions) => void;
+    data: Record<string, never>;
+    actions: {
+        scrollToElement: (elementId: string, options?: ScrollOptions) => void;
+    };
 }
 
 // Easing function for smooth animation
@@ -85,6 +88,9 @@ export const useSmoothScroll = (): UseSmoothScrollReturn => {
     }, []);
 
     return {
-        scrollToElement,
+        data: {} as Record<string, never>,
+        actions: {
+            scrollToElement,
+        },
     };
 };

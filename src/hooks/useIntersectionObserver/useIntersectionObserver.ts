@@ -7,7 +7,10 @@ interface UseIntersectionObserverOptions extends IntersectionObserverInit {
 }
 
 interface UseIntersectionObserverReturn {
-    activeId: string | null;
+    data: {
+        activeId: string | null;
+    };
+    actions: Record<string, never>;
 }
 
 export const useIntersectionObserver = (
@@ -73,5 +76,11 @@ export const useIntersectionObserver = (
         };
     }, [ids, options.threshold, options.rootMargin, options.root]);
 
-    return { activeId };
+    const data = {
+        activeId,
+    };
+
+    const actions = {} as Record<string, never>;
+
+    return { data, actions };
 };
