@@ -21,14 +21,6 @@ describe('Section', () => {
 
         const section = document.getElementById('test-section');
         expect(section).toHaveClass('bg-white');
-        expect(section).not.toHaveClass('min-h-screen');
-    });
-
-    it('should apply full height when fullHeight is true', () => {
-        render(<Section {...defaultProps} fullHeight />);
-
-        const section = document.getElementById('test-section');
-        expect(section).toHaveClass('min-h-screen');
     });
 
     it('should apply gray-50 background', () => {
@@ -54,20 +46,10 @@ describe('Section', () => {
         expect(section).toHaveClass('custom-class');
     });
 
-    it('should have correct padding styles for fullHeight sections', () => {
-        render(<Section {...defaultProps} fullHeight />);
-
-        const section = document.getElementById('test-section');
-        expect(section).toHaveClass('section-navbar-offset'); // Uses CSS class instead of inline style
-        expect(section).toHaveClass('min-h-screen');
-        expect(section).not.toHaveAttribute('style'); // No inline style needed
-    });
-
     it('should have correct padding styles for regular sections', () => {
         render(<Section {...defaultProps} />);
 
         const section = document.getElementById('test-section');
-        expect(section).toHaveClass('pb-20'); // Uses Tailwind class instead of inline style
         expect(section).not.toHaveAttribute('style'); // No style attribute for regular sections
     });
 
@@ -76,11 +58,10 @@ describe('Section', () => {
         expect(container.firstChild).toMatchSnapshot();
     });
 
-    it('should match snapshot with full height and gradient', () => {
+    it('should match snapshot with gradient', () => {
         const { container } = render(
             <Section
                 {...defaultProps}
-                fullHeight
                 backgroundColor="gradient"
                 className="custom-hero"
             />
