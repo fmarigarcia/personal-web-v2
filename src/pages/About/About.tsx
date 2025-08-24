@@ -7,21 +7,18 @@ export const About: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Section id={SECTIONS.ABOUT} backgroundColor="white" fullHeight>
+        <Section
+            id={SECTIONS.ABOUT}
+            backgroundColor="white"
+            title={t('about.title')}
+        >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        {t('about.title')}
-                    </h2>
-                    <div className="w-24 h-1 bg-blue-600 mx-auto" />
-                </div>
-
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Profile Image */}
                     <div className="order-2 lg:order-1">
                         <div className="rounded-2xl overflow-hidden max-w-lg mx-auto shadow-lg">
                             <img
-                                src="/Foto perfil.jpg"
+                                src="/profile_pic.jpg"
                                 alt={t('about.profileImageAlt')}
                                 className="w-full h-auto object-cover aspect-square"
                             />

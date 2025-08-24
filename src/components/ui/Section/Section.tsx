@@ -1,21 +1,24 @@
 import React from 'react';
 import clsx from 'clsx';
+import { SectionHeader } from './SectionHeader';
 import './Section.css';
 
 interface SectionProps {
     id: string;
     className?: string;
     children: React.ReactNode;
-    fullHeight?: boolean;
     backgroundColor?: 'white' | 'gray-50' | 'gradient';
+    title?: string;
+    subtitle?: string;
 }
 
 export const Section: React.FC<SectionProps> = ({
     id,
     className = '',
     children,
-    fullHeight = false,
     backgroundColor = 'white',
+    title,
+    subtitle,
 }) => {
     // Background class mapping
     const backgroundClasses = {
@@ -28,22 +31,15 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={clsx(
-                'relative px-6',
-                {
-                    'min-h-screen section-navbar-offset': fullHeight,
-                    'pb-20': !fullHeight, // py-20 equivalent (5rem) when not full height
-                },
+                'relative px-6 min-h-screen section-navbar-offset',
                 backgroundClasses[backgroundColor],
                 className
             )}
         >
-            {fullHeight ? (
-                <div className="flex flex-col justify-center py-20">
-                    {children}
-                </div>
-            ) : (
-                <div className="py-20">{children}</div>
-            )}
+            <div className="flex flex-col justify-center py-20">
+                {title && <SectionHeader title={title} subtitle={subtitle} />}
+                {children}
+            </div>
         </section>
     );
 };

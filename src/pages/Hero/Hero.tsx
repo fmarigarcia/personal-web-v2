@@ -9,7 +9,6 @@ export const Hero: React.FC = () => {
     return (
         <Section
             id={SECTIONS.HERO}
-            fullHeight
             backgroundColor="gradient"
             className="flex items-center justify-center"
         >

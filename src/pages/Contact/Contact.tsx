@@ -15,18 +15,13 @@ export const Contact: React.FC = () => {
     const { handleInputChange, handleSubmit } = actions;
 
     return (
-        <Section id={SECTIONS.CONTACT} backgroundColor="gray-50" fullHeight>
+        <Section
+            id={SECTIONS.CONTACT}
+            backgroundColor="gray-50"
+            title={t('contact.title')}
+            subtitle={t('contact.subtitle')}
+        >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        {t('contact.title')}
-                    </h2>
-                    <div className="w-24 h-1 bg-blue-600 mx-auto mb-6" />
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        {t('contact.subtitle')}
-                    </p>
-                </div>
-
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* Contact Information */}
                     <div className="space-y-8">
