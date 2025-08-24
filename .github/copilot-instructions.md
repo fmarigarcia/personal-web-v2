@@ -11,6 +11,7 @@ This is a modern React 19 + TypeScript + Vite personal website featuring i18n su
 ## 📁 Architecture & File Organization
 
 ### Directory Structure
+
 ```
 src/
 ├── components/
@@ -26,6 +27,7 @@ src/
 ```
 
 ### Component Organization Pattern
+
 ```
 ComponentName/
 ├── ComponentName.tsx    # Main component implementation
@@ -39,6 +41,7 @@ ComponentName/
 ### Hook Organization Patterns
 
 **Global Hooks** (`src/hooks/`): Reusable across multiple components
+
 ```typescript
 // Pattern: {data, actions} return structure
 interface UseHookNameReturn {
@@ -51,7 +54,8 @@ interface UseHookNameReturn {
 }
 ```
 
-**Component-Specific Hooks** (`src/pages/ComponentName/useComponentName.ts`): 
+**Component-Specific Hooks** (`src/pages/ComponentName/useComponentName.ts`):
+
 - Co-located with their component
 - Follow same `{data, actions}` pattern
 - Use `useCallback` for performance optimization
@@ -61,26 +65,28 @@ interface UseHookNameReturn {
 ## 🎯 Development Patterns & Best Practices
 
 ### 1. Custom Hook Pattern (MANDATORY)
+
 ```typescript
 export const useMyHook = () => {
     // ... hook logic
-    
+
     const data = {
         // All state and computed values
     };
-    
+
     const actions = {
         // All functions that modify state (use useCallback)
         myAction: useCallback(() => {
             // action implementation
         }, [dependencies]),
     };
-    
+
     return { data, actions };
 };
 ```
 
 ### 2. Component Pattern
+
 ```typescript
 interface ComponentProps {
     // Well-defined props with TypeScript
@@ -88,7 +94,7 @@ interface ComponentProps {
 
 export const MyComponent: React.FC<ComponentProps> = ({ props }) => {
     const { data, actions } = useMyHook();
-    
+
     return (
         // JSX implementation
     );
@@ -98,6 +104,7 @@ export const MyComponent: React.FC<ComponentProps> = ({ props }) => {
 ### 3. Testing Patterns
 
 **Component Tests**: Focus on behavior, not implementation
+
 ```typescript
 describe('ComponentName', () => {
     it('should render with expected behavior', () => {
@@ -107,13 +114,14 @@ describe('ComponentName', () => {
 ```
 
 **Hook Tests**: Test data and actions separately
+
 ```typescript
 describe('useMyHook', () => {
     it('should return data with correct structure', () => {
         const { result } = renderHook(() => useMyHook());
         expect(result.current.data).toEqual(expectedData);
     });
-    
+
     it('should execute actions correctly', () => {
         const { result } = renderHook(() => useMyHook());
         act(() => {
@@ -129,6 +137,7 @@ describe('useMyHook', () => {
 ## 🛠 Technology Stack & Configuration
 
 ### Core Dependencies
+
 - **React 19.1.1** + **TypeScript** (Strict mode)
 - **Vite 7.1.0** (Build tool with HMR)
 - **TailwindCSS 4.1.11** (Utility-first styling)
@@ -136,6 +145,7 @@ describe('useMyHook', () => {
 - **Jest** + **@testing-library/react** (Testing)
 
 ### Import Aliases (tsconfig.json)
+
 ```typescript
 '@components/*' → 'src/components/*'
 '@hooks/*'      → 'src/hooks/*'
@@ -147,6 +157,7 @@ describe('useMyHook', () => {
 ```
 
 ### ESLint Configuration
+
 - **Import ordering**: external → builtin → internal → sibling → parent → index
 - **Import rules**: Automatic sorting, no unresolved imports disabled
 - **TypeScript**: Strict type checking with recommended rules
@@ -157,6 +168,7 @@ describe('useMyHook', () => {
 ## 🧪 Testing Strategy
 
 ### Testing Principles
+
 1. **Test behavior, not implementation**
 2. **Co-locate tests with components/hooks**
 3. **Mock external dependencies properly**
@@ -164,12 +176,14 @@ describe('useMyHook', () => {
 5. **Maintain test isolation**
 
 ### Test Coverage Requirements
+
 - **Components**: Snapshot + behavior tests
 - **Hooks**: Data structure + action functionality
 - **Utilities**: Pure function testing
 - **Integration**: Context providers + complex interactions
 
 ### Mocking Patterns
+
 ```typescript
 // Mock external dependencies
 jest.mock('react-i18next', () => ({
@@ -188,12 +202,14 @@ jest.mock('@contexts/MyContext', () => ({
 ## 🎨 Styling & UI Guidelines
 
 ### TailwindCSS Usage
+
 - **Utility-first approach**: Use Tailwind classes for styling
 - **Component variants**: Create reusable variants in `@utils/classNames`
 - **Responsive design**: Mobile-first approach with breakpoint prefixes
 - **Design tokens**: Consistent spacing, colors, and typography
 
 ### Component Styling Pattern
+
 ```typescript
 // utils/classNames.ts - Centralized style variants
 export const buttonVariants = {
@@ -213,6 +229,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary' }) => {
 ## 🌍 Internationalization (i18n)
 
 ### Translation Structure
+
 ```
 public/locales/
 ├── en/translation.json
@@ -220,6 +237,7 @@ public/locales/
 ```
 
 ### Usage Pattern
+
 ```typescript
 const { t } = useTranslation();
 
@@ -229,6 +247,7 @@ const description = t('hero.description');
 ```
 
 ### Best Practices
+
 - **Organize by feature/section**: `hero.title`, `nav.home`
 - **Descriptive keys**: Avoid generic keys like `button1`
 - **Fallback handling**: Always provide English as fallback
@@ -238,6 +257,7 @@ const description = t('hero.description');
 ## ⚡ Performance Optimization
 
 ### Hook Performance
+
 ```typescript
 // Use useCallback for stable function references
 const actions = {
@@ -253,6 +273,7 @@ const expensiveValue = useMemo(() => {
 ```
 
 ### Component Performance
+
 - **Avoid inline functions** in JSX props
 - **Use React.memo** for components that receive stable props
 - **Minimize re-renders** with proper dependency arrays
@@ -262,18 +283,21 @@ const expensiveValue = useMemo(() => {
 ## 🚦 Code Quality Standards
 
 ### TypeScript Requirements
+
 - **Strict mode enabled**: No implicit any, strict null checks
 - **Interface over type**: Use interfaces for object shapes
 - **Proper typing**: Avoid any, use unknown for truly unknown types
 - **Generic constraints**: Use meaningful generic constraints
 
 ### Code Organization
+
 - **Single responsibility**: Each file/function has one clear purpose
 - **DRY principle**: Extract common logic into utilities/hooks
 - **Consistent naming**: PascalCase for components, camelCase for functions
 - **Barrel exports**: Use index.ts files for clean imports
 
 ### Git Commit Standards
+
 ```
 feat: add new feature
 fix: resolve issue
@@ -289,6 +313,7 @@ perf: performance improvements
 ## 🔧 Development Workflows
 
 ### Available Commands
+
 ```bash
 npm run dev       # Development server (http://localhost:5173)
 npm run build     # Production build with type checking
@@ -298,6 +323,7 @@ npm run preview   # Preview production build locally
 ```
 
 ### Adding New Features Checklist
+
 1. ✅ **Plan component structure** (ui/ vs layout/ vs pages/)
 2. ✅ **Create TypeScript interfaces** for props/data
 3. ✅ **Follow established patterns** ({data, actions} for hooks)
@@ -311,6 +337,7 @@ npm run preview   # Preview production build locally
 ### Common Patterns to Follow
 
 **Creating a New UI Component:**
+
 ```typescript
 // 1. Create component folder structure
 src/components/ui/NewComponent/
@@ -339,6 +366,7 @@ export { NewComponent } from './NewComponent';
 ```
 
 **Creating a New Page with Hook:**
+
 ```typescript
 // 1. Create page structure
 src/pages/NewPage/
@@ -360,17 +388,20 @@ export const useNewPage = () => {
 ## 🚨 Critical Considerations
 
 ### Security
+
 - **No sensitive data** in client-side code
 - **Validate all inputs** from external sources
 - **Sanitize translations** if they contain HTML
 
 ### Accessibility
+
 - **Semantic HTML**: Use proper HTML elements
 - **ARIA labels**: Add appropriate accessibility attributes
 - **Keyboard navigation**: Ensure all interactive elements are accessible
 - **Color contrast**: Follow WCAG guidelines
 
 ### Browser Compatibility
+
 - **Modern browsers**: ES2020+ features are acceptable
 - **Progressive enhancement**: Core functionality works without JS
 - **Responsive design**: Mobile-first approach with proper breakpoints
@@ -380,6 +411,7 @@ export const useNewPage = () => {
 ## 🔄 Maintenance & Updates
 
 ### When Adding New Dependencies
+
 1. **Justify the addition**: Does it solve a real problem?
 2. **Check bundle impact**: Monitor build size increases
 3. **Update these instructions**: Document new patterns/integrations
@@ -387,7 +419,9 @@ export const useNewPage = () => {
 5. **Update tests**: Mock new dependencies appropriately
 
 ### Keeping Instructions Current
+
 **Update this file when:**
+
 - Adding new architectural patterns
 - Introducing new dependencies or build tools
 - Changing testing strategies or conventions
