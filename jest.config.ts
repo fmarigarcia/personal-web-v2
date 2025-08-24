@@ -100,6 +100,7 @@ const config: Config = {
         '^@types/(.*)$': '<rootDir>/src/types/$1',
         '^@lib/(.*)$': '<rootDir>/src/lib/$1',
         '^@pages/(.*)$': '<rootDir>/src/pages/$1',
+        '^@data/(.*)$': '<rootDir>/src/data/$1',
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     },
 
