@@ -1,35 +1,22 @@
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 import { clsx } from 'clsx';
 import { SECTIONS } from '@utils/constants';
-import { experiences } from '@data/experiences';
 import { Section } from '@components/ui/Section';
+import { useExperience } from './useExperience';
 
 export const Experience: React.FC = () => {
     const { t } = useTranslation();
-
-    // Show the most recent experience (first in array) by default
-    const [selectedExp, setSelectedExp] = useState(
-        experiences[experiences.length - 1]
-    );
-    const [hoveredExp, setHoveredExp] = useState<string | null>(null);
-
-    // Use hovered experience if available, otherwise use selected
-    const displayedExp = hoveredExp
-        ? experiences.find((exp) => exp.id === hoveredExp) || selectedExp
-        : selectedExp;
+    const { data, actions } = useExperience();
+    const { experiences, selectedExp, displayedExp } = data;
+    const { setSelectedExp, setHoveredExp } = actions;
 
     return (
-        <Section id={SECTIONS.EXPERIENCE} backgroundColor="gray-50" fullHeight>
+        <Section
+            id={SECTIONS.EXPERIENCE}
+            backgroundColor="gray-50"
+            title={t('experience.title')}
+        >
             <div className="max-w-6xl min-w-5xl mx-auto h-full flex flex-col justify-center py-20">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        {t('experience.title')}
-                    </h2>
-                    <div className="w-24 h-1 bg-blue-600 mx-auto" />
-                </div>
-
                 <div className="flex-1 flex flex-col min-w-full">
                     {/* Horizontal Timeline */}
                     <div className="mb-12">
