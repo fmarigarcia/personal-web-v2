@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperienceDetailsTechnologies should match snapshot 1`] = `
+<div>
+  <h4
+    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+  >
+    experience.technologiesSkills
+  </h4>
+  <div
+    class="flex flex-wrap gap-2"
+  >
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      React
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      TypeScript
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      Node.js
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ExperienceDetailsTechnologies should match snapshot with empty technologies 1`] = `
+<div>
+  <h4
+    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+  >
+    experience.technologiesSkills
+  </h4>
+  <div
+    class="flex flex-wrap gap-2"
+  />
+</div>
+`;
+
+exports[`ExperienceDetailsTechnologies should match snapshot with many technologies 1`] = `
+<div>
+  <h4
+    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+  >
+    experience.technologiesSkills
+  </h4>
+  <div
+    class="flex flex-wrap gap-2"
+  >
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      React
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      TypeScript
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      Node.js
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      Express
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      MongoDB
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      PostgreSQL
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      Docker
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      Kubernetes
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      AWS
+    </span>
+    <span
+      data-testid="chip"
+      data-variant="primary"
+    >
+      GitHub Actions
+    </span>
+  </div>
+</div>
+`;

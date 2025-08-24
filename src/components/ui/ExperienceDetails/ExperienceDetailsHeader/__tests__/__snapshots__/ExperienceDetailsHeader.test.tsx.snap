@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperienceDetailsHeader should match snapshot 1`] = `
+<div
+  class="mb-6 border-b border-gray-100 pb-6"
+>
+  <h3
+    class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2"
+  >
+    Test Company
+  </h3>
+  <p
+    class="text-blue-600 font-semibold text-lg lg:text-xl mb-2"
+  >
+    test.position.key
+  </p>
+  <p
+    class="text-gray-500 font-medium"
+  >
+    test.duration.key
+  </p>
+</div>
+`;

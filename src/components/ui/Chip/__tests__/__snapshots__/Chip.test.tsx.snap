@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip should match snapshot for clickable chip 1`] = `
+<button
+  class="font-medium rounded-full transition-all duration-200 bg-blue-100 text-blue-800 hover:bg-blue-200 px-3 py-2 text-sm cursor-pointer"
+>
+  Test Chip
+</button>
+`;
+
+exports[`Chip should match snapshot for large chip 1`] = `
+<span
+  class="font-medium rounded-full transition-all duration-200 bg-blue-100 text-blue-800 hover:bg-blue-200 px-4 py-2 text-base"
+>
+  Test Chip
+</span>
+`;
+
+exports[`Chip should match snapshot for primary variant 1`] = `
+<span
+  class="font-medium rounded-full transition-all duration-200 bg-blue-100 text-blue-800 hover:bg-blue-200 px-3 py-2 text-sm"
+>
+  Test Chip
+</span>
+`;
