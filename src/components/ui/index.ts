@@ -6,3 +6,5 @@ export { DotNavigation } from './DotNavigation';
 export { Section } from './Section';
 export { Button } from './Button';
 export { ScrollIndicator } from './ScrollIndicator';
+export { ContactMethodCard } from './ContactMethodCard';
+export { SocialLinkButton } from './SocialLinkButton';
