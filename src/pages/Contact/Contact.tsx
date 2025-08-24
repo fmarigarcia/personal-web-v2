@@ -249,7 +249,9 @@ export const Contact: React.FC = () => {
                                         onChange={handleInputChange}
                                         required
                                         className={inputClasses}
-                                        placeholder={t('contact.form.namePlaceholder')}
+                                        placeholder={t(
+                                            'contact.form.namePlaceholder'
+                                        )}
                                     />
                                 </div>
                                 <div>
@@ -267,7 +269,9 @@ export const Contact: React.FC = () => {
                                         onChange={handleInputChange}
                                         required
                                         className={inputClasses}
-                                        placeholder={t('contact.form.emailPlaceholder')}
+                                        placeholder={t(
+                                            'contact.form.emailPlaceholder'
+                                        )}
                                     />
                                 </div>
                             </div>
@@ -287,7 +291,9 @@ export const Contact: React.FC = () => {
                                     onChange={handleInputChange}
                                     required
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    placeholder={t('contact.form.subjectPlaceholder')}
+                                    placeholder={t(
+                                        'contact.form.subjectPlaceholder'
+                                    )}
                                 />
                             </div>
 
@@ -306,7 +312,9 @@ export const Contact: React.FC = () => {
                                     required
                                     rows={5}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                    placeholder={t('contact.form.messagePlaceholder')}
+                                    placeholder={t(
+                                        'contact.form.messagePlaceholder'
+                                    )}
                                 />
                             </div>
 

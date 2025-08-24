@@ -9,7 +9,9 @@ export const Experience: React.FC = () => {
     const { t } = useTranslation();
 
     // Show the most recent experience (first in array) by default
-    const [selectedExp, setSelectedExp] = useState(experiences[0]);
+    const [selectedExp, setSelectedExp] = useState(
+        experiences[experiences.length - 1]
+    );
     const [hoveredExp, setHoveredExp] = useState<string | null>(null);
 
     // Use hovered experience if available, otherwise use selected
@@ -125,7 +127,9 @@ export const Experience: React.FC = () => {
                             <p className="hidden sm:block">
                                 {t('experience.hoverPreview')}
                             </p>
-                            <p className="sm:hidden">{t('experience.tapSelect')}</p>
+                            <p className="sm:hidden">
+                                {t('experience.tapSelect')}
+                            </p>
                         </div>
                     </div>
 

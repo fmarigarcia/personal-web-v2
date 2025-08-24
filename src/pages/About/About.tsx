@@ -62,8 +62,12 @@ export const About: React.FC = () => {
                                     {t('about.skills.toolsPractices')}
                                 </h4>
                                 <div className="text-sm text-gray-600 space-y-1">
-                                    <div>{t('about.skills.cleanCode')} ⭐⭐⭐⭐⭐</div>
-                                    <div>{t('about.skills.aiTooling')} ⭐⭐⭐⭐</div>
+                                    <div>
+                                        {t('about.skills.cleanCode')} ⭐⭐⭐⭐⭐
+                                    </div>
+                                    <div>
+                                        {t('about.skills.aiTooling')} ⭐⭐⭐⭐
+                                    </div>
                                     <div>{t('about.skills.tddCicd')}</div>
                                     <div>Figma ⭐⭐⭐⭐</div>
                                 </div>
@@ -76,7 +80,9 @@ export const About: React.FC = () => {
                                     <div>{t('about.skills.spanish')}</div>
                                     <div>{t('about.skills.catalan')}</div>
                                     <div>{t('about.skills.english')}</div>
-                                    <div>{t('about.skills.teamwork')} ⭐⭐⭐⭐⭐</div>
+                                    <div>
+                                        {t('about.skills.teamwork')} ⭐⭐⭐⭐⭐
+                                    </div>
                                 </div>
                             </div>
                         </div>

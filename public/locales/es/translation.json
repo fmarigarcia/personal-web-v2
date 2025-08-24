@@ -85,25 +85,28 @@
         "subtitle": "¿Tienes un proyecto en mente o simplemente quieres charlar? Me encantaría escucharte. Hablemos sobre cómo podemos trabajar juntos para dar vida a tus ideas.",
         "letsConnect": "Conectemos",
         "followMe": "Sígueme",
-        "sendMessage": "Enviar un Mensaje",
-        "name": "Nombre",
-        "email": "Email",
-        "subject": "Asunto",
-        "message": "Mensaje",
-        "namePlaceholder": "Tu Nombre",
-        "emailPlaceholder": "tu.email@ejemplo.com",
-        "subjectPlaceholder": "¿De qué se trata?",
-        "messagePlaceholder": "¡Cuéntame sobre tu proyecto o simplemente saluda!",
         "sending": "Enviando...",
-        "send": "Enviar Mensaje",
-        "successMessage": "¡Gracias por tu mensaje! Te responderé pronto.",
-        "phone": "Teléfono",
-        "location": "Ubicación",
-        "locationValue": "Algemesí, España"
+        "sendMessage": "Enviar Mensaje",
+        "methods": {
+            "email": "Email",
+            "phone": "Teléfono",
+            "location": "Ubicación"
+        },
+        "form": {
+            "title": "Enviar un Mensaje",
+            "name": "Nombre",
+            "email": "Email",
+            "subject": "Asunto",
+            "message": "Mensaje",
+            "namePlaceholder": "Tu Nombre",
+            "emailPlaceholder": "tu.email@ejemplo.com",
+            "subjectPlaceholder": "¿De qué se trata?",
+            "messagePlaceholder": "¡Cuéntame sobre tu proyecto o simplemente saluda!"
+        }
     },
     "social": {
         "github": "GitHub",
-        "linkedin": "LinkedIn", 
+        "linkedin": "LinkedIn",
         "twitter": "Twitter"
     }
 }

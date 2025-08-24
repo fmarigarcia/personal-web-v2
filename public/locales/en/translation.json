@@ -85,25 +85,28 @@
         "subtitle": "Have a project in mind or just want to chat? I'd love to hear from you. Let's discuss how we can work together to bring your ideas to life.",
         "letsConnect": "Let's Connect",
         "followMe": "Follow Me",
-        "sendMessage": "Send a Message",
-        "name": "Name",
-        "email": "Email",
-        "subject": "Subject",
-        "message": "Message",
-        "namePlaceholder": "Your Name",
-        "emailPlaceholder": "your.email@example.com",
-        "subjectPlaceholder": "What's this about?",
-        "messagePlaceholder": "Tell me about your project or just say hello!",
         "sending": "Sending...",
-        "send": "Send Message",
-        "successMessage": "Thank you for your message! I'll get back to you soon.",
-        "phone": "Phone",
-        "location": "Location",
-        "locationValue": "Algemesí, Spain"
+        "sendMessage": "Send Message",
+        "methods": {
+            "email": "Email",
+            "phone": "Phone",
+            "location": "Location"
+        },
+        "form": {
+            "title": "Send a Message",
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+            "namePlaceholder": "Your Name",
+            "emailPlaceholder": "your.email@example.com",
+            "subjectPlaceholder": "What's this about?",
+            "messagePlaceholder": "Tell me about your project or just say hello!"
+        }
     },
     "social": {
         "github": "GitHub",
-        "linkedin": "LinkedIn", 
+        "linkedin": "LinkedIn",
         "twitter": "Twitter"
     }
 }
