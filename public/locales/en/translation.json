@@ -17,9 +17,12 @@
     "about": {
         "title": "About Me",
         "description": "Senior Full Stack Engineer with over 7 years of professional experience, specializing in scalable web architectures and high-performance solutions. I excel at translating complex business concepts into elegant technical solutions, maintaining high quality standards through TDD, continuous integration, and clean code practices.",
+        "profileImageAlt": "Profile photo of Francisco Marí García",
         "skills": {
             "frontend": "Frontend",
             "backend": "Backend",
+            "databases": "Databases",
+            "other": "Other",
             "toolsPractices": "Tools & Practices",
             "languages": "Languages",
             "cleanCode": "Clean Code",

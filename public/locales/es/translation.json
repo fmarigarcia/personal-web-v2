@@ -17,9 +17,12 @@
     "about": {
         "title": "Sobre Mí",
         "description": "Ingeniero Full Stack Senior con más de 7 años de trayectoria profesional, especializado en arquitecturas web escalables y de alto rendimiento. Destaco por traducir conceptos de negocio complejos en soluciones técnicas elegantes, manteniendo siempre altos estándares de calidad mediante TDD, integración continua y prácticas de código limpio.",
+        "profileImageAlt": "Foto de perfil de Francisco Marí García",
         "skills": {
             "frontend": "Frontend",
             "backend": "Backend",
+            "databases": "Bases de Datos",
+            "other": "Otros",
             "toolsPractices": "Herramientas y Prácticas",
             "languages": "Idiomas",
             "cleanCode": "Código Limpio",
