@@ -39,7 +39,7 @@ describe('useIntersectionObserver', () => {
             useIntersectionObserver([], { threshold: 0.5 })
         );
 
-        expect(result.current.activeId).toBeNull();
+        expect(result.current.data.activeId).toBeNull();
     });
 
     it('should create IntersectionObserver with correct options', () => {
@@ -106,7 +106,7 @@ describe('useIntersectionObserver', () => {
             );
         });
 
-        expect(result.current.activeId).toBe('section1');
+        expect(result.current.data.activeId).toBe('section1');
     });
 
     it('should handle multiple intersections and pick the most visible one', () => {
@@ -153,7 +153,7 @@ describe('useIntersectionObserver', () => {
             );
         });
 
-        expect(result.current.activeId).toBe('section2');
+        expect(result.current.data.activeId).toBe('section2');
     });
 
     it('should set activeId to null when no elements are intersecting', () => {
@@ -181,7 +181,7 @@ describe('useIntersectionObserver', () => {
             );
         });
 
-        expect(result.current.activeId).toBeNull();
+        expect(result.current.data.activeId).toBeNull();
     });
 
     it('should disconnect observer on unmount', () => {

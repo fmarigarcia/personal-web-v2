@@ -9,7 +9,7 @@ exports[`Header should match snapshot 1`] = `
     class="container mx-auto px-6 py-4"
   >
     <nav
-      aria-label="Main navigation"
+      aria-label="nav.mainNavigation"
       class="flex items-center justify-between"
       role="navigation"
     >

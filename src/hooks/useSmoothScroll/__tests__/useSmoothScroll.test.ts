@@ -38,7 +38,7 @@ describe('useSmoothScroll', () => {
     it('should return scrollToElement function', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
-        expect(typeof result.current.scrollToElement).toBe('function');
+        expect(typeof result.current.actions.scrollToElement).toBe('function');
     });
 
     it('should handle element not found', () => {
@@ -48,7 +48,7 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('nonexistent');
+            result.current.actions.scrollToElement('nonexistent');
         });
 
         expect(console.warn).toHaveBeenCalledWith(
@@ -66,7 +66,7 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section');
+            result.current.actions.scrollToElement('test-section');
         });
 
         expect(document.getElementById).toHaveBeenCalledWith('test-section');
@@ -83,7 +83,9 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section', { offset: 100 });
+            result.current.actions.scrollToElement('test-section', {
+                offset: 100,
+            });
         });
 
         expect(document.getElementById).toHaveBeenCalledWith('test-section');
@@ -101,7 +103,7 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section', { onStart });
+            result.current.actions.scrollToElement('test-section', { onStart });
         });
 
         expect(onStart).toHaveBeenCalled();
@@ -125,7 +127,7 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section');
+            result.current.actions.scrollToElement('test-section');
         });
 
         expect(mockRequestAnimationFrame).toHaveBeenCalled();
@@ -164,7 +166,7 @@ describe('useSmoothScroll', () => {
         const { result } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section', {
+            result.current.actions.scrollToElement('test-section', {
                 duration: 100,
                 onComplete,
             });
@@ -189,7 +191,7 @@ describe('useSmoothScroll', () => {
         const { result, unmount } = renderHook(() => useSmoothScroll());
 
         act(() => {
-            result.current.scrollToElement('test-section');
+            result.current.actions.scrollToElement('test-section');
         });
 
         unmount();

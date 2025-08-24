@@ -27,7 +27,10 @@ jest.mock('@utils/constants', () => ({
 const mockScrollToElement = jest.fn();
 jest.mock('@hooks/useSmoothScroll', () => ({
     useSmoothScroll: () => ({
-        scrollToElement: mockScrollToElement,
+        data: {},
+        actions: {
+            scrollToElement: mockScrollToElement,
+        },
     }),
 }));
 
@@ -227,7 +230,7 @@ describe('useSectionNavigation', () => {
         const { result } = renderHook(() => useSectionNavigation());
 
         act(() => {
-            result.current.navigateToSection('about');
+            result.current.actions.navigateToSection('about');
         });
 
         expect(mockScrollToElement).toHaveBeenCalledWith('about', {
@@ -246,8 +249,8 @@ describe('useSectionNavigation', () => {
         );
 
         act(() => {
-            result.current.navigateToSection('about');
-            result.current.navigateToSection('experience');
+            result.current.actions.navigateToSection('about');
+            result.current.actions.navigateToSection('experience');
         });
 
         // Should only call scroll once due to throttling
@@ -262,7 +265,7 @@ describe('useSectionNavigation', () => {
         const { result } = renderHook(() => useSectionNavigation());
 
         act(() => {
-            result.current.navigateToSection('invalid-section');
+            result.current.actions.navigateToSection('invalid-section');
         });
 
         expect(mockScrollToElement).not.toHaveBeenCalled();
@@ -273,12 +276,12 @@ describe('useSectionNavigation', () => {
 
         // Start first navigation
         act(() => {
-            result.current.navigateToSection('about');
+            result.current.actions.navigateToSection('about');
         });
 
         // Try to navigate again immediately
         act(() => {
-            result.current.navigateToSection('experience');
+            result.current.actions.navigateToSection('experience');
         });
 
         // Should only have been called once

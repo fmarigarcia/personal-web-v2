@@ -24,7 +24,10 @@ jest.mock('react-i18next', () => ({
 // Mock hooks
 jest.mock('@hooks/useSmoothScroll', () => ({
     useSmoothScroll: () => ({
-        scrollToElement: jest.fn(),
+        data: {},
+        actions: {
+            scrollToElement: jest.fn(),
+        },
     }),
 }));
 
