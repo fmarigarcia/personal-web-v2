@@ -26,8 +26,9 @@ export default tseslint.config([
         },
         rules: {
             'import/no-unresolved': 0,
+            'import/no-named-as-default': 0,
             'import/order': [
-                1,
+                2,
                 {
                     groups: [
                         'external',
