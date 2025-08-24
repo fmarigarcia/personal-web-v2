@@ -101,7 +101,9 @@
             "namePlaceholder": "Your Name",
             "emailPlaceholder": "your.email@example.com",
             "subjectPlaceholder": "What's this about?",
-            "messagePlaceholder": "Tell me about your project or just say hello!"
+            "messagePlaceholder": "Tell me about your project or just say hello!",
+            "successMessage": "Thank you for your message! I'll get back to you soon.",
+            "errorMessage": "Sorry, there was an error sending your message. Please try again."
         }
     },
     "social": {

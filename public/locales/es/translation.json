@@ -101,7 +101,9 @@
             "namePlaceholder": "Tu Nombre",
             "emailPlaceholder": "tu.email@ejemplo.com",
             "subjectPlaceholder": "¿De qué se trata?",
-            "messagePlaceholder": "¡Cuéntame sobre tu proyecto o simplemente saluda!"
+            "messagePlaceholder": "¡Cuéntame sobre tu proyecto o simplemente saluda!",
+            "successMessage": "¡Gracias por tu mensaje! Te responderé pronto.",
+            "errorMessage": "Lo siento, hubo un error al enviar tu mensaje. Inténtalo de nuevo."
         }
     },
     "social": {
