@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { clsx } from 'clsx';
 import { SECTIONS } from '@utils/constants';
-import { Section } from '@components/ui/Section';
+import { Section, Timeline } from '@components/ui';
 import { useExperience } from './useExperience';
 
 export const Experience: React.FC = () => {
@@ -19,106 +18,12 @@ export const Experience: React.FC = () => {
             <div className="max-w-6xl min-w-5xl mx-auto h-full flex flex-col justify-center py-20">
                 <div className="flex-1 flex flex-col min-w-full">
                     {/* Horizontal Timeline */}
-                    <div className="mb-12">
-                        <div className="relative px-8 lg:px-16">
-                            {/* Timeline line */}
-                            <div className="absolute top-16 left-16 right-16 h-0.5 bg-gray-300" />
-
-                            {/* Timeline items */}
-                            <div className="flex justify-between items-start relative z-10">
-                                {experiences.map((exp) => (
-                                    <button
-                                        key={exp.id}
-                                        className="flex flex-col items-center group cursor-pointer min-w-0 max-w-40"
-                                        onClick={() => setSelectedExp(exp)}
-                                        onMouseEnter={() =>
-                                            setHoveredExp(exp.id)
-                                        }
-                                        onMouseLeave={() => setHoveredExp(null)}
-                                    >
-                                        {/* Company name and position */}
-                                        <div className="text-center mb-8 max-w-32">
-                                            <p
-                                                className={clsx(
-                                                    'text-sm font-bold transition-colors duration-300 leading-tight mb-1',
-                                                    {
-                                                        'text-blue-600':
-                                                            selectedExp.id ===
-                                                            exp.id,
-                                                        'text-gray-700 group-hover:text-blue-500':
-                                                            selectedExp.id !==
-                                                            exp.id,
-                                                    }
-                                                )}
-                                                title={exp.company}
-                                            >
-                                                {exp.company.split(' / ')[0]}
-                                            </p>
-                                            <p
-                                                className={clsx(
-                                                    'text-xs transition-colors duration-300 leading-tight',
-                                                    {
-                                                        'text-blue-500':
-                                                            selectedExp.id ===
-                                                            exp.id,
-                                                        'text-gray-500 group-hover:text-blue-400':
-                                                            selectedExp.id !==
-                                                            exp.id,
-                                                    }
-                                                )}
-                                            >
-                                                {t(exp.position)}
-                                            </p>
-                                        </div>
-
-                                        {/* Timeline dot */}
-                                        <div
-                                            className={clsx(
-                                                'w-4 h-4 rounded-full border-3 transition-all duration-300 mb-4',
-                                                {
-                                                    'bg-blue-600 border-blue-600 scale-125 shadow-lg':
-                                                        selectedExp.id ===
-                                                        exp.id,
-                                                    'bg-white border-blue-600 group-hover:bg-blue-100 group-hover:scale-110':
-                                                        selectedExp.id !==
-                                                        exp.id,
-                                                }
-                                            )}
-                                        />
-
-                                        {/* Duration */}
-                                        <div className="text-center">
-                                            <p
-                                                className={clsx(
-                                                    'text-xs font-medium transition-colors duration-300',
-                                                    {
-                                                        'text-blue-600':
-                                                            selectedExp.id ===
-                                                            exp.id,
-                                                        'text-gray-600 group-hover:text-blue-500':
-                                                            selectedExp.id !==
-                                                            exp.id,
-                                                    }
-                                                )}
-                                            >
-                                                {t(exp.duration)}
-                                            </p>
-                                        </div>
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Legend */}
-                        <div className="text-center text-sm text-gray-500 mt-8">
-                            <p className="hidden sm:block">
-                                {t('experience.hoverPreview')}
-                            </p>
-                            <p className="sm:hidden">
-                                {t('experience.tapSelect')}
-                            </p>
-                        </div>
-                    </div>
+                    <Timeline
+                        experiences={experiences}
+                        selectedExp={selectedExp}
+                        onSelectExp={setSelectedExp}
+                        onHoverExp={setHoveredExp}
+                    />
 
                     {/* Experience Details */}
                     <div className="flex-1 max-w-4xl mx-auto w-full">

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimelineLegend should match snapshot 1`] = `
+<div
+  class="text-center text-sm text-gray-500 mt-8"
+>
+  <p
+    class="hidden sm:block"
+  >
+    experience.hoverPreview
+  </p>
+  <p
+    class="sm:hidden"
+  >
+    experience.tapSelect
+  </p>
+</div>
+`;

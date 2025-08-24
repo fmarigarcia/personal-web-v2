@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimelineDuration should match snapshot when not selected 1`] = `
+<div
+  class="text-center"
+>
+  <p
+    class="text-xs font-medium transition-colors duration-300 text-gray-600 group-hover:text-blue-500"
+  >
+    test.duration.key
+  </p>
+</div>
+`;
+
+exports[`TimelineDuration should match snapshot when selected 1`] = `
+<div
+  class="text-center"
+>
+  <p
+    class="text-xs font-medium transition-colors duration-300 text-blue-600"
+  >
+    test.duration.key
+  </p>
+</div>
+`;

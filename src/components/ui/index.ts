@@ -13,3 +13,4 @@ export { FormInput } from './FormInput';
 export { FormTextarea } from './FormTextarea';
 export { ContactForm } from './ContactForm';
 export { SkillStars } from './SkillStars';
+export { Timeline } from './Timeline';

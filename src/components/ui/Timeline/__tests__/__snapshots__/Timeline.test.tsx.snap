@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timeline should match snapshot 1`] = `
+<div
+  class="mb-12"
+>
+  <div
+    class="relative px-8 lg:px-16"
+  >
+    <div
+      data-testid="timeline-line"
+    >
+      Timeline Line
+    </div>
+    <div
+      data-testid="timeline-items"
+    >
+      <button
+        data-testid="timeline-item-exp1"
+      >
+        Company A
+      </button>
+      <button
+        data-testid="timeline-item-exp2"
+      >
+        Company B
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="timeline-legend"
+  >
+    Timeline Legend
+  </div>
+</div>
+`;

@@ -1,0 +1,1 @@
+export { TimelineDuration } from './TimelineDuration';

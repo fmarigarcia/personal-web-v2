@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimelineItems should match snapshot 1`] = `
+<div
+  class="flex justify-between items-start relative z-10"
+>
+  <button
+    class="flex flex-col items-center group cursor-pointer min-w-0 max-w-40"
+  >
+    <div
+      data-testid="timeline-position"
+    >
+      Company A
+       - 
+      position1
+       - 
+      true
+    </div>
+    <div
+      data-testid="timeline-dot"
+    >
+      true
+    </div>
+    <div
+      data-testid="timeline-duration"
+    >
+      duration1
+       - 
+      true
+    </div>
+  </button>
+  <button
+    class="flex flex-col items-center group cursor-pointer min-w-0 max-w-40"
+  >
+    <div
+      data-testid="timeline-position"
+    >
+      Company B
+       - 
+      position2
+       - 
+      false
+    </div>
+    <div
+      data-testid="timeline-dot"
+    >
+      false
+    </div>
+    <div
+      data-testid="timeline-duration"
+    >
+      duration2
+       - 
+      false
+    </div>
+  </button>
+</div>
+`;

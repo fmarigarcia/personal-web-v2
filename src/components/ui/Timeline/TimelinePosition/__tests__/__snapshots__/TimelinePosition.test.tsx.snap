@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimelinePosition should match snapshot when not selected 1`] = `
+<div
+  class="text-center mb-8 max-w-32"
+>
+  <p
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-gray-700 group-hover:text-blue-500"
+    title="Test Company / Division"
+  >
+    Test Company
+  </p>
+  <p
+    class="text-xs transition-colors duration-300 leading-tight text-gray-500 group-hover:text-blue-400"
+  >
+    test.position.key
+  </p>
+</div>
+`;
+
+exports[`TimelinePosition should match snapshot when selected 1`] = `
+<div
+  class="text-center mb-8 max-w-32"
+>
+  <p
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-blue-600"
+    title="Test Company / Division"
+  >
+    Test Company
+  </p>
+  <p
+    class="text-xs transition-colors duration-300 leading-tight text-blue-500"
+  >
+    test.position.key
+  </p>
+</div>
+`;
