@@ -33,7 +33,7 @@ jest.mock('@utils/constants', () => ({
 describe('useHero', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-        
+
         // Setup default navigation context mock
         mockedUseNavigation.mockReturnValue({
             navigateToSection: mockNavigateToSection,
@@ -43,7 +43,7 @@ describe('useHero', () => {
             setIsScrolling: jest.fn(),
             setNavigateToSection: jest.fn(),
         });
-        
+
         // Setup default translation mock responses
         mockT.mockImplementation((key: string) => {
             const translations: Record<string, string> = {
@@ -84,8 +84,12 @@ describe('useHero', () => {
 
         expect(result.current.actions).toHaveProperty('navigateToContact');
         expect(result.current.actions).toHaveProperty('navigateToExperience');
-        expect(typeof result.current.actions.navigateToContact).toBe('function');
-        expect(typeof result.current.actions.navigateToExperience).toBe('function');
+        expect(typeof result.current.actions.navigateToContact).toBe(
+            'function'
+        );
+        expect(typeof result.current.actions.navigateToExperience).toBe(
+            'function'
+        );
     });
 
     it('should navigate to contact section when navigateToContact is called', () => {
@@ -179,7 +183,9 @@ describe('useHero', () => {
         expect(result.current.data.title).toBe('Updated Title');
         expect(result.current.data.description).toBe('Updated Description');
         expect(result.current.data.getInTouchText).toBe('Updated Contact');
-        expect(result.current.data.viewExperienceText).toBe('Updated Experience');
+        expect(result.current.data.viewExperienceText).toBe(
+            'Updated Experience'
+        );
     });
 
     it('should maintain stable action function references', () => {
@@ -192,7 +198,11 @@ describe('useHero', () => {
         const secondRenderActions = result.current.actions;
 
         // Actions should be referentially stable to prevent unnecessary re-renders
-        expect(firstRenderActions.navigateToContact).toBe(secondRenderActions.navigateToContact);
-        expect(firstRenderActions.navigateToExperience).toBe(secondRenderActions.navigateToExperience);
+        expect(firstRenderActions.navigateToContact).toBe(
+            secondRenderActions.navigateToContact
+        );
+        expect(firstRenderActions.navigateToExperience).toBe(
+            secondRenderActions.navigateToExperience
+        );
     });
 });
