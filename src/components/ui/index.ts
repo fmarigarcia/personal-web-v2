@@ -8,3 +8,7 @@ export { Button } from './Button';
 export { ScrollIndicator } from './ScrollIndicator';
 export { ContactMethodCard } from './ContactMethodCard';
 export { SocialLinkButton } from './SocialLinkButton';
+export { FormLabel } from './FormLabel';
+export { FormInput } from './FormInput';
+export { FormTextarea } from './FormTextarea';
+export { ContactForm } from './ContactForm';
