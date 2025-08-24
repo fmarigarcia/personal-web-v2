@@ -90,9 +90,10 @@ describe('NavigationContext', () => {
 
     describe('useNavigation hook', () => {
         it('should throw error when used outside provider', () => {
-            // Suppress console.error for this test
-            const originalError = console.error;
-            console.error = jest.fn();
+            // Suppress React error boundary messages for this test
+            const consoleSpy = jest
+                .spyOn(console, 'error')
+                .mockImplementation(() => {});
 
             expect(() => {
                 renderHook(() => useNavigation());
@@ -100,7 +101,7 @@ describe('NavigationContext', () => {
                 'useNavigation must be used within a NavigationProvider'
             );
 
-            console.error = originalError;
+            consoleSpy.mockRestore();
         });
 
         it('should work with component integration', () => {

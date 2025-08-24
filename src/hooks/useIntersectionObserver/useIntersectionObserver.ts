@@ -61,11 +61,8 @@ export const useIntersectionObserver = (
             const element = document.getElementById(id);
             if (element && observerRef.current) {
                 observerRef.current.observe(element);
-            } else if (!element) {
-                console.warn(
-                    `Element with id "${id}" not found for intersection observation`
-                );
             }
+            // Note: Silently skip elements that don't exist yet
         });
 
         // Cleanup function

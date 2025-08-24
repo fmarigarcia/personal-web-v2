@@ -28,7 +28,7 @@ export const useSmoothScroll = (): UseSmoothScrollReturn => {
             const element = document.getElementById(elementId);
 
             if (!element) {
-                console.warn(`Element with id "${elementId}" not found`);
+                // Silently return if element doesn't exist
                 return;
             }
 

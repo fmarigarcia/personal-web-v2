@@ -41,19 +41,17 @@ describe('useSmoothScroll', () => {
         expect(typeof result.current.actions.scrollToElement).toBe('function');
     });
 
-    it('should handle element not found', () => {
+    it('should handle element not found gracefully', () => {
         jest.spyOn(document, 'getElementById').mockReturnValue(null);
-        jest.spyOn(console, 'warn').mockImplementation();
 
         const { result } = renderHook(() => useSmoothScroll());
 
-        act(() => {
-            result.current.actions.scrollToElement('nonexistent');
-        });
-
-        expect(console.warn).toHaveBeenCalledWith(
-            'Element with id "nonexistent" not found'
-        );
+        // Should not throw when element doesn't exist
+        expect(() => {
+            act(() => {
+                result.current.actions.scrollToElement('nonexistent');
+            });
+        }).not.toThrow();
     });
 
     it('should call requestAnimationFrame when element found', () => {
