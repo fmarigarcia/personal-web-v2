@@ -75,3 +75,20 @@ export const headingClasses = {
     subtitle: 'text-xl text-gray-600',
     body: 'text-xl text-gray-700 leading-relaxed',
 };
+
+// Chip component classes
+export const chipClasses = {
+    base: 'font-medium rounded-full transition-all duration-200',
+    variants: {
+        primary: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
+        secondary: 'bg-gray-100 text-gray-800 hover:bg-gray-200',
+        success: 'bg-green-100 text-green-800 hover:bg-green-200',
+        warning: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200',
+    },
+    sizes: {
+        sm: 'px-2 py-1 text-xs',
+        md: 'px-3 py-2 text-sm',
+        lg: 'px-4 py-2 text-base',
+    },
+    interactive: 'cursor-pointer',
+};
