@@ -58,10 +58,17 @@ describe('ExperienceDetailsHeader', () => {
     });
 
     it('should have correct wrapper structure', () => {
-        const { container } = render(<ExperienceDetailsHeader {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsHeader {...defaultProps} />
+        );
 
         const wrapper = container.firstChild as HTMLElement;
-        expect(wrapper).toHaveClass('mb-6', 'border-b', 'border-gray-100', 'pb-6');
+        expect(wrapper).toHaveClass(
+            'mb-6',
+            'border-b',
+            'border-gray-100',
+            'pb-6'
+        );
     });
 
     it('should translate position and duration keys', () => {
@@ -73,8 +80,12 @@ describe('ExperienceDetailsHeader', () => {
             />
         );
 
-        expect(screen.getByText('experience.exp1.position')).toBeInTheDocument();
-        expect(screen.getByText('experience.exp1.duration')).toBeInTheDocument();
+        expect(
+            screen.getByText('experience.exp1.position')
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText('experience.exp1.duration')
+        ).toBeInTheDocument();
     });
 
     it('should handle long company names', () => {
@@ -86,12 +97,16 @@ describe('ExperienceDetailsHeader', () => {
         );
 
         expect(
-            screen.getByText('Very Long Company Name That Should Still Display Correctly')
+            screen.getByText(
+                'Very Long Company Name That Should Still Display Correctly'
+            )
         ).toBeInTheDocument();
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<ExperienceDetailsHeader {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsHeader {...defaultProps} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 });

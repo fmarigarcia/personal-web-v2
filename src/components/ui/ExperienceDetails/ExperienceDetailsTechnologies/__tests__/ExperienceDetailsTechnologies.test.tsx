@@ -31,7 +31,9 @@ describe('ExperienceDetailsTechnologies', () => {
     it('should render section heading', () => {
         render(<ExperienceDetailsTechnologies {...defaultProps} />);
 
-        expect(screen.getByText('experience.technologiesSkills')).toBeInTheDocument();
+        expect(
+            screen.getByText('experience.technologiesSkills')
+        ).toBeInTheDocument();
     });
 
     it('should have correct heading structure and classes', () => {
@@ -64,13 +66,15 @@ describe('ExperienceDetailsTechnologies', () => {
         render(<ExperienceDetailsTechnologies {...defaultProps} />);
 
         const chips = screen.getAllByTestId('chip');
-        chips.forEach(chip => {
+        chips.forEach((chip) => {
             expect(chip).toHaveAttribute('data-variant', 'primary');
         });
     });
 
     it('should have correct container structure', () => {
-        const { container } = render(<ExperienceDetailsTechnologies {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsTechnologies {...defaultProps} />
+        );
 
         const wrapper = container.firstChild as HTMLElement;
         expect(wrapper.tagName).toBe('DIV');
@@ -85,15 +89,22 @@ describe('ExperienceDetailsTechnologies', () => {
         // Keys are generated as `${experienceId}-${tech}` but we can't directly test them
         // We can verify that all technologies are rendered uniquely
         const chips = screen.getAllByTestId('chip');
-        const techTexts = chips.map(chip => chip.textContent);
+        const techTexts = chips.map((chip) => chip.textContent);
         expect(techTexts).toEqual(['React', 'TypeScript', 'Node.js']);
     });
 
     it('should handle empty technologies array', () => {
-        render(<ExperienceDetailsTechnologies {...defaultProps} technologies={[]} />);
+        render(
+            <ExperienceDetailsTechnologies
+                {...defaultProps}
+                technologies={[]}
+            />
+        );
 
-        expect(screen.getByText('experience.technologiesSkills')).toBeInTheDocument();
-        
+        expect(
+            screen.getByText('experience.technologiesSkills')
+        ).toBeInTheDocument();
+
         const chips = screen.queryAllByTestId('chip');
         expect(chips).toHaveLength(0);
     });
@@ -107,7 +118,7 @@ describe('ExperienceDetailsTechnologies', () => {
         );
 
         expect(screen.getByText('JavaScript')).toBeInTheDocument();
-        
+
         const chips = screen.getAllByTestId('chip');
         expect(chips).toHaveLength(1);
     });
@@ -129,11 +140,15 @@ describe('ExperienceDetailsTechnologies', () => {
         render(<ExperienceDetailsTechnologies {...defaultProps} />);
 
         // Verifies that t() is called with the correct key
-        expect(screen.getByText('experience.technologiesSkills')).toBeInTheDocument();
+        expect(
+            screen.getByText('experience.technologiesSkills')
+        ).toBeInTheDocument();
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<ExperienceDetailsTechnologies {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsTechnologies {...defaultProps} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
@@ -149,10 +164,18 @@ describe('ExperienceDetailsTechnologies', () => {
 
     it('should match snapshot with many technologies', () => {
         const manyTechnologies = [
-            'React', 'TypeScript', 'Node.js', 'Express', 'MongoDB',
-            'PostgreSQL', 'Docker', 'Kubernetes', 'AWS', 'GitHub Actions'
+            'React',
+            'TypeScript',
+            'Node.js',
+            'Express',
+            'MongoDB',
+            'PostgreSQL',
+            'Docker',
+            'Kubernetes',
+            'AWS',
+            'GitHub Actions',
         ];
-        
+
         const { container } = render(
             <ExperienceDetailsTechnologies
                 {...defaultProps}

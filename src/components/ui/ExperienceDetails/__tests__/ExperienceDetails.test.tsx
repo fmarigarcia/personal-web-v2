@@ -21,7 +21,11 @@ interface MockTechnologiesProps {
 
 // Mock the sub-components
 jest.mock('../ExperienceDetailsHeader', () => ({
-    ExperienceDetailsHeader: ({ company, position, duration }: MockHeaderProps) => (
+    ExperienceDetailsHeader: ({
+        company,
+        position,
+        duration,
+    }: MockHeaderProps) => (
         <div data-testid="experience-details-header">
             {company} - {position} - {duration}
         </div>
@@ -29,7 +33,10 @@ jest.mock('../ExperienceDetailsHeader', () => ({
 }));
 
 jest.mock('../ExperienceDetailsDescription', () => ({
-    ExperienceDetailsDescription: ({ experienceId, descriptionKeys }: MockDescriptionProps) => (
+    ExperienceDetailsDescription: ({
+        experienceId,
+        descriptionKeys,
+    }: MockDescriptionProps) => (
         <div data-testid="experience-details-description">
             {experienceId}: {descriptionKeys.join(', ')}
         </div>
@@ -37,7 +44,10 @@ jest.mock('../ExperienceDetailsDescription', () => ({
 }));
 
 jest.mock('../ExperienceDetailsTechnologies', () => ({
-    ExperienceDetailsTechnologies: ({ experienceId, technologies }: MockTechnologiesProps) => (
+    ExperienceDetailsTechnologies: ({
+        experienceId,
+        technologies,
+    }: MockTechnologiesProps) => (
         <div data-testid="experience-details-technologies">
             {experienceId}: {technologies.join(', ')}
         </div>
@@ -57,41 +67,64 @@ describe('ExperienceDetails', () => {
     it('should render all sub-components', () => {
         render(<ExperienceDetails experience={mockExperience} />);
 
-        expect(screen.getByTestId('experience-details-header')).toBeInTheDocument();
-        expect(screen.getByTestId('experience-details-description')).toBeInTheDocument();
-        expect(screen.getByTestId('experience-details-technologies')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('experience-details-header')
+        ).toBeInTheDocument();
+        expect(
+            screen.getByTestId('experience-details-description')
+        ).toBeInTheDocument();
+        expect(
+            screen.getByTestId('experience-details-technologies')
+        ).toBeInTheDocument();
     });
 
     it('should pass correct props to ExperienceDetailsHeader', () => {
         render(<ExperienceDetails experience={mockExperience} />);
 
         const header = screen.getByTestId('experience-details-header');
-        expect(header).toHaveTextContent('Test Company - test.position - test.duration');
+        expect(header).toHaveTextContent(
+            'Test Company - test.position - test.duration'
+        );
     });
 
     it('should pass correct props to ExperienceDetailsDescription', () => {
         render(<ExperienceDetails experience={mockExperience} />);
 
-        const description = screen.getByTestId('experience-details-description');
+        const description = screen.getByTestId(
+            'experience-details-description'
+        );
         expect(description).toHaveTextContent('exp-1: desc1, desc2, desc3');
     });
 
     it('should pass correct props to ExperienceDetailsTechnologies', () => {
         render(<ExperienceDetails experience={mockExperience} />);
 
-        const technologies = screen.getByTestId('experience-details-technologies');
-        expect(technologies).toHaveTextContent('exp-1: React, TypeScript, Node.js');
+        const technologies = screen.getByTestId(
+            'experience-details-technologies'
+        );
+        expect(technologies).toHaveTextContent(
+            'exp-1: React, TypeScript, Node.js'
+        );
     });
 
     it('should have correct outer container structure', () => {
-        const { container } = render(<ExperienceDetails experience={mockExperience} />);
+        const { container } = render(
+            <ExperienceDetails experience={mockExperience} />
+        );
 
         const outerWrapper = container.firstChild as HTMLElement;
-        expect(outerWrapper).toHaveClass('flex-1', 'max-w-4xl', 'mx-auto', 'w-full');
+        expect(outerWrapper).toHaveClass(
+            'flex-1',
+            'max-w-4xl',
+            'mx-auto',
+            'w-full'
+        );
     });
 
     it('should have correct inner container structure', () => {
-        const { container } = render(<ExperienceDetails experience={mockExperience} />);
+        const { container } = render(
+            <ExperienceDetails experience={mockExperience} />
+        );
 
         const innerWrapper = container.querySelector('.bg-white');
         expect(innerWrapper).toHaveClass(
@@ -109,12 +142,18 @@ describe('ExperienceDetails', () => {
     });
 
     it('should have flex-1 wrapper for description and technologies', () => {
-        const { container } = render(<ExperienceDetails experience={mockExperience} />);
+        const { container } = render(
+            <ExperienceDetails experience={mockExperience} />
+        );
 
         const flexWrapper = container.querySelector('.flex-1');
         expect(flexWrapper).toBeInTheDocument();
-        expect(flexWrapper).toContainElement(screen.getByTestId('experience-details-description'));
-        expect(flexWrapper).toContainElement(screen.getByTestId('experience-details-technologies'));
+        expect(flexWrapper).toContainElement(
+            screen.getByTestId('experience-details-description')
+        );
+        expect(flexWrapper).toContainElement(
+            screen.getByTestId('experience-details-technologies')
+        );
     });
 
     it('should handle different experience data', () => {
@@ -129,7 +168,11 @@ describe('ExperienceDetails', () => {
 
         render(<ExperienceDetails experience={differentExperience} />);
 
-        expect(screen.getByText('Another Company - different.position - different.duration')).toBeInTheDocument();
+        expect(
+            screen.getByText(
+                'Another Company - different.position - different.duration'
+            )
+        ).toBeInTheDocument();
         expect(screen.getByText('exp-2: different.desc')).toBeInTheDocument();
         expect(screen.getByText('exp-2: Vue.js')).toBeInTheDocument();
     });
@@ -146,12 +189,16 @@ describe('ExperienceDetails', () => {
 
         render(<ExperienceDetails experience={emptyExperience} />);
 
-        expect(screen.getByText('Empty Company - empty.position - empty.duration')).toBeInTheDocument();
+        expect(
+            screen.getByText('Empty Company - empty.position - empty.duration')
+        ).toBeInTheDocument();
         expect(screen.getAllByText('exp-empty:')).toHaveLength(2); // Both description and technologies show this
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<ExperienceDetails experience={mockExperience} />);
+        const { container } = render(
+            <ExperienceDetails experience={mockExperience} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 });

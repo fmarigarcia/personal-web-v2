@@ -19,7 +19,9 @@ describe('Chip', () => {
 
     it('should render as button when onClick is provided', () => {
         const onClick = jest.fn();
-        const { container } = render(<Chip {...defaultProps} onClick={onClick} />);
+        const { container } = render(
+            <Chip {...defaultProps} onClick={onClick} />
+        );
         const chip = container.firstChild as HTMLElement;
         expect(chip.tagName).toBe('BUTTON');
     });
@@ -28,7 +30,7 @@ describe('Chip', () => {
         const onClick = jest.fn();
         render(<Chip {...defaultProps} onClick={onClick} />);
         const chip = screen.getByRole('button');
-        
+
         fireEvent.click(chip);
         expect(onClick).toHaveBeenCalledTimes(1);
     });
@@ -36,7 +38,7 @@ describe('Chip', () => {
     it('should have correct base classes', () => {
         const { container } = render(<Chip {...defaultProps} />);
         const chip = container.firstChild as HTMLElement;
-        
+
         expect(chip).toHaveClass(
             'font-medium',
             'rounded-full',
@@ -49,29 +51,51 @@ describe('Chip', () => {
         it('should apply primary variant classes by default', () => {
             const { container } = render(<Chip {...defaultProps} />);
             const chip = container.firstChild as HTMLElement;
-            
-            expect(chip).toHaveClass('bg-blue-100', 'text-blue-800', 'hover:bg-blue-200');
+
+            expect(chip).toHaveClass(
+                'bg-blue-100',
+                'text-blue-800',
+                'hover:bg-blue-200'
+            );
         });
 
         it('should apply secondary variant classes', () => {
-            const { container } = render(<Chip {...defaultProps} variant="secondary" />);
+            const { container } = render(
+                <Chip {...defaultProps} variant="secondary" />
+            );
             const chip = container.firstChild as HTMLElement;
-            
-            expect(chip).toHaveClass('bg-gray-100', 'text-gray-800', 'hover:bg-gray-200');
+
+            expect(chip).toHaveClass(
+                'bg-gray-100',
+                'text-gray-800',
+                'hover:bg-gray-200'
+            );
         });
 
         it('should apply success variant classes', () => {
-            const { container } = render(<Chip {...defaultProps} variant="success" />);
+            const { container } = render(
+                <Chip {...defaultProps} variant="success" />
+            );
             const chip = container.firstChild as HTMLElement;
-            
-            expect(chip).toHaveClass('bg-green-100', 'text-green-800', 'hover:bg-green-200');
+
+            expect(chip).toHaveClass(
+                'bg-green-100',
+                'text-green-800',
+                'hover:bg-green-200'
+            );
         });
 
         it('should apply warning variant classes', () => {
-            const { container } = render(<Chip {...defaultProps} variant="warning" />);
+            const { container } = render(
+                <Chip {...defaultProps} variant="warning" />
+            );
             const chip = container.firstChild as HTMLElement;
-            
-            expect(chip).toHaveClass('bg-yellow-100', 'text-yellow-800', 'hover:bg-yellow-200');
+
+            expect(chip).toHaveClass(
+                'bg-yellow-100',
+                'text-yellow-800',
+                'hover:bg-yellow-200'
+            );
         });
     });
 
@@ -79,55 +103,63 @@ describe('Chip', () => {
         it('should apply medium size classes by default', () => {
             const { container } = render(<Chip {...defaultProps} />);
             const chip = container.firstChild as HTMLElement;
-            
+
             expect(chip).toHaveClass('px-3', 'py-2', 'text-sm');
         });
 
         it('should apply small size classes', () => {
             const { container } = render(<Chip {...defaultProps} size="sm" />);
             const chip = container.firstChild as HTMLElement;
-            
+
             expect(chip).toHaveClass('px-2', 'py-1', 'text-xs');
         });
 
         it('should apply large size classes', () => {
             const { container } = render(<Chip {...defaultProps} size="lg" />);
             const chip = container.firstChild as HTMLElement;
-            
+
             expect(chip).toHaveClass('px-4', 'py-2', 'text-base');
         });
     });
 
     it('should apply cursor-pointer when onClick is provided', () => {
         const onClick = jest.fn();
-        const { container } = render(<Chip {...defaultProps} onClick={onClick} />);
+        const { container } = render(
+            <Chip {...defaultProps} onClick={onClick} />
+        );
         const chip = container.firstChild as HTMLElement;
-        
+
         expect(chip).toHaveClass('cursor-pointer');
     });
 
     it('should not apply cursor-pointer when onClick is not provided', () => {
         const { container } = render(<Chip {...defaultProps} />);
         const chip = container.firstChild as HTMLElement;
-        
+
         expect(chip).not.toHaveClass('cursor-pointer');
     });
 
     it('should apply custom className', () => {
-        const { container } = render(<Chip {...defaultProps} className="custom-class" />);
+        const { container } = render(
+            <Chip {...defaultProps} className="custom-class" />
+        );
         const chip = container.firstChild as HTMLElement;
-        
+
         expect(chip).toHaveClass('custom-class');
     });
 
     it('should match snapshot for primary variant', () => {
-        const { container } = render(<Chip {...defaultProps} variant="primary" />);
+        const { container } = render(
+            <Chip {...defaultProps} variant="primary" />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     it('should match snapshot for clickable chip', () => {
         const onClick = jest.fn();
-        const { container } = render(<Chip {...defaultProps} onClick={onClick} />);
+        const { container } = render(
+            <Chip {...defaultProps} onClick={onClick} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 

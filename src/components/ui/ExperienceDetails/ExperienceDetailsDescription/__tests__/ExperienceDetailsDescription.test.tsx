@@ -45,27 +45,37 @@ describe('ExperienceDetailsDescription', () => {
         render(<ExperienceDetailsDescription {...defaultProps} />);
 
         const listItems = screen.getAllByRole('listitem');
-        listItems.forEach(item => {
+        listItems.forEach((item) => {
             expect(item).toHaveClass('flex', 'items-start');
         });
     });
 
     it('should render bullet points for each item', () => {
-        const { container } = render(<ExperienceDetailsDescription {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsDescription {...defaultProps} />
+        );
 
-        const bullets = container.querySelectorAll('.w-2.h-2.bg-blue-600.rounded-full');
+        const bullets = container.querySelectorAll(
+            '.w-2.h-2.bg-blue-600.rounded-full'
+        );
         expect(bullets).toHaveLength(3);
     });
 
     it('should style description text correctly', () => {
-        const { container } = render(<ExperienceDetailsDescription {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsDescription {...defaultProps} />
+        );
 
-        const textSpans = container.querySelectorAll('span.text-gray-700.leading-relaxed');
+        const textSpans = container.querySelectorAll(
+            'span.text-gray-700.leading-relaxed'
+        );
         expect(textSpans).toHaveLength(3);
     });
 
     it('should render correct number of list items', () => {
-        const { container } = render(<ExperienceDetailsDescription {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsDescription {...defaultProps} />
+        );
 
         const listItems = container.querySelectorAll('li');
         expect(listItems).toHaveLength(3);
@@ -75,11 +85,16 @@ describe('ExperienceDetailsDescription', () => {
     });
 
     it('should handle empty description keys', () => {
-        render(<ExperienceDetailsDescription {...defaultProps} descriptionKeys={[]} />);
+        render(
+            <ExperienceDetailsDescription
+                {...defaultProps}
+                descriptionKeys={[]}
+            />
+        );
 
         const list = screen.getByRole('list');
         expect(list).toBeInTheDocument();
-        
+
         const listItems = screen.queryAllByRole('listitem');
         expect(listItems).toHaveLength(0);
     });
@@ -93,7 +108,7 @@ describe('ExperienceDetailsDescription', () => {
         );
 
         expect(screen.getByText('single.description')).toBeInTheDocument();
-        
+
         const listItems = screen.getAllByRole('listitem');
         expect(listItems).toHaveLength(1);
     });
@@ -108,7 +123,9 @@ describe('ExperienceDetailsDescription', () => {
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<ExperienceDetailsDescription {...defaultProps} />);
+        const { container } = render(
+            <ExperienceDetailsDescription {...defaultProps} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 

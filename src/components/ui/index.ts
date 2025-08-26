@@ -15,7 +15,7 @@ export { ContactForm } from './ContactForm';
 export { SkillStars } from './SkillStars';
 export { Timeline } from './Timeline';
 export { Chip } from './Chip';
-export { 
+export {
     ExperienceDetails,
     ExperienceDetailsHeader,
     ExperienceDetailsDescription,

@@ -7,10 +7,9 @@ interface ExperienceDetailsTechnologiesProps {
     technologies: string[];
 }
 
-export const ExperienceDetailsTechnologies: React.FC<ExperienceDetailsTechnologiesProps> = ({
-    experienceId,
-    technologies,
-}) => {
+export const ExperienceDetailsTechnologies: React.FC<
+    ExperienceDetailsTechnologiesProps
+> = ({ experienceId, technologies }) => {
     const { t } = useTranslation();
 
     return (
@@ -20,10 +19,7 @@ export const ExperienceDetailsTechnologies: React.FC<ExperienceDetailsTechnologi
             </h4>
             <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => (
-                    <Chip
-                        key={`${experienceId}-${tech}`}
-                        variant="primary"
-                    >
+                    <Chip key={`${experienceId}-${tech}`} variant="primary">
                         {tech}
                     </Chip>
                 ))}

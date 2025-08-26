@@ -7,11 +7,9 @@ interface ExperienceDetailsHeaderProps {
     duration: string;
 }
 
-export const ExperienceDetailsHeader: React.FC<ExperienceDetailsHeaderProps> = ({
-    company,
-    position,
-    duration,
-}) => {
+export const ExperienceDetailsHeader: React.FC<
+    ExperienceDetailsHeaderProps
+> = ({ company, position, duration }) => {
     const { t } = useTranslation();
 
     return (
@@ -22,9 +20,7 @@ export const ExperienceDetailsHeader: React.FC<ExperienceDetailsHeaderProps> = (
             <p className="text-blue-600 font-semibold text-lg lg:text-xl mb-2">
                 {t(position)}
             </p>
-            <p className="text-gray-500 font-medium">
-                {t(duration)}
-            </p>
+            <p className="text-gray-500 font-medium">{t(duration)}</p>
         </div>
     );
 };
