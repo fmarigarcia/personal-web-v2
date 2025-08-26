@@ -54,6 +54,28 @@ interface UseHookNameReturn {
 }
 ```
 
+**Hook Utility Organization** (`src/hooks/HookName/utils/`):
+
+```
+HookName/
+├── HookName.ts          # Main hook implementation
+├── index.ts            # Barrel export
+├── utils/              # Extracted utility functions
+│   ├── utilityModule.ts # Pure functions for testability
+│   ├── index.ts        # Utility barrel export
+│   └── __tests__/      # Comprehensive utility tests
+│       └── utilityModule.test.ts
+└── __tests__/          # Hook integration tests
+    └── HookName.test.ts
+```
+
+**Utility Extraction Principles**:
+
+- Extract pure functions from hooks for better testability
+- Keep utilities small, focused, and side-effect free
+- Co-locate utility tests for isolated testing
+- Use centralized types from `@types/hooks` for consistency
+
 **Component-Specific Hooks** (`src/pages/ComponentName/useComponentName.ts`):
 
 - Co-located with their component
@@ -132,6 +154,26 @@ describe('useMyHook', () => {
 });
 ```
 
+**Utility Function Tests**: Test pure functions in isolation
+
+```typescript
+describe('utilityFunction', () => {
+    it('should handle normal cases correctly', () => {
+        const result = utilityFunction(validInput);
+        expect(result).toEqual(expectedOutput);
+    });
+
+    it('should handle edge cases gracefully', () => {
+        const result = utilityFunction(edgeCase);
+        expect(result).toEqual(expectedEdgeCaseOutput);
+    });
+
+    it('should validate input parameters', () => {
+        expect(() => utilityFunction(invalidInput)).toThrow();
+    });
+});
+```
+
 ---
 
 ## 🛠 Technology Stack & Configuration
@@ -179,8 +221,19 @@ describe('useMyHook', () => {
 
 - **Components**: Snapshot + behavior tests
 - **Hooks**: Data structure + action functionality
-- **Utilities**: Pure function testing
+- **Utilities**: Pure function testing with edge cases and mathematical accuracy
 - **Integration**: Context providers + complex interactions
+
+**Current Test Coverage**: 424+ tests across 44 test suites with 87 utility-specific tests
+
+### Utility Testing Best Practices
+
+- **Test pure functions in isolation** for better reliability and debugging
+- **Cover edge cases and boundary conditions** (negative values, zero, null/undefined)
+- **Test mathematical accuracy** for numeric calculations (easing functions, animations)
+- **Validate input parameters** and error handling
+- **Use descriptive test names** that explain the scenario being tested
+- **Group related tests** using nested describe blocks for organization
 
 ### Mocking Patterns
 
@@ -288,6 +341,33 @@ const expensiveValue = useMemo(() => {
 - **Interface over type**: Use interfaces for object shapes
 - **Proper typing**: Avoid any, use unknown for truly unknown types
 - **Generic constraints**: Use meaningful generic constraints
+- **Centralized types**: Use `@types/*` for shared types across modules
+
+### Type Organization Pattern
+
+```typescript
+// src/types/hooks.ts - Centralized hook-related types
+export interface UseHookReturn {
+    data: {
+        /* ... */
+    };
+    actions: {
+        /* ... */
+    };
+}
+
+// Utility function types grouped by domain
+export interface AnimationFrame {
+    /* ... */
+}
+export type EasingFunction = (t: number) => number;
+export interface TouchGestureData {
+    /* ... */
+}
+
+// Import centralized types in hooks and utilities
+import type { AnimationFrame, EasingFunction } from '@types/hooks';
+```
 
 ### Code Organization
 
@@ -383,6 +463,54 @@ export const useNewPage = () => {
 };
 ```
 
+**Creating Hook Utilities for Better Testability:**
+
+```typescript
+// 1. Create utility structure
+src/hooks/MyHook/
+├── MyHook.ts
+├── utils/
+│   ├── mathUtils.ts         # Pure mathematical functions
+│   ├── domUtils.ts          # DOM manipulation utilities
+│   ├── eventUtils.ts        # Event handling utilities
+│   ├── index.ts            # Utility exports
+│   └── __tests__/          # Comprehensive utility tests
+│       ├── mathUtils.test.ts
+│       ├── domUtils.test.ts
+│       └── eventUtils.test.ts
+└── __tests__/MyHook.test.ts # Hook integration tests
+
+// 2. Extract pure functions to utilities
+// mathUtils.ts
+export const calculatePosition = (start: number, end: number, progress: number): number => {
+    return start + (end - start) * progress;
+};
+
+// 3. Import utilities in hook
+import { calculatePosition } from './utils';
+
+// 4. Centralize utility types in @types/hooks
+export interface CalculationParams {
+    start: number;
+    end: number;
+    progress: number;
+}
+
+// 5. Test utilities independently
+describe('mathUtils', () => {
+    describe('calculatePosition', () => {
+        it('should calculate position correctly', () => {
+            expect(calculatePosition(0, 100, 0.5)).toBe(50);
+        });
+
+        it('should handle edge cases', () => {
+            expect(calculatePosition(0, 100, 0)).toBe(0);
+            expect(calculatePosition(0, 100, 1)).toBe(100);
+        });
+    });
+});
+```
+
 ---
 
 ## 🚨 Critical Considerations
@@ -429,7 +557,13 @@ export const useNewPage = () => {
 - Establishing new code quality standards
 - Adding deployment or CI/CD processes
 
-**Version**: Updated after Hero section refactoring (August 2025)
-**Last Major Changes**: Established {data, actions} hook pattern, added comprehensive testing guidelines, performance optimization patterns
+**Version**: Updated after hook utility extraction and comprehensive testing (August 2025)
+**Last Major Changes**:
+
+- Established hook utility extraction patterns with dedicated utils/ folders
+- Implemented centralized type system in @types/hooks.ts
+- Added comprehensive utility testing strategy (87 new utility tests)
+- Enhanced testing patterns for pure functions with edge case coverage
+- Performance optimization patterns with utility isolation
 
 This ensures AI agents have accurate, current guidance for maintaining and extending the codebase effectively.
