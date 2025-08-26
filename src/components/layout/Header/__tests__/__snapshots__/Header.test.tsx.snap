@@ -67,14 +67,14 @@ exports[`Header should match snapshot 1`] = `
             class="text-sm font-medium px-2 py-1 rounded transition-colors bg-blue-600 text-white"
             type="button"
           >
-            EN
+            🇺🇸
           </button>
           <button
             aria-label="Switch to Spanish"
             class="text-sm font-medium px-2 py-1 rounded transition-colors text-gray-700 hover:text-blue-600"
             type="button"
           >
-            ES
+            🇪🇸
           </button>
         </div>
         <button

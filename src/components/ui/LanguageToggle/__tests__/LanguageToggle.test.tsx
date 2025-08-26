@@ -17,7 +17,7 @@ describe('LanguageToggle', () => {
         mockChangeLanguage.mockClear();
     });
 
-    it('should render language toggle buttons', () => {
+    it('should render language toggle buttons with flags', () => {
         render(<LanguageToggle />);
 
         expect(
@@ -26,6 +26,28 @@ describe('LanguageToggle', () => {
         expect(
             screen.getByRole('button', { name: /switch to spanish/i })
         ).toBeInTheDocument();
+
+        // Check that flags are displayed
+        expect(screen.getByText('🇺🇸')).toBeInTheDocument();
+        expect(screen.getByText('🇪🇸')).toBeInTheDocument();
+    });
+
+    it('should render custom languages when provided', () => {
+        const customLanguages = [
+            { code: 'fr', flag: '🇫🇷', label: 'French' },
+            { code: 'de', flag: '🇩🇪', label: 'German' },
+        ];
+
+        render(<LanguageToggle languages={customLanguages} />);
+
+        expect(
+            screen.getByRole('button', { name: /switch to french/i })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('button', { name: /switch to german/i })
+        ).toBeInTheDocument();
+        expect(screen.getByText('🇫🇷')).toBeInTheDocument();
+        expect(screen.getByText('🇩🇪')).toBeInTheDocument();
     });
 
     it('should highlight active language', () => {
@@ -65,6 +87,22 @@ describe('LanguageToggle', () => {
         expect(mockChangeLanguage).toHaveBeenCalledWith('en');
     });
 
+    it('should handle custom language changes', () => {
+        const customLanguages = [
+            { code: 'fr', flag: '🇫🇷', label: 'French' },
+            { code: 'de', flag: '🇩🇪', label: 'German' },
+        ];
+
+        render(<LanguageToggle languages={customLanguages} />);
+
+        const frButton = screen.getByRole('button', {
+            name: /switch to french/i,
+        });
+        fireEvent.click(frButton);
+
+        expect(mockChangeLanguage).toHaveBeenCalledWith('fr');
+    });
+
     it('should apply custom className', () => {
         const customClass = 'custom-language-toggle';
         const { container } = render(
@@ -97,8 +135,32 @@ describe('LanguageToggle', () => {
         );
     });
 
-    it('should match snapshot', () => {
+    it('should handle single language array', () => {
+        const singleLanguage = [{ code: 'en', flag: '🇺🇸', label: 'English' }];
+
+        render(<LanguageToggle languages={singleLanguage} />);
+
+        expect(
+            screen.getByRole('button', { name: /switch to english/i })
+        ).toBeInTheDocument();
+        expect(screen.getByText('🇺🇸')).toBeInTheDocument();
+        expect(screen.getAllByRole('button')).toHaveLength(1);
+    });
+
+    it('should match snapshot with default languages', () => {
         const { container } = render(<LanguageToggle />);
+        expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('should match snapshot with custom languages', () => {
+        const customLanguages = [
+            { code: 'fr', flag: '🇫🇷', label: 'French' },
+            { code: 'de', flag: '🇩🇪', label: 'German' },
+        ];
+
+        const { container } = render(
+            <LanguageToggle languages={customLanguages} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 });

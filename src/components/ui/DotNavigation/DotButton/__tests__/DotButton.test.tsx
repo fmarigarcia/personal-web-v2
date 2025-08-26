@@ -14,7 +14,7 @@ describe('DotButton', () => {
 
     it('should render button with correct aria-label', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute('aria-label', 'Go to Home section');
@@ -22,45 +22,53 @@ describe('DotButton', () => {
 
     it('should render tooltip with label text', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const tooltip = screen.getByText('Home');
         expect(tooltip).toBeInTheDocument();
     });
 
     it('should call onClick when clicked', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         fireEvent.click(button);
-        
+
         expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
     });
 
     it('should apply active styles when isActive is true', () => {
         render(<DotButton {...defaultProps} isActive={true} />);
-        
+
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('bg-blue-600', 'border-blue-600', 'scale-110');
+        expect(button).toHaveClass(
+            'bg-blue-600',
+            'border-blue-600',
+            'scale-110'
+        );
     });
 
     it('should apply inactive styles when isActive is false', () => {
         render(<DotButton {...defaultProps} isActive={false} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toHaveClass('bg-transparent', 'border-gray-400');
-        expect(button).not.toHaveClass('bg-blue-600', 'border-blue-600', 'scale-110');
+        expect(button).not.toHaveClass(
+            'bg-blue-600',
+            'border-blue-600',
+            'scale-110'
+        );
     });
 
     it('should have proper button type', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toHaveAttribute('type', 'button');
     });
 
     it('should have proper accessibility classes', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toHaveClass(
             'focus:outline-none',
@@ -72,7 +80,7 @@ describe('DotButton', () => {
 
     it('should have transition and hover classes', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toHaveClass(
             'transition-all',
@@ -84,14 +92,14 @@ describe('DotButton', () => {
 
     it('should have group class for tooltip hover effect', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const button = screen.getByRole('button');
         expect(button).toHaveClass('group');
     });
 
     it('should render tooltip with proper positioning classes', () => {
         render(<DotButton {...defaultProps} />);
-        
+
         const tooltip = screen.getByText('Home');
         expect(tooltip).toHaveClass(
             'absolute',
@@ -110,7 +118,9 @@ describe('DotButton', () => {
     });
 
     it('should match snapshot when active', () => {
-        const { container } = render(<DotButton {...defaultProps} isActive={true} />);
+        const { container } = render(
+            <DotButton {...defaultProps} isActive={true} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 });

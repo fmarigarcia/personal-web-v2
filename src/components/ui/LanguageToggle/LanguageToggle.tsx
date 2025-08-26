@@ -2,44 +2,53 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
+interface Language {
+    code: string;
+    flag: string;
+    label: string;
+}
+
 interface LanguageToggleProps {
     className?: string;
+    languages?: Language[];
 }
+
+const defaultLanguages: Language[] = [
+    { code: 'en', flag: '🇺🇸', label: 'English' },
+    { code: 'es', flag: '🇪🇸', label: 'Spanish' },
+];
 
 export const LanguageToggle: React.FC<LanguageToggleProps> = ({
     className = '',
+    languages = defaultLanguages,
 }) => {
     const { i18n } = useTranslation();
 
-    const handleLanguageChange = (lang: 'en' | 'es') => {
-        i18n.changeLanguage(lang);
-    };
-
-    const getButtonClasses = (lang: 'en' | 'es') => {
-        return clsx('text-sm font-medium px-2 py-1 rounded transition-colors', {
-            'bg-blue-600 text-white': i18n.language === lang,
-            'text-gray-700 hover:text-blue-600': i18n.language !== lang,
-        });
+    const handleLanguageChange = (langCode: string) => {
+        i18n.changeLanguage(langCode);
     };
 
     return (
         <div className={clsx('flex items-center space-x-2', className)}>
-            <button
-                onClick={() => handleLanguageChange('en')}
-                className={getButtonClasses('en')}
-                type="button"
-                aria-label="Switch to English"
-            >
-                EN
-            </button>
-            <button
-                onClick={() => handleLanguageChange('es')}
-                className={getButtonClasses('es')}
-                type="button"
-                aria-label="Switch to Spanish"
-            >
-                ES
-            </button>
+            {languages.map((language) => (
+                <button
+                    key={language.code}
+                    onClick={() => handleLanguageChange(language.code)}
+                    className={clsx(
+                        'text-sm font-medium px-2 py-1 rounded transition-colors',
+                        {
+                            'bg-blue-600 text-white':
+                                i18n.language === language.code,
+                            'text-gray-700 hover:text-blue-600':
+                                i18n.language !== language.code,
+                        }
+                    )}
+                    type="button"
+                    aria-label={`Switch to ${language.label}`}
+                >
+                    {language.flag}
+                </button>
+            ))}
         </div>
     );
 };

@@ -23,7 +23,8 @@ export const DotButton: React.FC<DotButtonProps> = ({
                 'focus:ring-blue-500 focus:ring-offset-2',
                 {
                     'bg-blue-600 border-blue-600 scale-110': isActive,
-                    'bg-transparent border-gray-400 hover:border-blue-500': !isActive,
+                    'bg-transparent border-gray-400 hover:border-blue-500':
+                        !isActive,
                 }
             )}
             type="button"
