@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import type { ExperienceItem } from '@data/experiences';
+import type { ExperienceItem } from '../../../../../types/data';
 import { TimelineItems } from '../TimelineItems';
 
 // Mock the sub-components

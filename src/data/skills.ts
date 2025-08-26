@@ -1,15 +1,4 @@
-export interface Skill {
-    id: string;
-    name?: string; // Direct display name
-    nameKey?: string; // i18n translation key
-    score?: number; // 0-5 rating for star display
-}
-
-export interface SkillGroup {
-    id: string;
-    titleKey: string; // i18n translation key for group title
-    skills: Skill[];
-}
+import type { SkillGroup } from '../types/data';
 
 export const skillGroups: SkillGroup[] = [
     {

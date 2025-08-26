@@ -1,8 +1,8 @@
 import React from 'react';
-import type { ExperienceItem } from '@data/experiences';
 import { TimelineLine } from './TimelineLine';
 import { TimelineItems } from './TimelineItems';
 import { TimelineLegend } from './TimelineLegend';
+import type { ExperienceItem } from '../../../types/data';
 
 interface TimelineProps {
     experiences: ExperienceItem[];

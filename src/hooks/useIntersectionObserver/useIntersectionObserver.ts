@@ -1,17 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-
-interface UseIntersectionObserverOptions extends IntersectionObserverInit {
-    threshold?: number | number[];
-    rootMargin?: string;
-    root?: Element | null;
-}
-
-interface UseIntersectionObserverReturn {
-    data: {
-        activeId: string | null;
-    };
-    actions: Record<string, never>;
-}
+import type {
+    UseIntersectionObserverOptions,
+    UseIntersectionObserverReturn,
+} from '../../types/hooks';
 
 export const useIntersectionObserver = (
     ids: string[],

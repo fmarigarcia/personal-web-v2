@@ -1,12 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-
-interface Language {
-    code: string;
-    flag: string;
-    label: string;
-}
+import type { Language } from '../../../types/ui';
 
 interface LanguageToggleProps {
     className?: string;

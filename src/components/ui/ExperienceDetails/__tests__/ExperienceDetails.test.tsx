@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import type { ExperienceItem } from '@data/experiences';
+import type { ExperienceItem } from '../../../../types/data';
 import { ExperienceDetails } from '../ExperienceDetails';
 
 // Mock component interfaces

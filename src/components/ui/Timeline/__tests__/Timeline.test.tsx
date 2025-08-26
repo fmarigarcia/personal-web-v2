@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import type { ExperienceItem } from '@data/experiences';
 import { Timeline } from '../Timeline';
+import type { ExperienceItem } from '../../../../types/data';
 
 // Mock the sub-components
 jest.mock('../TimelineLine', () => ({

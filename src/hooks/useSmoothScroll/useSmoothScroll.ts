@@ -1,19 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { SCROLL_DURATION, SCROLL_OFFSET } from '@utils/constants';
-
-interface ScrollOptions {
-    duration?: number;
-    offset?: number;
-    onStart?: () => void;
-    onComplete?: () => void;
-}
-
-interface UseSmoothScrollReturn {
-    data: Record<string, never>;
-    actions: {
-        scrollToElement: (elementId: string, options?: ScrollOptions) => void;
-    };
-}
+import type { ScrollOptions, UseSmoothScrollReturn } from '../../types/hooks';
 
 // Easing function for smooth animation
 const easeInOutCubic = (t: number): number => {

@@ -1,13 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { contactMethods, socialLinks } from '@data/index';
-
-interface ContactForm {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-}
+import type { ContactForm } from '../../types/forms';
 
 export const useContact = () => {
     const { t } = useTranslation();

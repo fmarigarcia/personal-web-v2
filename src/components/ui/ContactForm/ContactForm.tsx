@@ -2,13 +2,7 @@ import type { FormEvent, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiPaperAirplane } from 'react-icons/hi2';
 import { FormLabel, FormInput, FormTextarea, Button } from '@components/ui';
-
-interface ContactFormData {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-}
+import type { ContactForm as ContactFormData } from '../../../types/forms';
 
 interface ContactFormProps {
     form: ContactFormData;

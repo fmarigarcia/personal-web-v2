@@ -1,12 +1,5 @@
 import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
-
-export interface ContactMethod {
-    id: string;
-    icon: React.ComponentType<{ className?: string }>;
-    titleKey: string;
-    value: string;
-    href: string;
-}
+import type { ContactMethod } from '../types/data';
 
 export const contactMethods: ContactMethod[] = [
     {

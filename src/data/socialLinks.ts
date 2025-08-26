@@ -1,11 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-
-export interface SocialLink {
-    id: string;
-    nameKey: string;
-    href: string;
-    icon: React.ComponentType<{ className?: string }>;
-}
+import type { SocialLink } from '../types/data';
 
 export const socialLinks: SocialLink[] = [
     {

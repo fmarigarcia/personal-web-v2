@@ -1,11 +1,4 @@
-export interface ExperienceItem {
-    id: string;
-    company: string;
-    position: string;
-    duration: string;
-    descriptionKeys: string[];
-    technologies: string[];
-}
+import type { ExperienceItem } from '../types/data';
 
 export const experiences: ExperienceItem[] = [
     {

@@ -1,18 +1,7 @@
 import { useState, useCallback } from 'react';
 import { experiences } from '@data/experiences';
-
-interface UseExperienceReturn {
-    data: {
-        experiences: typeof experiences;
-        selectedExp: (typeof experiences)[0];
-        hoveredExp: string | null;
-        displayedExp: (typeof experiences)[0];
-    };
-    actions: {
-        setSelectedExp: (exp: (typeof experiences)[0]) => void;
-        setHoveredExp: (expId: string | null) => void;
-    };
-}
+import type { UseExperienceReturn } from '../../types/hooks';
+import type { ExperienceItem } from '../../types/data';
 
 export const useExperience = (): UseExperienceReturn => {
     // Show the most recent experience (last in array) by default
@@ -34,7 +23,7 @@ export const useExperience = (): UseExperienceReturn => {
     };
 
     const actions = {
-        setSelectedExp: useCallback((exp: (typeof experiences)[0]) => {
+        setSelectedExp: useCallback((exp: ExperienceItem) => {
             setSelectedExpState(exp);
         }, []),
         setHoveredExp: useCallback((expId: string | null) => {

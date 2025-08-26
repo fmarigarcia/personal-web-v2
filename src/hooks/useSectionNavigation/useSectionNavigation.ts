@@ -2,18 +2,10 @@ import { useEffect, useRef, useCallback } from 'react';
 import { useNavigation } from '@contexts/NavigationContext';
 import { useSmoothScroll } from '@hooks/useSmoothScroll';
 import { NAVIGATION_ITEMS } from '@utils/constants';
-
-interface UseSectionNavigationOptions {
-    rootMargin?: string;
-    throttleDelay?: number; // Delay between section changes in ms
-}
-
-interface UseSectionNavigationReturn {
-    data: Record<string, never>;
-    actions: {
-        navigateToSection: (sectionId: string) => void;
-    };
-}
+import type {
+    UseSectionNavigationOptions,
+    UseSectionNavigationReturn,
+} from '../../types/hooks';
 
 export const useSectionNavigation = (
     options: UseSectionNavigationOptions = {}

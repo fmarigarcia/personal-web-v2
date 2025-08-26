@@ -1,8 +1,8 @@
 import React from 'react';
-import type { ExperienceItem } from '@data/experiences';
 import { ExperienceDetailsHeader } from './ExperienceDetailsHeader';
 import { ExperienceDetailsDescription } from './ExperienceDetailsDescription';
 import { ExperienceDetailsTechnologies } from './ExperienceDetailsTechnologies';
+import type { ExperienceItem } from '../../../types/data';
 
 interface ExperienceDetailsProps {
     experience: ExperienceItem;

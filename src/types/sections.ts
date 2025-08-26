@@ -1,3 +1,6 @@
+// Legacy section-related interfaces
+// Note: These may be unused and should be reviewed for removal
+
 export interface PersonalInfo {
     name: string;
     title: string;
@@ -6,12 +9,16 @@ export interface PersonalInfo {
     location: string;
 }
 
-export interface Skill {
+// Legacy Skill interface - consider removing if not used
+// Use types/data.ts Skill interface for new implementations
+export interface LegacySkill {
     name: string;
     level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
     category: 'frontend' | 'backend' | 'tools' | 'languages';
 }
 
+// Legacy Experience interface - consider removing if not used
+// Use types/data.ts ExperienceItem interface for new implementations
 export interface Experience {
     id: string;
     company: string;
