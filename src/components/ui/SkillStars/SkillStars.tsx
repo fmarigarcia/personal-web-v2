@@ -1,5 +1,9 @@
 import { useMemo } from 'react';
-import { STAR_COLORS, DEFAULT_STAR_SIZE, DEFAULT_MAX_STARS } from '@utils/constants';
+import {
+    STAR_COLORS,
+    DEFAULT_STAR_SIZE,
+    DEFAULT_MAX_STARS,
+} from '@utils/constants';
 import { Star } from './Star';
 
 interface SkillStarsProps {

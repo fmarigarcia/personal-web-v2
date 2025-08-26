@@ -1,14 +1,14 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useNavigation } from '@contexts/NavigationContext';
 import { useSmoothScroll } from '@hooks/useSmoothScroll';
-import { 
-    NAVIGATION_ITEMS, 
+import {
+    NAVIGATION_ITEMS,
     NAVIGATION_THROTTLE_DELAY,
     NAVIGATION_ROOT_MARGIN,
     MIN_SWIPE_DISTANCE,
     NAVIGATION_SCROLL_DURATION,
     INTERSECTION_THRESHOLDS,
-    NAVIGATION_CLEANUP_DELAY
+    NAVIGATION_CLEANUP_DELAY,
 } from '@utils/constants';
 import type {
     UseSectionNavigationOptions,
