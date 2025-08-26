@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useNavigation } from '@contexts/NavigationContext';
 import { useSmoothScroll } from '@hooks/useSmoothScroll';
+import { usePlatform } from '@hooks/usePlatform';
 import {
     NAVIGATION_ITEMS,
     NAVIGATION_THROTTLE_DELAY,
@@ -30,6 +31,8 @@ export const useSectionNavigation = (
     } = useNavigation();
     const { actions: smoothScrollActions } = useSmoothScroll();
     const { scrollToElement } = smoothScrollActions;
+    const { data: platformData } = usePlatform();
+    const { isMobile } = platformData;
 
     const {
         rootMargin = NAVIGATION_ROOT_MARGIN, // Account for header
@@ -38,9 +41,7 @@ export const useSectionNavigation = (
 
     const observerRef = useRef<IntersectionObserver | null>(null);
     const isNavigating = useRef(false);
-    const lastNavigationTime = useRef(0);
-
-    // Get current section index
+    const lastNavigationTime = useRef(0);    // Get current section index
     const getCurrentSectionIndex = useCallback(() => {
         return getSectionIndex(currentSection);
     }, [currentSection]);
@@ -86,7 +87,12 @@ export const useSectionNavigation = (
     // Handle wheel events (mouse wheel and trackpad)
     const handleWheel = useCallback(
         (event: WheelEvent) => {
-            // Prevent default scrolling
+            // On mobile devices, allow normal scrolling
+            if (isMobile) {
+                return;
+            }
+
+            // Prevent default scrolling on desktop
             event.preventDefault();
 
             if (isNavigating.current) {
@@ -105,12 +111,17 @@ export const useSectionNavigation = (
                 navigateToSectionByIndex(currentIndex - 1);
             }
         },
-        [getCurrentSectionIndex, navigateToSectionByIndex]
+        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
     );
 
     // Handle keyboard navigation
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
+            // On mobile devices, allow normal keyboard behavior
+            if (isMobile) {
+                return;
+            }
+
             if (isNavigating.current) {
                 return;
             }
@@ -139,19 +150,32 @@ export const useSectionNavigation = (
                 }
             }
         },
-        [getCurrentSectionIndex, navigateToSectionByIndex]
+        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
     );
 
     // Handle touch events for mobile swipe
     const touchStartY = useRef(0);
     const touchEndY = useRef(0);
 
-    const handleTouchStart = useCallback((event: TouchEvent) => {
-        touchStartY.current = event.touches[0].clientY;
-    }, []);
+    const handleTouchStart = useCallback(
+        (event: TouchEvent) => {
+            // On mobile devices, allow normal touch scrolling
+            if (isMobile) {
+                return;
+            }
+
+            touchStartY.current = event.touches[0].clientY;
+        },
+        [isMobile]
+    );
 
     const handleTouchEnd = useCallback(
         (event: TouchEvent) => {
+            // On mobile devices, allow normal touch scrolling
+            if (isMobile) {
+                return;
+            }
+
             if (isNavigating.current) {
                 return;
             }
@@ -175,7 +199,7 @@ export const useSectionNavigation = (
                 navigateToSectionByIndex(currentIndex - 1);
             }
         },
-        [getCurrentSectionIndex, navigateToSectionByIndex]
+        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
     );
 
     // Handle active section detection
@@ -267,12 +291,14 @@ export const useSectionNavigation = (
         });
 
         // Add event listeners
-        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('wheel', handleWheel, { passive: isMobile });
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('touchstart', handleTouchStart, {
-            passive: true,
+            passive: isMobile,
         });
-        window.addEventListener('touchend', handleTouchEnd, { passive: true });
+        window.addEventListener('touchend', handleTouchEnd, {
+            passive: isMobile,
+        });
 
         return () => {
             if (observerRef.current) {
@@ -293,6 +319,7 @@ export const useSectionNavigation = (
         rootMargin,
         currentSection,
         setCurrentSection,
+        isMobile,
     ]);
 
     // Register navigation function with context (separate effect to avoid infinite loop)

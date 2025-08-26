@@ -98,3 +98,12 @@ export type KeyboardNavigationKey =
     | ' '; // Space key
 
 export type NavigationDirection = 'next' | 'prev' | 'first' | 'last' | 'none';
+
+// Platform hook interface
+export interface UsePlatformReturn {
+    data: {
+        isMobile: boolean;
+        isDesktop: boolean;
+    };
+    actions: Record<string, never>;
+}

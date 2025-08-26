@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import * as NavigationContext from '@contexts/NavigationContext';
+import * as deviceDetection from '@utils/deviceDetection';
 import { NAVIGATION_SCROLL_DURATION } from '@utils/constants';
 import { useSectionNavigation } from '../useSectionNavigation';
 
@@ -11,6 +12,11 @@ const MOCK_NAVIGATION_ITEMS = [
     { id: 'projects' },
     { id: 'contact' },
 ];
+
+// Mock device detection to simulate desktop behavior by default
+jest.mock('@utils/deviceDetection', () => ({
+    isMobileDevice: jest.fn(() => false), // Default to desktop
+}));
 
 // Mock the dependencies - move all mocks to top level
 jest.mock('@contexts/NavigationContext');
@@ -160,12 +166,12 @@ describe('useSectionNavigation', () => {
         expect(mockAddEventListener).toHaveBeenCalledWith(
             'touchstart',
             expect.any(Function),
-            { passive: true }
+            { passive: false }
         );
         expect(mockAddEventListener).toHaveBeenCalledWith(
             'touchend',
             expect.any(Function),
-            { passive: true }
+            { passive: false }
         );
     });
 
@@ -464,6 +470,129 @@ describe('useSectionNavigation', () => {
                     expect.any(Object)
                 );
             }
+        });
+    });
+
+    describe('mobile behavior', () => {
+        beforeEach(() => {
+            // Mock as mobile device
+            jest.spyOn(deviceDetection, 'isMobileDevice').mockReturnValue(true);
+        });
+
+        afterEach(() => {
+            // Reset to desktop behavior
+            jest.spyOn(deviceDetection, 'isMobileDevice').mockReturnValue(
+                false
+            );
+        });
+
+        it('should use passive event listeners on mobile', () => {
+            renderHook(() => useSectionNavigation());
+
+            // Should add passive event listeners for mobile
+            expect(mockAddEventListener).toHaveBeenCalledWith(
+                'wheel',
+                expect.any(Function),
+                { passive: true }
+            );
+            expect(mockAddEventListener).toHaveBeenCalledWith(
+                'touchstart',
+                expect.any(Function),
+                { passive: true }
+            );
+            expect(mockAddEventListener).toHaveBeenCalledWith(
+                'touchend',
+                expect.any(Function),
+                { passive: true }
+            );
+        });
+
+        it('should not prevent default behavior on wheel events on mobile', () => {
+            renderHook(() => useSectionNavigation());
+
+            // Get the wheel event handler
+            const wheelHandlerCall = mockAddEventListener.mock.calls.find(
+                (call) => call[0] === 'wheel'
+            );
+            const wheelHandler = wheelHandlerCall?.[1] as (
+                event: WheelEvent
+            ) => void;
+
+            // Simulate wheel event
+            const wheelEvent = {
+                deltaY: 100,
+                preventDefault: jest.fn(),
+            } as unknown as WheelEvent;
+
+            act(() => {
+                wheelHandler(wheelEvent);
+            });
+
+            // Should NOT prevent default on mobile (allow normal scrolling)
+            expect(wheelEvent.preventDefault).not.toHaveBeenCalled();
+            expect(mockScrollToElement).not.toHaveBeenCalled();
+        });
+
+        it('should not handle keyboard navigation on mobile', () => {
+            renderHook(() => useSectionNavigation());
+
+            // Get the keydown event handler
+            const keyHandlerCall = mockAddEventListener.mock.calls.find(
+                (call) => call[0] === 'keydown'
+            );
+            const keyHandler = keyHandlerCall?.[1] as (
+                event: KeyboardEvent
+            ) => void;
+
+            // Simulate ArrowDown key press
+            const keyEvent = {
+                key: 'ArrowDown',
+                preventDefault: jest.fn(),
+            } as unknown as KeyboardEvent;
+
+            act(() => {
+                keyHandler(keyEvent);
+            });
+
+            // Should NOT prevent default or navigate on mobile
+            expect(keyEvent.preventDefault).not.toHaveBeenCalled();
+            expect(mockScrollToElement).not.toHaveBeenCalled();
+        });
+
+        it('should not handle touch gestures on mobile for navigation', () => {
+            renderHook(() => useSectionNavigation());
+
+            // Get the touch event handlers
+            const touchStartHandlerCall = mockAddEventListener.mock.calls.find(
+                (call) => call[0] === 'touchstart'
+            );
+            const touchEndHandlerCall = mockAddEventListener.mock.calls.find(
+                (call) => call[0] === 'touchend'
+            );
+
+            const touchStartHandler = touchStartHandlerCall?.[1] as (
+                event: TouchEvent
+            ) => void;
+            const touchEndHandler = touchEndHandlerCall?.[1] as (
+                event: TouchEvent
+            ) => void;
+
+            // Simulate touch events that would normally trigger navigation
+            const touchStartEvent = {
+                touches: [{ clientY: 400 }],
+            } as unknown as TouchEvent;
+
+            const touchEndEvent = {
+                changedTouches: [{ clientY: 300 }], // 100px upward swipe
+            } as unknown as TouchEvent;
+
+            act(() => {
+                touchStartHandler(touchStartEvent);
+                touchEndHandler(touchEndEvent);
+            });
+
+            // Should NOT navigate on mobile (allow normal touch scrolling)
+            expect(mockScrollToElement).not.toHaveBeenCalled();
         });
     });
 });
