@@ -92,3 +92,10 @@ export const chipClasses = {
     },
     interactive: 'cursor-pointer',
 };
+
+// Section background classes
+export const sectionBackgrounds = {
+    white: 'bg-white',
+    'gray-50': 'bg-gray-50',
+    gradient: 'bg-gradient-to-br from-gray-50 to-gray-100',
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { sectionBackgrounds } from '@utils/classNames';
 import { SectionHeader } from './SectionHeader';
 import './Section.css';
 
@@ -20,19 +21,12 @@ export const Section: React.FC<SectionProps> = ({
     title,
     subtitle,
 }) => {
-    // Background class mapping
-    const backgroundClasses = {
-        white: 'bg-white',
-        'gray-50': 'bg-gray-50',
-        gradient: 'bg-gradient-to-br from-gray-50 to-gray-100',
-    };
-
     return (
         <section
             id={id}
             className={clsx(
                 'relative px-6 min-h-screen section-navbar-offset',
-                backgroundClasses[backgroundColor],
+                sectionBackgrounds[backgroundColor],
                 className
             )}
         >
