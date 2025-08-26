@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
+import { STAR_COLORS, DEFAULT_STAR_SIZE, DEFAULT_MAX_STARS } from '@utils/constants';
 import { Star } from './Star';
-
-const STAR_COLORS = ['#a50104', '#d15e04', '#fcba04', '#b2ae2a', '#6da34d'];
 
 interface SkillStarsProps {
     score: number; // 0-5
@@ -11,8 +10,8 @@ interface SkillStarsProps {
 
 export const SkillStars: React.FC<SkillStarsProps> = ({
     score,
-    maxStars = 5,
-    size = 20,
+    maxStars = DEFAULT_MAX_STARS,
+    size = DEFAULT_STAR_SIZE,
 }) => {
     const starValues = useMemo(
         () =>

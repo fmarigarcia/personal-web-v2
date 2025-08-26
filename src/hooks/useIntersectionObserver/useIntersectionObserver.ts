@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { DEFAULT_INTERSECTION_THRESHOLD } from '@utils/constants';
 import type {
     UseIntersectionObserverOptions,
     UseIntersectionObserverReturn,
@@ -41,7 +42,7 @@ export const useIntersectionObserver = (
                 setActiveId(targetId);
             },
             {
-                threshold: options.threshold || 0.5,
+                threshold: options.threshold || DEFAULT_INTERSECTION_THRESHOLD,
                 rootMargin: options.rootMargin || '0px',
                 root: options.root || null,
             }

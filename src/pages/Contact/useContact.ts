@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FORM_SUBMISSION_DELAY } from '@utils/constants';
 import { contactMethods, socialLinks } from '@data/index';
 import type { ContactForm } from '../../types/forms';
 
@@ -36,7 +37,7 @@ export const useContact = () => {
 
                 try {
                     // Simulate form submission
-                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    await new Promise((resolve) => setTimeout(resolve, FORM_SUBMISSION_DELAY));
 
                     // Here you would typically send the form data to your backend
                     // TODO: Replace with actual API call

@@ -1,7 +1,15 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useNavigation } from '@contexts/NavigationContext';
 import { useSmoothScroll } from '@hooks/useSmoothScroll';
-import { NAVIGATION_ITEMS } from '@utils/constants';
+import { 
+    NAVIGATION_ITEMS, 
+    NAVIGATION_THROTTLE_DELAY,
+    NAVIGATION_ROOT_MARGIN,
+    MIN_SWIPE_DISTANCE,
+    NAVIGATION_SCROLL_DURATION,
+    INTERSECTION_THRESHOLDS,
+    NAVIGATION_CLEANUP_DELAY
+} from '@utils/constants';
 import type {
     UseSectionNavigationOptions,
     UseSectionNavigationReturn,
@@ -20,8 +28,8 @@ export const useSectionNavigation = (
     const { scrollToElement } = smoothScrollActions;
 
     const {
-        rootMargin = '-80px 0px -20% 0px', // Account for header
-        throttleDelay = 300, // Prevent rapid section changes (reduced from 800ms)
+        rootMargin = NAVIGATION_ROOT_MARGIN, // Account for header
+        throttleDelay = NAVIGATION_THROTTLE_DELAY, // Prevent rapid section changes
     } = options;
 
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -59,12 +67,12 @@ export const useSectionNavigation = (
             setCurrentSection(targetSection.id);
 
             scrollToElement(targetSection.id, {
-                duration: 700,
+                duration: NAVIGATION_SCROLL_DURATION,
                 onComplete: () => {
                     setIsScrolling(false);
                     setTimeout(() => {
                         isNavigating.current = false;
-                    }, 50); // Reduced from 100ms for better responsiveness
+                    }, NAVIGATION_CLEANUP_DELAY); // Reduced from 100ms for better responsiveness
                 },
             });
         },
@@ -149,7 +157,7 @@ export const useSectionNavigation = (
 
             touchEndY.current = event.changedTouches[0].clientY;
             const deltaY = touchStartY.current - touchEndY.current;
-            const minSwipeDistance = 50; // Minimum distance for a swipe
+            const minSwipeDistance = MIN_SWIPE_DISTANCE; // Minimum distance for a swipe
 
             if (Math.abs(deltaY) < minSwipeDistance) {
                 return;
@@ -245,7 +253,7 @@ export const useSectionNavigation = (
 
         // Create intersection observer for active section detection
         observerRef.current = new IntersectionObserver(handleActiveSection, {
-            threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1.0],
+            threshold: INTERSECTION_THRESHOLDS,
             rootMargin,
         });
 

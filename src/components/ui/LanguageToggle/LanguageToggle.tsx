@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import { SUPPORTED_LANGUAGES } from '@utils/constants';
 import type { Language } from '../../../types/ui';
 
 interface LanguageToggleProps {
@@ -8,14 +9,9 @@ interface LanguageToggleProps {
     languages?: Language[];
 }
 
-const defaultLanguages: Language[] = [
-    { code: 'en', flag: '🇺🇸', label: 'English' },
-    { code: 'es', flag: '🇪🇸', label: 'Spanish' },
-];
-
 export const LanguageToggle: React.FC<LanguageToggleProps> = ({
     className = '',
-    languages = defaultLanguages,
+    languages = SUPPORTED_LANGUAGES,
 }) => {
     const { i18n } = useTranslation();
 

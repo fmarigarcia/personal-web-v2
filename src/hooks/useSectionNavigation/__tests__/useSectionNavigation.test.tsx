@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import * as NavigationContext from '@contexts/NavigationContext';
+import { NAVIGATION_SCROLL_DURATION } from '@utils/constants';
 import { useSectionNavigation } from '../useSectionNavigation';
 
 // Mock constants since we can't import them in test
@@ -234,7 +235,7 @@ describe('useSectionNavigation', () => {
         });
 
         expect(mockScrollToElement).toHaveBeenCalledWith('about', {
-            duration: 700,
+            duration: NAVIGATION_SCROLL_DURATION,
             onComplete: expect.any(Function),
         });
     });

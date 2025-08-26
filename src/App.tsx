@@ -1,5 +1,6 @@
 import { NavigationProvider } from '@contexts/NavigationContext';
 import { useSectionNavigation } from '@hooks/useSectionNavigation';
+import { NAVBAR_HEIGHT } from '@utils/constants';
 import { Header } from '@components/layout/Header';
 import { DotNavigation } from '@components/ui/DotNavigation';
 import { Hero } from '@pages/Hero';
@@ -11,7 +12,7 @@ import './App.css';
 function AppContent() {
     // Initialize section navigation with scroll interception
     useSectionNavigation({
-        rootMargin: '-80px 0px -30% 0px', // Account for header and better detection
+        rootMargin: `-${NAVBAR_HEIGHT}px 0px -30% 0px`, // Account for header and better detection
         throttleDelay: 300, // Wait 300ms between navigation events
     });
 
