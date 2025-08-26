@@ -60,3 +60,41 @@ export interface UseExperienceReturn {
         setHoveredExp: (expId: string | null) => void;
     };
 }
+
+// Hook utility types
+// Smooth scroll utilities
+export interface AnimationFrame {
+    timestamp: number;
+    element: HTMLElement;
+    startPosition: number;
+    targetPosition: number;
+    duration: number;
+    onComplete?: () => void;
+}
+
+export type EasingFunction = (t: number) => number;
+export type EasingType =
+    | 'linear'
+    | 'easeInCubic'
+    | 'easeOutCubic'
+    | 'easeInOutCubic';
+
+// Section navigation utilities
+export interface TouchGestureData {
+    startY: number;
+    endY: number;
+    deltaY: number;
+    direction: 'up' | 'down' | 'none';
+    isValidSwipe: boolean;
+}
+
+export type KeyboardNavigationKey =
+    | 'ArrowDown'
+    | 'ArrowUp'
+    | 'PageDown'
+    | 'PageUp'
+    | 'Home'
+    | 'End'
+    | ' '; // Space key
+
+export type NavigationDirection = 'next' | 'prev' | 'first' | 'last' | 'none';

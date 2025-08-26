@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { DEFAULT_INTERSECTION_THRESHOLD } from '@utils/constants';
+import {
+    getIntersectingEntries,
+    getMostVisibleEntry,
+    getEntryId,
+} from './utils';
 import type {
     UseIntersectionObserverOptions,
     UseIntersectionObserverReturn,
@@ -20,26 +25,19 @@ export const useIntersectionObserver = (
         // Create intersection observer
         observerRef.current = new IntersectionObserver(
             (entries) => {
-                // Find the entry with the highest intersection ratio that is intersecting
-                const intersectingEntries = entries.filter(
-                    (entry) => entry.isIntersecting
-                );
+                const intersectingEntries = getIntersectingEntries(entries);
 
                 if (intersectingEntries.length === 0) {
                     setActiveId(null);
                     return;
                 }
 
-                // Sort by intersection ratio (descending) and pick the most visible one
-                const mostVisibleEntry = intersectingEntries.reduce(
-                    (prev, current) =>
-                        prev.intersectionRatio > current.intersectionRatio
-                            ? prev
-                            : current
-                );
-
-                const targetId = mostVisibleEntry.target.id;
-                setActiveId(targetId);
+                const mostVisibleEntry =
+                    getMostVisibleEntry(intersectingEntries);
+                if (mostVisibleEntry) {
+                    const targetId = getEntryId(mostVisibleEntry);
+                    setActiveId(targetId);
+                }
             },
             {
                 threshold: options.threshold || DEFAULT_INTERSECTION_THRESHOLD,

@@ -1,11 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { SCROLL_DURATION, SCROLL_OFFSET } from '@utils/constants';
+import { easeInOutCubic } from './utils';
 import type { ScrollOptions, UseSmoothScrollReturn } from '../../types/hooks';
-
-// Easing function for smooth animation
-const easeInOutCubic = (t: number): number => {
-    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-};
 
 export const useSmoothScroll = (): UseSmoothScrollReturn => {
     const animationRef = useRef<number | null>(null);

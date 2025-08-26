@@ -5,11 +5,15 @@ import {
     NAVIGATION_ITEMS,
     NAVIGATION_THROTTLE_DELAY,
     NAVIGATION_ROOT_MARGIN,
-    MIN_SWIPE_DISTANCE,
     NAVIGATION_SCROLL_DURATION,
     INTERSECTION_THRESHOLDS,
     NAVIGATION_CLEANUP_DELAY,
 } from '@utils/constants';
+import {
+    getSectionIndex,
+    analyzeWheelEvent,
+    mapKeyToNavigation,
+} from './utils';
 import type {
     UseSectionNavigationOptions,
     UseSectionNavigationReturn,
@@ -38,7 +42,7 @@ export const useSectionNavigation = (
 
     // Get current section index
     const getCurrentSectionIndex = useCallback(() => {
-        return NAVIGATION_ITEMS.findIndex((item) => item.id === currentSection);
+        return getSectionIndex(currentSection);
     }, [currentSection]);
 
     // Navigate to specific section by index
@@ -92,14 +96,12 @@ export const useSectionNavigation = (
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex === -1) return;
 
-            // Determine scroll direction
-            const deltaY = event.deltaY;
+            // Determine scroll direction using utility
+            const direction = analyzeWheelEvent(event.deltaY);
 
-            if (deltaY > 0) {
-                // Scrolling down - go to next section
+            if (direction === 'next') {
                 navigateToSectionByIndex(currentIndex + 1);
-            } else if (deltaY < 0) {
-                // Scrolling up - go to previous section
+            } else if (direction === 'prev') {
                 navigateToSectionByIndex(currentIndex - 1);
             }
         },
@@ -116,26 +118,25 @@ export const useSectionNavigation = (
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex === -1) return;
 
-            switch (event.key) {
-                case 'ArrowDown':
-                case 'PageDown':
-                case ' ': // Space key
-                    event.preventDefault();
-                    navigateToSectionByIndex(currentIndex + 1);
-                    break;
-                case 'ArrowUp':
-                case 'PageUp':
-                    event.preventDefault();
-                    navigateToSectionByIndex(currentIndex - 1);
-                    break;
-                case 'Home':
-                    event.preventDefault();
-                    navigateToSectionByIndex(0);
-                    break;
-                case 'End':
-                    event.preventDefault();
-                    navigateToSectionByIndex(NAVIGATION_ITEMS.length - 1);
-                    break;
+            const direction = mapKeyToNavigation(event.key);
+
+            if (direction !== 'none') {
+                event.preventDefault();
+
+                switch (direction) {
+                    case 'next':
+                        navigateToSectionByIndex(currentIndex + 1);
+                        break;
+                    case 'prev':
+                        navigateToSectionByIndex(currentIndex - 1);
+                        break;
+                    case 'first':
+                        navigateToSectionByIndex(0);
+                        break;
+                    case 'last':
+                        navigateToSectionByIndex(NAVIGATION_ITEMS.length - 1);
+                        break;
+                }
             }
         },
         [getCurrentSectionIndex, navigateToSectionByIndex]
@@ -157,7 +158,7 @@ export const useSectionNavigation = (
 
             touchEndY.current = event.changedTouches[0].clientY;
             const deltaY = touchStartY.current - touchEndY.current;
-            const minSwipeDistance = MIN_SWIPE_DISTANCE; // Minimum distance for a swipe
+            const minSwipeDistance = 50; // Minimum distance for a swipe
 
             if (Math.abs(deltaY) < minSwipeDistance) {
                 return;
