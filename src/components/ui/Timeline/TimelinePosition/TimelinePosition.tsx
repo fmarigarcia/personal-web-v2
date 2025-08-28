@@ -16,7 +16,7 @@ export const TimelinePosition: React.FC<TimelinePositionProps> = ({
     const { t } = useTranslation();
 
     return (
-        <div className="text-center mb-8 max-w-32">
+        <div className="text-center mb-8 w-32">
             <p
                 className={clsx(
                     'text-sm font-bold transition-colors duration-300 leading-tight mb-1',
