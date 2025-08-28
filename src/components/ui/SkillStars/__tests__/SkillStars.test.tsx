@@ -3,7 +3,31 @@ import '@testing-library/jest-dom';
 
 import { SkillStars } from '../SkillStars';
 
+// Mock the useTheme hook
+const mockUseTheme = jest.fn();
+
+jest.mock('@contexts/ThemeContext', () => ({
+    useTheme: () => mockUseTheme(),
+}));
+
 describe('SkillStars', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+
+        // Setup default mock for useTheme
+        mockUseTheme.mockReturnValue({
+            data: {
+                theme: 'light',
+                isDark: false,
+                isLight: true,
+            },
+            actions: {
+                toggleTheme: jest.fn(),
+                setTheme: jest.fn(),
+            },
+        });
+    });
+
     it('should render correct number of stars for score 5', () => {
         const { container } = render(<SkillStars score={5} />);
 

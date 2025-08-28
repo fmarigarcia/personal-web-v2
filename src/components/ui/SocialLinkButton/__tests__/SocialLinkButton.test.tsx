@@ -65,15 +65,17 @@ describe('SocialLinkButton', () => {
         expect(link).toHaveClass(
             'w-12',
             'h-12',
-            'bg-white',
+            'bg-stone-50',
+            'border',
+            'border-stone-200',
             'rounded-lg',
             'shadow-sm',
             'hover:shadow-md',
             'flex',
             'items-center',
             'justify-center',
-            'text-gray-600',
-            'hover:text-blue-600',
+            'text-stone-600',
+            'hover:text-stone-950',
             'transition-all'
         );
     });

@@ -66,7 +66,7 @@ describe('ContactMethodCard', () => {
             'flex',
             'items-center',
             'p-4',
-            'bg-white',
+            'bg-stone-50',
             'rounded-lg',
             'shadow-sm',
             'hover:shadow-md',
@@ -78,12 +78,12 @@ describe('ContactMethodCard', () => {
             'flex-shrink-0',
             'w-12',
             'h-12',
-            'bg-blue-100',
+            'bg-stone-100',
             'rounded-lg',
             'flex',
             'items-center',
             'justify-center',
-            'text-blue-600',
+            'text-stone-950',
             'mr-4'
         );
     });

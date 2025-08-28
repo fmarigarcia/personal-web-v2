@@ -130,9 +130,11 @@ describe('Header', () => {
         // Check navigation buttons specifically (not theme toggle)
         const navButtons = screen.getAllByRole('button').filter((button) => {
             const text = button.textContent;
-            return ['Home', 'About', 'Experience', 'Contact'].includes(text || '');
+            return ['Home', 'About', 'Experience', 'Contact'].includes(
+                text || ''
+            );
         });
-        
+
         navButtons.forEach((button) => {
             expect(button).toHaveAttribute('type', 'button');
         });
@@ -155,6 +157,6 @@ describe('Header', () => {
 
         // The home/hero section should be active by default
         const homeLink = screen.getByText('Home');
-        expect(homeLink.closest('button')).toHaveClass('text-blue-600');
+        expect(homeLink.closest('button')).toHaveClass('text-stone-950');
     });
 });

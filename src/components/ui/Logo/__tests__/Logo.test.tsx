@@ -47,7 +47,7 @@ describe('Logo', () => {
         render(<Logo />);
 
         const logo = screen.getByRole('button');
-        expect(logo).toHaveClass('hover:text-blue-600', 'transition-colors');
+        expect(logo).toHaveClass('hover:text-stone-950', 'transition-colors');
     });
 
     it('should match snapshot', () => {

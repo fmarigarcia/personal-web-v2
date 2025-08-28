@@ -19,8 +19,9 @@ export const TimelineDuration: React.FC<TimelineDurationProps> = ({
                 className={clsx(
                     'text-xs font-medium transition-colors duration-300',
                     {
-                        'text-blue-600': isSelected,
-                        'text-gray-600 group-hover:text-blue-500': !isSelected,
+                        'text-stone-950': isSelected,
+                        'text-stone-600 group-hover:text-stone-950':
+                            !isSelected,
                     }
                 )}
             >

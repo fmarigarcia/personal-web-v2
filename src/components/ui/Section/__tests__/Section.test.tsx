@@ -20,14 +20,14 @@ describe('Section', () => {
         render(<Section {...defaultProps} />);
 
         const section = document.getElementById('test-section');
-        expect(section).toHaveClass('bg-white');
+        expect(section).toHaveClass('bg-stone-50');
     });
 
     it('should apply gray-50 background', () => {
         render(<Section {...defaultProps} backgroundColor="gray-50" />);
 
         const section = document.getElementById('test-section');
-        expect(section).toHaveClass('bg-gray-50');
+        expect(section).toHaveClass('bg-stone-50');
     });
 
     it('should apply gradient background', () => {
@@ -35,8 +35,8 @@ describe('Section', () => {
 
         const section = document.getElementById('test-section');
         expect(section).toHaveClass('bg-gradient-to-br');
-        expect(section).toHaveClass('from-gray-50');
-        expect(section).toHaveClass('to-gray-100');
+        expect(section).toHaveClass('from-stone-50');
+        expect(section).toHaveClass('to-stone-100');
     });
 
     it('should apply custom className', () => {

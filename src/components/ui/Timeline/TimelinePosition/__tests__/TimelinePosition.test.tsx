@@ -44,8 +44,8 @@ describe('TimelinePosition', () => {
         const companyElement = screen.getByText('Test Company');
         const positionElement = screen.getByText('test.position.key');
 
-        expect(companyElement).toHaveClass('text-blue-600');
-        expect(positionElement).toHaveClass('text-blue-500');
+        expect(companyElement).toHaveClass('text-stone-950');
+        expect(positionElement).toHaveClass('text-stone-900');
     });
 
     it('should apply unselected styles when isSelected is false', () => {
@@ -55,12 +55,12 @@ describe('TimelinePosition', () => {
         const positionElement = screen.getByText('test.position.key');
 
         expect(companyElement).toHaveClass(
-            'text-gray-700',
-            'group-hover:text-blue-500'
+            'text-stone-700',
+            'group-hover:text-stone-950'
         );
         expect(positionElement).toHaveClass(
-            'text-gray-500',
-            'group-hover:text-blue-400'
+            'text-stone-500',
+            'group-hover:text-stone-700'
         );
     });
 

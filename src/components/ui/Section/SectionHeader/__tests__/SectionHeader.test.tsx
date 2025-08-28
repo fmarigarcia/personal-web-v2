@@ -44,7 +44,7 @@ describe('SectionHeader', () => {
             'text-4xl',
             'md:text-5xl',
             'font-bold',
-            'text-gray-900',
+            'text-stone-800',
             'mb-4'
         );
     });
@@ -58,7 +58,7 @@ describe('SectionHeader', () => {
         const subtitleElement = screen.getByText(subtitle);
         expect(subtitleElement).toHaveClass(
             'text-xl',
-            'text-gray-600',
+            'text-stone-600',
             'max-w-3xl',
             'mx-auto',
             'mt-6'
@@ -71,7 +71,7 @@ describe('SectionHeader', () => {
 
         const container = screen.getByRole('heading').parentElement;
         const divider = container?.querySelector(
-            '.w-24.h-1.bg-blue-600.mx-auto'
+            '.w-24.h-1.bg-stone-950.mx-auto'
         );
         expect(divider).toBeInTheDocument();
     });

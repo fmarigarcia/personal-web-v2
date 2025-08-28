@@ -11,7 +11,7 @@ export const Logo: React.FC<LogoProps> = ({ onClick, className = '' }) => {
         <div className={clsx('flex items-center', className)}>
             <button
                 onClick={onClick}
-                className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+                className="text-xl font-bold text-stone-800 hover:text-stone-950 transition-colors"
                 type="button"
                 aria-label="Go to home"
             >

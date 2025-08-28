@@ -30,7 +30,7 @@ export const Contact: React.FC = () => {
                     {/* Contact Information */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                            <h3 className="text-2xl font-bold text-stone-800 mb-6">
                                 {t('contact.letsConnect')}
                             </h3>
                             <div className="space-y-4">
@@ -45,7 +45,7 @@ export const Contact: React.FC = () => {
 
                         {/* Social Links */}
                         <div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                            <h3 className="text-lg font-semibold text-stone-800 mb-4">
                                 {t('contact.followMe')}
                             </h3>
                             <div className="flex space-x-4">

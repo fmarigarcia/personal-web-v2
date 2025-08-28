@@ -23,7 +23,7 @@ function AppContent() {
     } = usePlatform();
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="min-h-screen bg-stone-50 dark:bg-gray-900 transition-colors duration-300">
             <Header />
             {isDesktop && <DotNavigation />}
 

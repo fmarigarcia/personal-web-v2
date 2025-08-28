@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
             <div className="max-w-4xl mx-auto text-center">
                 <div className="mb-8">
                     <h1 className={headingClasses.h1}>{data.name}</h1>
-                    <h2 className={`${headingClasses.h3} text-blue-600 mb-6`}>
+                    <h2 className={`${headingClasses.h3} text-stone-950 mb-6`}>
                         {data.title}
                     </h2>
                     <p className={`${headingClasses.body} max-w-2xl mx-auto`}>

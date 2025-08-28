@@ -6,28 +6,28 @@ exports[`NavigationLinks should match snapshot 1`] = `
 >
   <button
     aria-label="Go to Home section"
-    class="text-sm font-medium transition-colors hover:text-blue-600 text-blue-600"
+    class="text-sm font-medium transition-colors hover:text-stone-950 text-stone-950"
     type="button"
   >
     Home
   </button>
   <button
     aria-label="Go to About section"
-    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    class="text-sm font-medium transition-colors hover:text-stone-950 text-stone-700"
     type="button"
   >
     About
   </button>
   <button
     aria-label="Go to Experience section"
-    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    class="text-sm font-medium transition-colors hover:text-stone-950 text-stone-700"
     type="button"
   >
     Experience
   </button>
   <button
     aria-label="Go to Contact section"
-    class="text-sm font-medium transition-colors hover:text-blue-600 text-gray-700"
+    class="text-sm font-medium transition-colors hover:text-stone-950 text-stone-700"
     type="button"
   >
     Contact

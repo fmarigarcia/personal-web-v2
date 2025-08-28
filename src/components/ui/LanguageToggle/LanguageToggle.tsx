@@ -28,9 +28,9 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({
                     className={clsx(
                         'text-sm font-medium px-2 py-1 rounded transition-colors',
                         {
-                            'bg-blue-600 text-white':
+                            'bg-stone-950 text-white':
                                 i18n.language === language.code,
-                            'text-gray-700 hover:text-blue-600':
+                            'text-stone-700 hover:text-stone-950':
                                 i18n.language !== language.code,
                         }
                     )}

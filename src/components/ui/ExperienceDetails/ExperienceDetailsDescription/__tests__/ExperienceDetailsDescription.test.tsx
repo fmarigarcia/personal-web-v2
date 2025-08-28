@@ -56,7 +56,7 @@ describe('ExperienceDetailsDescription', () => {
         );
 
         const bullets = container.querySelectorAll(
-            '.w-2.h-2.bg-blue-600.rounded-full'
+            '.w-2.h-2.bg-stone-950.rounded-full'
         );
         expect(bullets).toHaveLength(3);
     });
@@ -67,7 +67,7 @@ describe('ExperienceDetailsDescription', () => {
         );
 
         const textSpans = container.querySelectorAll(
-            'span.text-gray-700.leading-relaxed'
+            'span.text-stone-700.leading-relaxed'
         );
         expect(textSpans).toHaveLength(3);
     });

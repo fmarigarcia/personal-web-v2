@@ -74,13 +74,13 @@ describe('DotNavigation', () => {
         const homeDot = screen.getByRole('button', {
             name: /go to home section/i,
         });
-        expect(homeDot).toHaveClass('bg-blue-600', 'border-blue-600');
+        expect(homeDot).toHaveClass('bg-stone-950', 'border-stone-950');
 
         // Other dots should not be active
         const aboutDot = screen.getByRole('button', {
             name: /go to about section/i,
         });
-        expect(aboutDot).toHaveClass('bg-transparent', 'border-gray-400');
+        expect(aboutDot).toHaveClass('bg-transparent', 'border-stone-400');
     });
 
     it('should have proper accessibility attributes', () => {
@@ -132,7 +132,7 @@ describe('DotNavigation', () => {
             expect(dot).toHaveClass(
                 'focus:outline-none',
                 'focus:ring-2',
-                'focus:ring-blue-500'
+                'focus:ring-stone-400'
             );
         });
     });

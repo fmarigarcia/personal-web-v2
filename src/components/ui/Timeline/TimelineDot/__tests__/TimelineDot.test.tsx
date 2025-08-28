@@ -7,8 +7,8 @@ describe('TimelineDot', () => {
 
         const dot = container.firstChild as HTMLElement;
         expect(dot).toHaveClass(
-            'bg-blue-600',
-            'border-blue-600',
+            'bg-stone-950',
+            'border-stone-950',
             'scale-125',
             'shadow-lg'
         );
@@ -19,9 +19,9 @@ describe('TimelineDot', () => {
 
         const dot = container.firstChild as HTMLElement;
         expect(dot).toHaveClass(
-            'bg-white',
-            'border-blue-600',
-            'group-hover:bg-blue-100',
+            'bg-stone-50',
+            'border-stone-400',
+            'group-hover:bg-stone-100',
             'group-hover:scale-110'
         );
     });

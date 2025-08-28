@@ -5,13 +5,13 @@ exports[`TimelinePosition should match snapshot when not selected 1`] = `
   class="text-center mb-8 w-32"
 >
   <p
-    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-gray-700 group-hover:text-blue-500"
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-700 group-hover:text-stone-950"
     title="Test Company / Division"
   >
     Test Company
   </p>
   <p
-    class="text-xs transition-colors duration-300 leading-tight text-gray-500 group-hover:text-blue-400"
+    class="text-xs transition-colors duration-300 leading-tight text-stone-500 group-hover:text-stone-700"
   >
     test.position.key
   </p>
@@ -23,13 +23,13 @@ exports[`TimelinePosition should match snapshot when selected 1`] = `
   class="text-center mb-8 w-32"
 >
   <p
-    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-blue-600"
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-950"
     title="Test Company / Division"
   >
     Test Company
   </p>
   <p
-    class="text-xs transition-colors duration-300 leading-tight text-blue-500"
+    class="text-xs transition-colors duration-300 leading-tight text-stone-900"
   >
     test.position.key
   </p>

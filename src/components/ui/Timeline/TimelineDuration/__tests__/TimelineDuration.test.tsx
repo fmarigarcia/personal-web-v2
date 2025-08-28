@@ -24,7 +24,7 @@ describe('TimelineDuration', () => {
         render(<TimelineDuration {...defaultProps} isSelected={true} />);
 
         const durationElement = screen.getByText('test.duration.key');
-        expect(durationElement).toHaveClass('text-blue-600');
+        expect(durationElement).toHaveClass('text-stone-950');
     });
 
     it('should apply unselected styles when isSelected is false', () => {
@@ -32,8 +32,8 @@ describe('TimelineDuration', () => {
 
         const durationElement = screen.getByText('test.duration.key');
         expect(durationElement).toHaveClass(
-            'text-gray-600',
-            'group-hover:text-blue-500'
+            'text-stone-600',
+            'group-hover:text-stone-950'
         );
     });
 

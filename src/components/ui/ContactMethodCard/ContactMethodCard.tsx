@@ -14,16 +14,16 @@ export const ContactMethodCard: React.FC<ContactMethodCardProps> = ({
     return (
         <a
             href={method.href}
-            className="flex items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="flex items-center p-4 bg-stone-50 rounded-lg shadow-sm hover:shadow-md transition-shadow"
         >
-            <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mr-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center text-stone-950 mr-4">
                 <IconComponent className="w-6 h-6" />
             </div>
             <div>
-                <h4 className="font-semibold text-gray-900">
+                <h4 className="font-semibold text-stone-800">
                     {t(method.titleKey)}
                 </h4>
-                <p className="text-gray-600">{method.value}</p>
+                <p className="text-stone-600">{method.value}</p>
             </div>
         </a>
     );

@@ -61,8 +61,8 @@ describe('LanguageToggle', () => {
         });
 
         // English should be active by default
-        expect(enButton).toHaveClass('bg-blue-600', 'text-white');
-        expect(esButton).toHaveClass('text-gray-700');
+        expect(enButton).toHaveClass('bg-stone-950', 'text-white');
+        expect(esButton).toHaveClass('text-stone-700');
     });
 
     it('should handle language change to Spanish', () => {
@@ -130,7 +130,7 @@ describe('LanguageToggle', () => {
             name: /switch to spanish/i,
         });
         expect(esButton).toHaveClass(
-            'hover:text-blue-600',
+            'hover:text-stone-950',
             'transition-colors'
         );
     });

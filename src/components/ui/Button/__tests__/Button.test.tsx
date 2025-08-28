@@ -9,9 +9,9 @@ describe('Button', () => {
         expect(button).toBeInTheDocument();
         expect(button).toHaveTextContent('Click me');
         expect(button).toHaveClass(
-            'bg-blue-600',
+            'bg-stone-950',
             'text-white',
-            'hover:bg-blue-700'
+            'hover:bg-stone-900'
         );
     });
 
@@ -21,9 +21,9 @@ describe('Button', () => {
         const button = screen.getByRole('button');
         expect(button).toHaveClass(
             'border',
-            'border-gray-300',
-            'text-gray-700',
-            'hover:border-gray-400'
+            'border-stone-400',
+            'text-stone-700',
+            'hover:border-stone-500'
         );
     });
 
@@ -32,8 +32,8 @@ describe('Button', () => {
 
         const button = screen.getByRole('button');
         expect(button).toHaveClass(
-            'bg-gray-400',
-            'text-gray-200',
+            'bg-stone-300',
+            'text-stone-500',
             'cursor-not-allowed'
         );
     });
@@ -73,7 +73,11 @@ describe('Button', () => {
         render(<Button className="custom-class">Click me</Button>);
 
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('custom-class', 'bg-blue-600', 'text-white');
+        expect(button).toHaveClass(
+            'custom-class',
+            'bg-stone-950',
+            'text-white'
+        );
     });
 
     it('renders as submit type when specified', () => {

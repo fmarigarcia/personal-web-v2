@@ -12,11 +12,11 @@ exports[`DotNavigation should match snapshot 1`] = `
     <li>
       <button
         aria-label="Go to Home section"
-        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-blue-600 border-blue-600 scale-110"
+        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-offset-2 bg-stone-950 border-stone-950 scale-110"
         type="button"
       >
         <span
-          class="absolute right-full mr-3 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
+          class="absolute right-full mr-3 px-2 py-1 bg-stone-800 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
         >
           Home
         </span>
@@ -25,11 +25,11 @@ exports[`DotNavigation should match snapshot 1`] = `
     <li>
       <button
         aria-label="Go to About section"
-        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-transparent border-gray-400 hover:border-blue-500"
+        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-offset-2 bg-transparent border-stone-400 hover:border-stone-950"
         type="button"
       >
         <span
-          class="absolute right-full mr-3 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
+          class="absolute right-full mr-3 px-2 py-1 bg-stone-800 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
         >
           About
         </span>
@@ -38,11 +38,11 @@ exports[`DotNavigation should match snapshot 1`] = `
     <li>
       <button
         aria-label="Go to Experience section"
-        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-transparent border-gray-400 hover:border-blue-500"
+        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-offset-2 bg-transparent border-stone-400 hover:border-stone-950"
         type="button"
       >
         <span
-          class="absolute right-full mr-3 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
+          class="absolute right-full mr-3 px-2 py-1 bg-stone-800 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
         >
           Experience
         </span>
@@ -51,11 +51,11 @@ exports[`DotNavigation should match snapshot 1`] = `
     <li>
       <button
         aria-label="Go to Contact section"
-        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-transparent border-gray-400 hover:border-blue-500"
+        class="group relative block w-3 h-3 rounded-full border-2 transition-all duration-300 ease-in-out hover:scale-125 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-offset-2 bg-transparent border-stone-400 hover:border-stone-950"
         type="button"
       >
         <span
-          class="absolute right-full mr-3 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
+          class="absolute right-full mr-3 px-2 py-1 bg-stone-800 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200 whitespace-nowrap top-1/2 -translate-y-1/2 group-hover:opacity-100"
         >
           Contact
         </span>

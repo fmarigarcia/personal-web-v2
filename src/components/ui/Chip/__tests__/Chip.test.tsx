@@ -53,9 +53,9 @@ describe('Chip', () => {
             const chip = container.firstChild as HTMLElement;
 
             expect(chip).toHaveClass(
-                'bg-blue-100',
-                'text-blue-800',
-                'hover:bg-blue-200'
+                'bg-stone-100',
+                'text-stone-800',
+                'hover:bg-stone-200'
             );
         });
 
@@ -66,9 +66,9 @@ describe('Chip', () => {
             const chip = container.firstChild as HTMLElement;
 
             expect(chip).toHaveClass(
-                'bg-gray-100',
-                'text-gray-800',
-                'hover:bg-gray-200'
+                'bg-stone-50',
+                'text-stone-800',
+                'hover:bg-stone-100'
             );
         });
 

@@ -34,13 +34,10 @@ export const INTERSECTION_THRESHOLDS = [0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1.0];
 export const DEFAULT_INTERSECTION_THRESHOLD = 0.5;
 
 // UI & Component constants
-export const STAR_COLORS = [
-    '#a50104',
-    '#d15e04',
-    '#fcba04',
-    '#b2ae2a',
-    '#6da34d',
-];
+export const STAR_COLORS = {
+    light: ['#44403c', '#44403c', '#44403c', '#44403c', '#44403c'],
+    dark: ['#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1'],
+};
 export const DEFAULT_STAR_SIZE = 20;
 export const DEFAULT_MAX_STARS = 5;
 

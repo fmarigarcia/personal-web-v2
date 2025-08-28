@@ -11,9 +11,9 @@ export const TimelineDot: React.FC<TimelineDotProps> = ({ isSelected }) => {
             className={clsx(
                 'w-4 h-4 rounded-full border-3 transition-all duration-300 mb-4',
                 {
-                    'bg-blue-600 border-blue-600 scale-125 shadow-lg':
+                    'bg-stone-950 border-stone-950 scale-125 shadow-lg':
                         isSelected,
-                    'bg-white border-blue-600 group-hover:bg-blue-100 group-hover:scale-110':
+                    'bg-stone-50 border-stone-400 group-hover:bg-stone-100 group-hover:scale-110':
                         !isSelected,
                 }
             )}

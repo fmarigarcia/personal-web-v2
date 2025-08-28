@@ -55,11 +55,11 @@ describe('NavigationLinks', () => {
 
         // Hero should be highlighted by default
         const homeButton = screen.getByText('Home');
-        expect(homeButton).toHaveClass('text-blue-600');
+        expect(homeButton).toHaveClass('text-stone-950');
 
         // Other buttons should not be highlighted
         const aboutButton = screen.getByText('About');
-        expect(aboutButton).toHaveClass('text-gray-700');
+        expect(aboutButton).toHaveClass('text-stone-700');
     });
 
     it('should have proper accessibility attributes', () => {
@@ -93,7 +93,7 @@ describe('NavigationLinks', () => {
         const buttons = screen.getAllByRole('button');
         buttons.forEach((button) => {
             expect(button).toHaveClass(
-                'hover:text-blue-600',
+                'hover:text-stone-950',
                 'transition-colors'
             );
         });

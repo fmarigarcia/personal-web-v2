@@ -32,7 +32,7 @@ describe('ExperienceDetailsHeader', () => {
             'text-2xl',
             'lg:text-3xl',
             'font-bold',
-            'text-gray-900',
+            'text-stone-800',
             'mb-2'
         );
     });
@@ -42,7 +42,7 @@ describe('ExperienceDetailsHeader', () => {
 
         const position = screen.getByText('test.position.key');
         expect(position).toHaveClass(
-            'text-blue-600',
+            'text-stone-950',
             'font-semibold',
             'text-lg',
             'lg:text-xl',
@@ -54,7 +54,7 @@ describe('ExperienceDetailsHeader', () => {
         render(<ExperienceDetailsHeader {...defaultProps} />);
 
         const duration = screen.getByText('test.duration.key');
-        expect(duration).toHaveClass('text-gray-500', 'font-medium');
+        expect(duration).toHaveClass('text-stone-500', 'font-medium');
     });
 
     it('should have correct wrapper structure', () => {
@@ -66,7 +66,7 @@ describe('ExperienceDetailsHeader', () => {
         expect(wrapper).toHaveClass(
             'mb-6',
             'border-b',
-            'border-gray-100',
+            'border-stone-200',
             'pb-6'
         );
     });

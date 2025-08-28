@@ -21,8 +21,9 @@ export const TimelinePosition: React.FC<TimelinePositionProps> = ({
                 className={clsx(
                     'text-sm font-bold transition-colors duration-300 leading-tight mb-1',
                     {
-                        'text-blue-600': isSelected,
-                        'text-gray-700 group-hover:text-blue-500': !isSelected,
+                        'text-stone-950': isSelected,
+                        'text-stone-700 group-hover:text-stone-950':
+                            !isSelected,
                     }
                 )}
                 title={company}
@@ -33,8 +34,9 @@ export const TimelinePosition: React.FC<TimelinePositionProps> = ({
                 className={clsx(
                     'text-xs transition-colors duration-300 leading-tight',
                     {
-                        'text-blue-500': isSelected,
-                        'text-gray-500 group-hover:text-blue-400': !isSelected,
+                        'text-stone-900': isSelected,
+                        'text-stone-500 group-hover:text-stone-700':
+                            !isSelected,
                     }
                 )}
             >

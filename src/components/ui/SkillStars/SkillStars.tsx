@@ -4,6 +4,7 @@ import {
     DEFAULT_STAR_SIZE,
     DEFAULT_MAX_STARS,
 } from '@utils/constants';
+import { useTheme } from '@contexts/ThemeContext';
 import { Star } from './Star';
 
 interface SkillStarsProps {
@@ -17,6 +18,9 @@ export const SkillStars: React.FC<SkillStarsProps> = ({
     maxStars = DEFAULT_MAX_STARS,
     size = DEFAULT_STAR_SIZE,
 }) => {
+    const {
+        data: { theme },
+    } = useTheme();
     const starValues = useMemo(
         () =>
             Array.from({ length: maxStars }).map((_, i) =>
@@ -30,7 +34,7 @@ export const SkillStars: React.FC<SkillStarsProps> = ({
                 <Star
                     value={starValue}
                     size={size}
-                    color={STAR_COLORS[i]}
+                    color={STAR_COLORS[theme][i]}
                     key={`star_${i}`}
                 />
             ))}

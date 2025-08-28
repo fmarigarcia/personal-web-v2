@@ -41,8 +41,8 @@ describe('DotButton', () => {
 
         const button = screen.getByRole('button');
         expect(button).toHaveClass(
-            'bg-blue-600',
-            'border-blue-600',
+            'bg-stone-950',
+            'border-stone-950',
             'scale-110'
         );
     });
@@ -51,10 +51,10 @@ describe('DotButton', () => {
         render(<DotButton {...defaultProps} isActive={false} />);
 
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('bg-transparent', 'border-gray-400');
+        expect(button).toHaveClass('bg-transparent', 'border-stone-400');
         expect(button).not.toHaveClass(
-            'bg-blue-600',
-            'border-blue-600',
+            'bg-stone-950',
+            'border-stone-950',
             'scale-110'
         );
     });
@@ -73,7 +73,7 @@ describe('DotButton', () => {
         expect(button).toHaveClass(
             'focus:outline-none',
             'focus:ring-2',
-            'focus:ring-blue-500',
+            'focus:ring-stone-400',
             'focus:ring-offset-2'
         );
     });

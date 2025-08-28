@@ -5,7 +5,7 @@ exports[`TimelineDuration should match snapshot when not selected 1`] = `
   class="text-center"
 >
   <p
-    class="text-xs font-medium transition-colors duration-300 text-gray-600 group-hover:text-blue-500"
+    class="text-xs font-medium transition-colors duration-300 text-stone-600 group-hover:text-stone-950"
   >
     test.duration.key
   </p>
@@ -17,7 +17,7 @@ exports[`TimelineDuration should match snapshot when selected 1`] = `
   class="text-center"
 >
   <p
-    class="text-xs font-medium transition-colors duration-300 text-blue-600"
+    class="text-xs font-medium transition-colors duration-300 text-stone-950"
   >
     test.duration.key
   </p>

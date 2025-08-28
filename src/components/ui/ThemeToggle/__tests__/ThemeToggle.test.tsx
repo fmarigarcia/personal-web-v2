@@ -80,7 +80,7 @@ describe('ThemeToggle', () => {
         const svg = button.querySelector('svg');
 
         expect(svg).toBeInTheDocument();
-        expect(svg).toHaveClass('text-gray-700');
+        expect(svg).toHaveClass('text-stone-600');
         expect(button).toHaveAttribute('aria-label', 'Switch to dark mode');
     });
 
@@ -103,7 +103,7 @@ describe('ThemeToggle', () => {
         const svg = button.querySelector('svg');
 
         expect(svg).toBeInTheDocument();
-        expect(svg).toHaveClass('text-yellow-500');
+        expect(svg).toHaveClass('text-stone-950');
         expect(button).toHaveAttribute('aria-label', 'Switch to light mode');
     });
 
@@ -118,8 +118,10 @@ describe('ThemeToggle', () => {
             'w-10',
             'h-10',
             'rounded-lg',
-            'bg-gray-100',
-            'hover:bg-gray-200',
+            'bg-stone-50',
+            'hover:bg-stone-100',
+            'border',
+            'border-stone-200',
             'dark:bg-gray-700',
             'dark:hover:bg-gray-600',
             'transition-colors',
