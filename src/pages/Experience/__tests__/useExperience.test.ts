@@ -67,14 +67,14 @@ describe('useExperience', () => {
     it('should update selected experience when setSelectedExp is called', () => {
         const { result } = renderHook(() => useExperience());
 
-        const newExp = result.current.data.experiences[0]; // exp1
+        const newExp = result.current.data.experiences[0]; // first experience
 
         act(() => {
             result.current.actions.setSelectedExp(newExp);
         });
 
-        expect(result.current.data.selectedExp.id).toBe('exp1');
-        expect(result.current.data.displayedExp.id).toBe('exp1');
+        expect(result.current.data.selectedExp.id).toBe(newExp.id);
+        expect(result.current.data.displayedExp.id).toBe(newExp.id);
     });
 
     it('should update hovered experience when setHoveredExp is called', () => {
@@ -150,14 +150,15 @@ describe('useExperience', () => {
     it('should update displayedExp when both selected and hovered are set', () => {
         const { result } = renderHook(() => useExperience());
 
+        // Get the first experience
+        const firstExp = result.current.data.experiences[0];
+
         // Change selected first
         act(() => {
-            result.current.actions.setSelectedExp(
-                result.current.data.experiences[0]
-            ); // exp1
+            result.current.actions.setSelectedExp(firstExp);
         });
 
-        expect(result.current.data.displayedExp.id).toBe('exp1');
+        expect(result.current.data.displayedExp.id).toBe(firstExp.id);
 
         // Then set hovered - should take precedence
         act(() => {
@@ -165,7 +166,7 @@ describe('useExperience', () => {
         });
 
         expect(result.current.data.displayedExp.id).toBe('exp2');
-        expect(result.current.data.selectedExp.id).toBe('exp1'); // Selected unchanged
+        expect(result.current.data.selectedExp.id).toBe(firstExp.id); // Selected unchanged
     });
 
     it('should handle rapid hover changes correctly', () => {

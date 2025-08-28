@@ -114,8 +114,9 @@ describe('ExperienceDetails', () => {
 
         const outerWrapper = container.firstChild as HTMLElement;
         expect(outerWrapper).toHaveClass(
-            'flex-1',
-            'max-w-4xl',
+            'lg:flex-1',
+            'lg:max-w-4xl',
+            'max-w-none',
             'mx-auto',
             'w-full'
         );

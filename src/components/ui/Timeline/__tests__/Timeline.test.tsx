@@ -2,6 +2,17 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Timeline } from '../Timeline';
 import type { ExperienceItem } from '../../../../types/data';
 
+// Mock usePlatform hook
+jest.mock('../../../../hooks/usePlatform', () => ({
+    usePlatform: jest.fn(() => ({
+        data: {
+            isDesktop: true,
+            isMobile: false,
+            isTablet: false,
+        },
+    })),
+}));
+
 // Mock the sub-components
 jest.mock('../TimelineLine', () => ({
     TimelineLine: () => <div data-testid="timeline-line">Timeline Line</div>,
@@ -120,7 +131,12 @@ describe('Timeline', () => {
         expect(mainContainer).toHaveClass('mb-12');
 
         const innerContainer = mainContainer.firstChild as HTMLElement;
-        expect(innerContainer).toHaveClass('relative', 'px-8', 'lg:px-16');
+        expect(innerContainer).toHaveClass(
+            'relative',
+            'lg:px-16',
+            'max-w-full',
+            'overflow-scroll'
+        );
     });
 
     it('should handle empty experiences array', () => {

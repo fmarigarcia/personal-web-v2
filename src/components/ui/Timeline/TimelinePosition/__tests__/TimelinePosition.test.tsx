@@ -78,7 +78,7 @@ describe('TimelinePosition', () => {
         const { container } = render(<TimelinePosition {...defaultProps} />);
 
         const wrapper = container.firstChild as HTMLElement;
-        expect(wrapper).toHaveClass('text-center', 'mb-8', 'max-w-32');
+        expect(wrapper).toHaveClass('text-center', 'mb-8', 'w-32');
     });
 
     it('should match snapshot when selected', () => {

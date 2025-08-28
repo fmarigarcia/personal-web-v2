@@ -2,6 +2,17 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import type { ExperienceItem } from '../../../../../types/data';
 import { TimelineItems } from '../TimelineItems';
 
+// Mock usePlatform hook
+jest.mock('../../../../../hooks/usePlatform', () => ({
+    usePlatform: jest.fn(() => ({
+        data: {
+            isDesktop: true,
+            isMobile: false,
+            isTablet: false,
+        },
+    })),
+}));
+
 // Mock the sub-components
 jest.mock('../../TimelinePosition', () => ({
     TimelinePosition: ({
@@ -137,8 +148,7 @@ describe('TimelineItems', () => {
                 'items-center',
                 'group',
                 'cursor-pointer',
-                'min-w-0',
-                'max-w-40'
+                'w-40'
             );
         });
     });
