@@ -28,39 +28,6 @@ export const isMobileViewport = (
 };
 
 /**
- * Checks if the device is a touch-enabled device
- *
- * @returns Whether the device supports touch
- */
-export const isTouchDevice = (): boolean => {
-    if (typeof window === 'undefined') {
-        return false; // SSR fallback
-    }
-
-    // Primary check: navigator.maxTouchPoints
-    if (navigator.maxTouchPoints > 0) {
-        return true;
-    }
-
-    // Secondary check: touch events exist and have been assigned a value
-    if ('ontouchstart' in window && window.ontouchstart !== undefined) {
-        return true;
-    }
-
-    // Check for other touch indicators
-    if ('TouchEvent' in window && typeof TouchEvent === 'function') {
-        try {
-            new TouchEvent('touchstart');
-            return true;
-        } catch {
-            return false;
-        }
-    }
-
-    return false;
-};
-
-/**
  * Comprehensive mobile detection combining viewport size and touch capability
  *
  * @param breakpoint - The breakpoint to use for viewport detection (default: MD = 768px)
@@ -69,7 +36,7 @@ export const isTouchDevice = (): boolean => {
 export const isMobileDevice = (
     breakpoint: number = BREAKPOINTS.MD
 ): boolean => {
-    return isMobileViewport(breakpoint) || isTouchDevice();
+    return isMobileViewport(breakpoint);
 };
 
 /**

@@ -1,1 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cagliostro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.cagliostro-regular {
+    font-family: 'Cagliostro', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-regular {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Cagliostro', cursive;
+    &:where(.dark, .dark *) {
+        font-family: 'Space Mono', monospace;
+    }
+}

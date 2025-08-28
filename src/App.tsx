@@ -1,4 +1,5 @@
 import { NavigationProvider } from '@contexts/NavigationContext';
+import { ThemeProvider } from '@contexts/ThemeContext';
 import { useSectionNavigation } from '@hooks/useSectionNavigation';
 import { NAVBAR_HEIGHT } from '@utils/constants';
 import { Header } from '@components/layout/Header';
@@ -22,7 +23,7 @@ function AppContent() {
     } = usePlatform();
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
             <Header />
             {isDesktop && <DotNavigation />}
 
@@ -38,9 +39,11 @@ function AppContent() {
 
 function App() {
     return (
-        <NavigationProvider>
-            <AppContent />
-        </NavigationProvider>
+        <ThemeProvider>
+            <NavigationProvider>
+                <AppContent />
+            </NavigationProvider>
+        </ThemeProvider>
     );
 }
 

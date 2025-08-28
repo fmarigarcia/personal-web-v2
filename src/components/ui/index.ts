@@ -1,6 +1,7 @@
 export { Logo } from './Logo';
 export { NavigationLinks } from './NavigationLinks';
 export { LanguageToggle } from './LanguageToggle';
+export { ThemeToggle } from './ThemeToggle';
 export { DotNavigation } from './DotNavigation';
 export { Section } from './Section';
 export { Button } from './Button';

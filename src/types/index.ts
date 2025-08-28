@@ -5,3 +5,4 @@ export type * from './data';
 export type * from './forms';
 export type * from './ui';
 export type * from './hooks';
+export type * from './theme';
