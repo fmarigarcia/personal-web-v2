@@ -3,7 +3,6 @@ import { useNavigation } from '@contexts/NavigationContext';
 import { Logo } from '@components/ui/Logo';
 import { NavigationLinks } from '@components/ui/NavigationLinks';
 import { LanguageToggle } from '@components/ui/LanguageToggle';
-import { MobileMenuButton } from '@components/ui/MobileMenuButton';
 
 export const Header: React.FC = () => {
     const { t } = useTranslation();
@@ -32,7 +31,6 @@ export const Header: React.FC = () => {
 
                     <div className="flex items-center space-x-4">
                         <LanguageToggle />
-                        <MobileMenuButton />
                     </div>
                 </nav>
             </div>
