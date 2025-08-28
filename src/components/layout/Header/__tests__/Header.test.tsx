@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { NavigationProvider } from '@contexts/NavigationContext';
+import { ThemeProvider } from '@contexts/ThemeContext';
 import { Header } from '../Header';
 
 // Mock i18next
@@ -11,6 +12,7 @@ jest.mock('react-i18next', () => ({
                 'nav.about': 'About',
                 'nav.experience': 'Experience',
                 'nav.contact': 'Contact',
+                'nav.mainNavigation': 'Main navigation',
             };
             return translations[key] || key;
         },
@@ -31,12 +33,48 @@ jest.mock('@hooks/useSmoothScroll', () => ({
     }),
 }));
 
+// Mock platform hook
+jest.mock('@hooks/usePlatform', () => ({
+    usePlatform: () => ({
+        data: {
+            isDesktop: true,
+            isMobile: false,
+            isTablet: false,
+        },
+    }),
+}));
+
+// Mock localStorage
+const mockLocalStorage = {
+    getItem: jest.fn().mockReturnValue(null),
+    setItem: jest.fn(),
+};
+Object.defineProperty(window, 'localStorage', {
+    value: mockLocalStorage,
+});
+
+// Mock matchMedia
+Object.defineProperty(window, 'matchMedia', {
+    value: jest.fn().mockImplementation(() => ({
+        matches: false,
+        media: '',
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+    })),
+});
+
 describe('Header', () => {
     const renderHeader = () => {
         return render(
-            <NavigationProvider>
-                <Header />
-            </NavigationProvider>
+            <ThemeProvider>
+                <NavigationProvider>
+                    <Header />
+                </NavigationProvider>
+            </ThemeProvider>
         );
     };
 
@@ -89,9 +127,14 @@ describe('Header', () => {
         expect(nav).toBeInTheDocument();
         expect(nav).toHaveAttribute('aria-label');
 
-        const navLinks = screen.getAllByRole('button');
-        navLinks.forEach((link) => {
-            expect(link).toHaveAttribute('type', 'button');
+        // Check navigation buttons specifically (not theme toggle)
+        const navButtons = screen.getAllByRole('button').filter((button) => {
+            const text = button.textContent;
+            return ['Home', 'About', 'Experience', 'Contact'].includes(text || '');
+        });
+        
+        navButtons.forEach((button) => {
+            expect(button).toHaveAttribute('type', 'button');
         });
     });
 

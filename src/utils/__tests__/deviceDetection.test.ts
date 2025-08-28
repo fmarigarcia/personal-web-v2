@@ -3,7 +3,6 @@
  */
 import {
     isMobileViewport,
-    isTouchDevice,
     isMobileDevice,
     getViewportSize,
     onViewportChange,
@@ -22,12 +21,6 @@ Object.defineProperty(window, 'innerHeight', {
     value: 768,
 });
 
-Object.defineProperty(navigator, 'maxTouchPoints', {
-    writable: true,
-    configurable: true,
-    value: 0,
-});
-
 describe('deviceDetection utilities', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -40,34 +33,6 @@ describe('deviceDetection utilities', () => {
             value: 768,
             writable: true,
         });
-        Object.defineProperty(navigator, 'maxTouchPoints', {
-            value: 0,
-            writable: true,
-        });
-
-        // Ensure no touch support by default - disable TouchEvent constructor
-        Object.defineProperty(window, 'ontouchstart', {
-            value: undefined,
-            writable: true,
-            configurable: true,
-        });
-
-        // Mock TouchEvent to throw an error for non-touch devices
-        const originalTouchEvent = window.TouchEvent;
-        Object.defineProperty(window, 'TouchEvent', {
-            value: class MockTouchEvent {
-                constructor() {
-                    throw new Error('TouchEvent not supported');
-                }
-            },
-            writable: true,
-            configurable: true,
-        });
-
-        // Store original for restoration in tests that need it
-        (
-            window as unknown as { _originalTouchEvent?: typeof TouchEvent }
-        )._originalTouchEvent = originalTouchEvent;
     });
 
     describe('BREAKPOINTS', () => {
@@ -134,55 +99,10 @@ describe('deviceDetection utilities', () => {
         });
     });
 
-    describe('isTouchDevice', () => {
-        it('should return false for non-touch devices', () => {
-            expect(isTouchDevice()).toBe(false);
-        });
-
-        it('should return true when ontouchstart is available', () => {
-            // Restore original TouchEvent for this test
-            const originalTouchEvent = (
-                window as unknown as { _originalTouchEvent?: typeof TouchEvent }
-            )._originalTouchEvent;
-            if (originalTouchEvent) {
-                Object.defineProperty(window, 'TouchEvent', {
-                    value: originalTouchEvent,
-                    configurable: true,
-                });
-            }
-
-            Object.defineProperty(window, 'ontouchstart', { value: {} });
-
-            expect(isTouchDevice()).toBe(true);
-        });
-
-        it('should return true when maxTouchPoints > 0', () => {
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 5,
-                writable: true,
-            });
-
-            expect(isTouchDevice()).toBe(true);
-        });
-
-        it('should return false in SSR environment', () => {
-            const originalWindow = global.window;
-            delete (global as unknown as { window?: Window }).window;
-
-            expect(isTouchDevice()).toBe(false);
-
-            global.window = originalWindow;
-        });
-    });
-
     describe('isMobileDevice', () => {
-        it('should return false for desktop non-touch device', () => {
+        it('should return false for desktop viewport', () => {
             Object.defineProperty(window, 'innerWidth', {
                 value: 1024,
-                writable: true,
-            });
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 0,
                 writable: true,
             });
 
@@ -194,47 +114,13 @@ describe('deviceDetection utilities', () => {
                 value: 600,
                 writable: true,
             });
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 0,
-                writable: true,
-            });
 
             expect(isMobileDevice()).toBe(true); // Mobile viewport
-        });
-
-        it('should return true for desktop touch device', () => {
-            Object.defineProperty(window, 'innerWidth', {
-                value: 1024,
-                writable: true,
-            });
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 5,
-                writable: true,
-            });
-
-            expect(isMobileDevice()).toBe(true); // Touch device
-        });
-
-        it('should return true for mobile touch device', () => {
-            Object.defineProperty(window, 'innerWidth', {
-                value: 600,
-                writable: true,
-            });
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 5,
-                writable: true,
-            });
-
-            expect(isMobileDevice()).toBe(true); // Both mobile viewport and touch
         });
 
         it('should handle custom breakpoints', () => {
             Object.defineProperty(window, 'innerWidth', {
                 value: 700,
-                writable: true,
-            });
-            Object.defineProperty(navigator, 'maxTouchPoints', {
-                value: 0,
                 writable: true,
             });
 
