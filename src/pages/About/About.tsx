@@ -42,7 +42,7 @@ export const About: React.FC = () => {
                             {skillGroups.map((group) => (
                                 <div
                                     key={group.id}
-                                    className="p-4 bg-stone-50/70 border border-stone-200 rounded-lg"
+                                    className="p-4 bg-white border border-stone-200 rounded-lg"
                                 >
                                     <h4 className="font-semibold text-stone-800 mb-2 text-center lg:text-left">
                                         {t(group.titleKey)}

@@ -1,4 +1,6 @@
-export type Theme = 'light' | 'dark';
+import { THEMES } from '@utils/constants';
+
+export type Theme = typeof THEMES.LIGHT | typeof THEMES.DARK;
 
 export interface ThemeContextType {
     theme: Theme;

@@ -1,4 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+
+import { THEMES } from '@utils/constants';
+
 import { ThemeToggle } from '../ThemeToggle';
 
 // Mock the hooks
@@ -22,7 +25,7 @@ describe('ThemeToggle', () => {
         // Setup default mocks
         mockUseTheme.mockReturnValue({
             data: {
-                theme: 'light',
+                theme: THEMES.LIGHT,
                 isDark: false,
                 isLight: true,
             },
@@ -87,7 +90,7 @@ describe('ThemeToggle', () => {
     it('should display sun icon in dark mode', () => {
         mockUseTheme.mockReturnValue({
             data: {
-                theme: 'dark',
+                theme: THEMES.DARK,
                 isDark: true,
                 isLight: false,
             },

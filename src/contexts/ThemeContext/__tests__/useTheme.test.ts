@@ -1,5 +1,8 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react';
+
+import { THEMES } from '@utils/constants';
+
 import { useTheme } from '../useTheme';
 import { ThemeProvider } from '../ThemeProvider';
 
@@ -59,17 +62,17 @@ describe('useTheme', () => {
     it('should initialize with light theme by default', () => {
         const { result } = renderHook(() => useTheme(), { wrapper });
 
-        expect(result.current.data.theme).toBe('light');
+        expect(result.current.data.theme).toBe(THEMES.LIGHT);
         expect(result.current.data.isLight).toBe(true);
         expect(result.current.data.isDark).toBe(false);
     });
 
     it('should initialize with saved theme from localStorage', () => {
-        mockLocalStorage.getItem.mockReturnValue('dark');
+        mockLocalStorage.getItem.mockReturnValue(THEMES.DARK);
 
         const { result } = renderHook(() => useTheme(), { wrapper });
 
-        expect(result.current.data.theme).toBe('dark');
+        expect(result.current.data.theme).toBe(THEMES.DARK);
         expect(result.current.data.isDark).toBe(true);
         expect(result.current.data.isLight).toBe(false);
     });
@@ -78,20 +81,20 @@ describe('useTheme', () => {
         const { result } = renderHook(() => useTheme(), { wrapper });
 
         // Initial state is light
-        expect(result.current.data.theme).toBe('light');
+        expect(result.current.data.theme).toBe(THEMES.LIGHT);
 
         act(() => {
             result.current.actions.toggleTheme();
         });
 
-        expect(result.current.data.theme).toBe('dark');
+        expect(result.current.data.theme).toBe(THEMES.DARK);
         expect(result.current.data.isDark).toBe(true);
 
         act(() => {
             result.current.actions.toggleTheme();
         });
 
-        expect(result.current.data.theme).toBe('light');
+        expect(result.current.data.theme).toBe(THEMES.LIGHT);
         expect(result.current.data.isLight).toBe(true);
     });
 
@@ -99,16 +102,16 @@ describe('useTheme', () => {
         const { result } = renderHook(() => useTheme(), { wrapper });
 
         act(() => {
-            result.current.actions.setTheme('dark');
+            result.current.actions.setTheme(THEMES.DARK);
         });
 
-        expect(result.current.data.theme).toBe('dark');
+        expect(result.current.data.theme).toBe(THEMES.DARK);
 
         act(() => {
-            result.current.actions.setTheme('light');
+            result.current.actions.setTheme(THEMES.LIGHT);
         });
 
-        expect(result.current.data.theme).toBe('light');
+        expect(result.current.data.theme).toBe(THEMES.LIGHT);
     });
 
     it('should maintain stable action types', () => {
@@ -141,9 +144,12 @@ describe('useTheme', () => {
         const { result } = renderHook(() => useTheme(), { wrapper });
 
         act(() => {
-            result.current.actions.setTheme('dark');
+            result.current.actions.setTheme(THEMES.DARK);
         });
 
-        expect(mockLocalStorage.setItem).toHaveBeenCalledWith('theme', 'dark');
+        expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+            'theme',
+            THEMES.DARK
+        );
     });
 });

@@ -33,10 +33,16 @@ export const NAVIGATION_CLEANUP_DELAY = 50; // Delay before resetting navigation
 export const INTERSECTION_THRESHOLDS = [0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1.0];
 export const DEFAULT_INTERSECTION_THRESHOLD = 0.5;
 
+// Theme constants
+export const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark',
+} as const;
+
 // UI & Component constants
 export const STAR_COLORS = {
-    light: ['#44403c', '#44403c', '#44403c', '#44403c', '#44403c'],
-    dark: ['#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1'],
+    [THEMES.LIGHT]: ['#44403c', '#44403c', '#44403c', '#44403c', '#44403c'],
+    [THEMES.DARK]: ['#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1'],
 };
 export const DEFAULT_STAR_SIZE = 20;
 export const DEFAULT_MAX_STARS = 5;

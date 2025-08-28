@@ -1,5 +1,9 @@
 import { useContext } from 'react';
+
+import { THEMES } from '@utils/constants';
+
 import { ThemeContext } from './ThemeContext';
+
 import type { UseThemeReturn } from '../../types/theme';
 
 export const useTheme = (): UseThemeReturn => {
@@ -13,8 +17,8 @@ export const useTheme = (): UseThemeReturn => {
 
     const data = {
         theme,
-        isDark: theme === 'dark',
-        isLight: theme === 'light',
+        isDark: theme === THEMES.DARK,
+        isLight: theme === THEMES.LIGHT,
     };
 
     const actions = {

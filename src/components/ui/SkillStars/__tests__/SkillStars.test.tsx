@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
+import { THEMES } from '@utils/constants';
+
 import { SkillStars } from '../SkillStars';
 
 // Mock the useTheme hook
@@ -17,7 +19,7 @@ describe('SkillStars', () => {
         // Setup default mock for useTheme
         mockUseTheme.mockReturnValue({
             data: {
-                theme: 'light',
+                theme: THEMES.LIGHT,
                 isDark: false,
                 isLight: true,
             },
