@@ -1,9 +1,14 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { experiences } from '@data/experiences';
+import { usePlatform } from '@hooks/usePlatform';
 import type { UseExperienceReturn } from '../../types/hooks';
 import type { ExperienceItem } from '../../types/data';
 
 export const useExperience = (): UseExperienceReturn => {
+    const {
+        data: { isDesktop },
+    } = usePlatform();
+
     // Show the most recent experience (last in array) by default
     const [selectedExp, setSelectedExpState] = useState(
         experiences[experiences.length - 1]
@@ -15,8 +20,16 @@ export const useExperience = (): UseExperienceReturn => {
         ? experiences.find((exp) => exp.id === hoveredExp) || selectedExp
         : selectedExp;
 
+    const shownExperiences = useMemo(() => {
+        if (isDesktop) {
+            return experiences;
+        }
+
+        return [...experiences].reverse();
+    }, [isDesktop]);
+
     const data = {
-        experiences,
+        experiences: shownExperiences,
         selectedExp,
         hoveredExp,
         displayedExp,

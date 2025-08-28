@@ -15,7 +15,7 @@ export const Experience: React.FC = () => {
             backgroundColor="gray-50"
             title={t('experience.title')}
         >
-            <div className="max-w-6xl min-w-5xl mx-auto h-full flex flex-col justify-center py-20">
+            <div className="max-w-full lg:max-w-6xl lg:min-w-5xl mx-auto h-full flex flex-col justify-center lg:py-20">
                 <div className="flex-1 flex flex-col min-w-full">
                     {/* Horizontal Timeline */}
                     <Timeline
