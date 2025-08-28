@@ -12,7 +12,7 @@ export const ExperienceDetails: React.FC<ExperienceDetailsProps> = ({
     experience,
 }) => {
     return (
-        <div className="flex-1 max-w-4xl mx-auto w-full">
+        <div className="lg:flex-1 lg:max-w-4xl max-w-none mx-auto w-full">
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg h-full flex flex-col transition-all duration-300">
                 <ExperienceDetailsHeader
                     company={experience.company}
