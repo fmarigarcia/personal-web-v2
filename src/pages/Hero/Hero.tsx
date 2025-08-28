@@ -1,9 +1,13 @@
 import { SECTIONS } from '@utils/constants';
 import { headingClasses } from '@utils/classNames';
+import { usePlatform } from '@hooks/usePlatform';
 import { Section, Button, ScrollIndicator } from '@components/ui';
 import { useHero } from './useHero';
 
 export const Hero: React.FC = () => {
+    const {
+        data: { isDesktop },
+    } = usePlatform();
     const { data, actions } = useHero();
 
     return (
@@ -38,7 +42,7 @@ export const Hero: React.FC = () => {
                     </Button>
                 </div>
 
-                <ScrollIndicator />
+                {isDesktop && <ScrollIndicator />}
             </div>
         </Section>
     );

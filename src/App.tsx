@@ -8,6 +8,7 @@ import { About } from '@pages/About';
 import { Experience } from '@pages/Experience';
 import { Contact } from '@pages/Contact';
 import './App.css';
+import { usePlatform } from '@hooks/usePlatform';
 
 function AppContent() {
     // Initialize section navigation with scroll interception
@@ -16,10 +17,14 @@ function AppContent() {
         throttleDelay: 300, // Wait 300ms between navigation events
     });
 
+    const {
+        data: { isDesktop },
+    } = usePlatform();
+
     return (
         <div className="min-h-screen bg-white">
             <Header />
-            <DotNavigation />
+            {isDesktop && <DotNavigation />}
 
             <main>
                 <Hero />

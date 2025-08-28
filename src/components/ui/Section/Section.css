@@ -3,7 +3,8 @@
     padding-top: 80px; /* Match SCROLL_OFFSET constant */
 }
 
-/* Alternative approach using CSS custom properties for future flexibility */
-.section-dynamic-padding {
-    padding-top: var(--navbar-height, 80px);
+@media screen and (max-width: 768px) {
+    .section-navbar-offset {
+        padding-top: 0; /* Adjusted for smaller screens */
+    }
 }

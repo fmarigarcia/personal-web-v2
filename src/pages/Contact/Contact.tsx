@@ -6,6 +6,7 @@ import {
     SocialLinkButton,
     ContactForm,
 } from '@components/ui';
+import { usePlatform } from '@hooks/usePlatform';
 import { useContact } from './useContact';
 
 export const Contact: React.FC = () => {
@@ -13,6 +14,9 @@ export const Contact: React.FC = () => {
     const { data, actions } = useContact();
     const { form, isSubmitting, contactMethods, socialLinks } = data;
     const { handleInputChange, handleSubmit } = actions;
+    const {
+        data: { isDesktop },
+    } = usePlatform();
 
     return (
         <Section
@@ -21,7 +25,7 @@ export const Contact: React.FC = () => {
             title={t('contact.title')}
             subtitle={t('contact.subtitle')}
         >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl lg:mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* Contact Information */}
                     <div className="space-y-8">
@@ -56,12 +60,14 @@ export const Contact: React.FC = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <ContactForm
-                        form={form}
-                        isSubmitting={isSubmitting}
-                        onInputChange={handleInputChange}
-                        onSubmit={handleSubmit}
-                    />
+                    {isDesktop && (
+                        <ContactForm
+                            form={form}
+                            isSubmitting={isSubmitting}
+                            onInputChange={handleInputChange}
+                            onSubmit={handleSubmit}
+                        />
+                    )}
                 </div>
             </div>
         </Section>

@@ -25,12 +25,12 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={clsx(
-                'relative px-6 min-h-screen section-navbar-offset',
+                'relative px-6 min-h-screen section-navbar-offset max-w-screen overflow-hidden',
                 sectionBackgrounds[backgroundColor],
                 className
             )}
         >
-            <div className="flex flex-col justify-center py-20">
+            <div className="flex flex-col justify-center lg:py-20 py-10">
                 {title && <SectionHeader title={title} subtitle={subtitle} />}
                 {children}
             </div>
