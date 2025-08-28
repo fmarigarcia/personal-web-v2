@@ -8,18 +8,17 @@ import {
     NAVIGATION_ROOT_MARGIN,
     NAVIGATION_SCROLL_DURATION,
     INTERSECTION_THRESHOLDS,
-    NAVIGATION_CLEANUP_DELAY,
 } from '@utils/constants';
-import {
-    getSectionIndex,
-    analyzeWheelEvent,
-    mapKeyToNavigation,
-} from './utils';
 import type {
     UseSectionNavigationOptions,
     UseSectionNavigationReturn,
 } from '../../types/hooks';
 
+/**
+ * Section navigation hook with platform-specific behavior:
+ * - Desktop: Prevents normal scrolling, only allows section-to-section navigation
+ * - Mobile: Allows regular scrolling with intersection observer for active section tracking
+ */
 export const useSectionNavigation = (
     options: UseSectionNavigationOptions = {}
 ): UseSectionNavigationReturn => {
@@ -31,30 +30,32 @@ export const useSectionNavigation = (
     } = useNavigation();
     const { actions: smoothScrollActions } = useSmoothScroll();
     const { scrollToElement } = smoothScrollActions;
-    const { data: platformData } = usePlatform();
-    const { isMobile } = platformData;
+    const {
+        data: { isMobile },
+    } = usePlatform();
 
     const {
-        rootMargin = NAVIGATION_ROOT_MARGIN, // Account for header
-        throttleDelay = NAVIGATION_THROTTLE_DELAY, // Prevent rapid section changes
+        rootMargin = NAVIGATION_ROOT_MARGIN,
+        throttleDelay = NAVIGATION_THROTTLE_DELAY,
     } = options;
 
     const observerRef = useRef<IntersectionObserver | null>(null);
     const isNavigating = useRef(false);
-    const lastNavigationTime = useRef(0);    // Get current section index
-    const getCurrentSectionIndex = useCallback(() => {
-        return getSectionIndex(currentSection);
+    const lastNavigationTime = useRef(0);
+
+    // Get current section index
+    const getCurrentSectionIndex = useCallback((): number => {
+        return NAVIGATION_ITEMS.findIndex((item) => item.id === currentSection);
     }, [currentSection]);
 
     // Navigate to specific section by index
     const navigateToSectionByIndex = useCallback(
         (targetIndex: number) => {
-            if (targetIndex < 0 || targetIndex >= NAVIGATION_ITEMS.length) {
-                return;
-            }
-
-            const targetSection = NAVIGATION_ITEMS[targetIndex];
-            if (!targetSection || isNavigating.current) {
+            if (
+                targetIndex < 0 ||
+                targetIndex >= NAVIGATION_ITEMS.length ||
+                isNavigating.current
+            ) {
                 return;
             }
 
@@ -64,11 +65,12 @@ export const useSectionNavigation = (
                 return;
             }
 
+            const targetSection = NAVIGATION_ITEMS[targetIndex];
             lastNavigationTime.current = now;
             isNavigating.current = true;
             setIsScrolling(true);
 
-            // Immediately update current section for better UX
+            // Update current section immediately for better UX
             setCurrentSection(targetSection.id);
 
             scrollToElement(targetSection.id, {
@@ -77,181 +79,119 @@ export const useSectionNavigation = (
                     setIsScrolling(false);
                     setTimeout(() => {
                         isNavigating.current = false;
-                    }, NAVIGATION_CLEANUP_DELAY); // Reduced from 100ms for better responsiveness
+                    }, 100);
                 },
             });
         },
         [scrollToElement, setIsScrolling, setCurrentSection, throttleDelay]
     );
 
-    // Handle wheel events (mouse wheel and trackpad)
+    // Desktop-only: Handle wheel events for section navigation
     const handleWheel = useCallback(
         (event: WheelEvent) => {
-            // On mobile devices, allow normal scrolling
-            if (isMobile) {
+            if (isMobile || isNavigating.current) {
                 return;
             }
 
-            // Prevent default scrolling on desktop
+            // Prevent ALL scrolling on desktop
             event.preventDefault();
-
-            if (isNavigating.current) {
-                return;
-            }
 
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex === -1) return;
 
-            // Determine scroll direction using utility
-            const direction = analyzeWheelEvent(event.deltaY);
-
-            if (direction === 'next') {
+            // Determine direction based on wheel delta
+            if (event.deltaY > 0) {
+                // Scroll down - go to next section
                 navigateToSectionByIndex(currentIndex + 1);
-            } else if (direction === 'prev') {
+            } else if (event.deltaY < 0) {
+                // Scroll up - go to previous section
                 navigateToSectionByIndex(currentIndex - 1);
             }
         },
-        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
+        [isMobile, getCurrentSectionIndex, navigateToSectionByIndex]
     );
 
-    // Handle keyboard navigation
+    // Desktop-only: Handle keyboard navigation
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
-            // On mobile devices, allow normal keyboard behavior
-            if (isMobile) {
-                return;
-            }
-
-            if (isNavigating.current) {
+            if (isMobile || isNavigating.current) {
                 return;
             }
 
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex === -1) return;
 
-            const direction = mapKeyToNavigation(event.key);
+            let targetIndex = -1;
 
-            if (direction !== 'none') {
+            switch (event.key) {
+                case 'ArrowDown':
+                case 'PageDown':
+                case ' ': // Spacebar
+                    targetIndex = currentIndex + 1;
+                    break;
+                case 'ArrowUp':
+                case 'PageUp':
+                    targetIndex = currentIndex - 1;
+                    break;
+                case 'Home':
+                    targetIndex = 0;
+                    break;
+                case 'End':
+                    targetIndex = NAVIGATION_ITEMS.length - 1;
+                    break;
+                default:
+                    return; // Don't prevent default for other keys
+            }
+
+            if (targetIndex !== -1) {
                 event.preventDefault();
-
-                switch (direction) {
-                    case 'next':
-                        navigateToSectionByIndex(currentIndex + 1);
-                        break;
-                    case 'prev':
-                        navigateToSectionByIndex(currentIndex - 1);
-                        break;
-                    case 'first':
-                        navigateToSectionByIndex(0);
-                        break;
-                    case 'last':
-                        navigateToSectionByIndex(NAVIGATION_ITEMS.length - 1);
-                        break;
-                }
+                navigateToSectionByIndex(targetIndex);
             }
         },
-        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
+        [isMobile, getCurrentSectionIndex, navigateToSectionByIndex]
     );
 
-    // Handle touch events for mobile swipe
-    const touchStartY = useRef(0);
-    const touchEndY = useRef(0);
-
-    const handleTouchStart = useCallback(
+    // Desktop-only: Prevent touch scrolling
+    const handleTouchMove = useCallback(
         (event: TouchEvent) => {
-            // On mobile devices, allow normal touch scrolling
-            if (isMobile) {
-                return;
+            if (!isMobile) {
+                // Prevent touch scrolling on desktop (for touch screens)
+                event.preventDefault();
             }
-
-            touchStartY.current = event.touches[0].clientY;
         },
         [isMobile]
     );
 
-    const handleTouchEnd = useCallback(
-        (event: TouchEvent) => {
-            // On mobile devices, allow normal touch scrolling
-            if (isMobile) {
-                return;
-            }
-
-            if (isNavigating.current) {
-                return;
-            }
-
-            touchEndY.current = event.changedTouches[0].clientY;
-            const deltaY = touchStartY.current - touchEndY.current;
-            const minSwipeDistance = 50; // Minimum distance for a swipe
-
-            if (Math.abs(deltaY) < minSwipeDistance) {
-                return;
-            }
-
-            const currentIndex = getCurrentSectionIndex();
-            if (currentIndex === -1) return;
-
-            if (deltaY > 0) {
-                // Swiped up - go to next section
-                navigateToSectionByIndex(currentIndex + 1);
-            } else {
-                // Swiped down - go to previous section
-                navigateToSectionByIndex(currentIndex - 1);
-            }
-        },
-        [getCurrentSectionIndex, navigateToSectionByIndex, isMobile]
-    );
-
-    // Handle active section detection
-    const handleActiveSection = useCallback(
+    // Handle intersection observer for active section detection
+    const handleIntersection = useCallback(
         (entries: IntersectionObserverEntry[]) => {
-            // Only update current section if we're not actively navigating
             if (isNavigating.current) {
                 return;
             }
 
-            const intersectingEntries = entries.filter(
+            const visibleEntries = entries.filter(
                 (entry) => entry.isIntersecting
             );
-
-            if (intersectingEntries.length === 0) {
+            if (visibleEntries.length === 0) {
                 return;
             }
 
-            // Find the section with the highest intersection ratio
-            const mostVisibleEntry = intersectingEntries.reduce(
-                (prev, current) => {
-                    const prevRatio = prev.intersectionRatio;
-                    const currentRatio = current.intersectionRatio;
-                    const prevArea =
-                        prev.intersectionRect.height *
-                        prev.intersectionRect.width;
-                    const currentArea =
-                        current.intersectionRect.height *
-                        current.intersectionRect.width;
-
-                    // Prioritize by intersection ratio, then by visible area
-                    if (Math.abs(prevRatio - currentRatio) < 0.1) {
-                        return prevArea > currentArea ? prev : current;
-                    }
-                    return prevRatio > currentRatio ? prev : current;
-                }
+            // Find the most visible section
+            const mostVisible = visibleEntries.reduce((prev, current) =>
+                prev.intersectionRatio > current.intersectionRatio
+                    ? prev
+                    : current
             );
 
-            const activeId = mostVisibleEntry.target.id;
-
-            // Only update if the section actually changed
+            const activeId = mostVisible.target.id;
             if (activeId !== currentSection) {
                 setCurrentSection(activeId);
             }
         },
-        [setCurrentSection, currentSection]
+        [currentSection, setCurrentSection]
     );
 
-    // Store the navigation function in a ref so it can be updated without causing re-renders
-    const navigateRef = useRef<((sectionId: string) => void) | null>(null);
-
-    // Method to manually navigate to a section
+    // Manual navigation function
     const navigateToSection = useCallback(
         (sectionId: string) => {
             const targetIndex = NAVIGATION_ITEMS.findIndex(
@@ -264,76 +204,67 @@ export const useSectionNavigation = (
         [navigateToSectionByIndex]
     );
 
-    // Update the ref whenever the function changes
-    navigateRef.current = navigateToSection;
-
     // Initialize intersection observer and event listeners
     useEffect(() => {
-        const sectionIds = NAVIGATION_ITEMS.map((item) => item.id);
-
         // Set initial section if none is set
-        if (!currentSection && sectionIds.length > 0) {
-            setCurrentSection(sectionIds[0]);
+        if (!currentSection && NAVIGATION_ITEMS.length > 0) {
+            setCurrentSection(NAVIGATION_ITEMS[0].id);
         }
 
-        // Create intersection observer for active section detection
-        observerRef.current = new IntersectionObserver(handleActiveSection, {
+        // Create intersection observer
+        observerRef.current = new IntersectionObserver(handleIntersection, {
             threshold: INTERSECTION_THRESHOLDS,
             rootMargin,
         });
 
         // Observe all sections
-        sectionIds.forEach((id) => {
-            const element = document.getElementById(id);
+        NAVIGATION_ITEMS.forEach((item) => {
+            const element = document.getElementById(item.id);
             if (element && observerRef.current) {
                 observerRef.current.observe(element);
             }
         });
 
-        // Add event listeners
-        window.addEventListener('wheel', handleWheel, { passive: isMobile });
-        window.addEventListener('keydown', handleKeyDown);
-        window.addEventListener('touchstart', handleTouchStart, {
-            passive: isMobile,
-        });
-        window.addEventListener('touchend', handleTouchEnd, {
-            passive: isMobile,
-        });
+        // Add event listeners based on platform
+        if (!isMobile) {
+            // Desktop: Prevent scrolling, enable section navigation
+            window.addEventListener('wheel', handleWheel, { passive: false });
+            window.addEventListener('keydown', handleKeyDown);
+            window.addEventListener('touchmove', handleTouchMove, {
+                passive: false,
+            });
+        }
+        // Mobile: No event listeners - allow natural scrolling
 
         return () => {
+            // Cleanup
             if (observerRef.current) {
                 observerRef.current.disconnect();
             }
 
-            window.removeEventListener('wheel', handleWheel);
-            window.removeEventListener('keydown', handleKeyDown);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchend', handleTouchEnd);
+            if (!isMobile) {
+                window.removeEventListener('wheel', handleWheel);
+                window.removeEventListener('keydown', handleKeyDown);
+                window.removeEventListener('touchmove', handleTouchMove);
+            }
         };
     }, [
-        handleActiveSection,
-        handleWheel,
-        handleKeyDown,
-        handleTouchStart,
-        handleTouchEnd,
-        rootMargin,
         currentSection,
         setCurrentSection,
+        handleIntersection,
+        handleWheel,
+        handleKeyDown,
+        handleTouchMove,
+        rootMargin,
         isMobile,
     ]);
 
-    // Register navigation function with context (separate effect to avoid infinite loop)
+    // Register navigation function with context
     useEffect(() => {
-        const stableNavigateFunction = (sectionId: string) => {
-            if (navigateRef.current) {
-                navigateRef.current(sectionId);
-            }
-        };
-
         if (setNavigateToSection) {
-            setNavigateToSection(stableNavigateFunction);
+            setNavigateToSection(navigateToSection);
         }
-    }, [setNavigateToSection]);
+    }, [setNavigateToSection, navigateToSection]);
 
     return {
         data: {} as Record<string, never>,

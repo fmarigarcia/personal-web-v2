@@ -22,13 +22,14 @@ export const usePlatform = (): UsePlatformReturn => {
             const cleanup = onViewportChange(() => {
                 setIsMobile(isMobileDevice());
             });
-            
+
             return cleanup;
         } catch {
             // If viewport change listener fails, just continue with initial state
             return () => {}; // Return empty cleanup function
         }
-    }, []);    const data = {
+    }, []);
+    const data = {
         isMobile,
         isDesktop: !isMobile,
     };
