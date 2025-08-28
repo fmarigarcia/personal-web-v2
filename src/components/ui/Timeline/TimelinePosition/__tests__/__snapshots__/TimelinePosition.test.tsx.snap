@@ -2,7 +2,7 @@
 
 exports[`TimelinePosition should match snapshot when not selected 1`] = `
 <div
-  class="text-center mb-8 max-w-32"
+  class="text-center mb-8 w-32"
 >
   <p
     class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-gray-700 group-hover:text-blue-500"
@@ -20,7 +20,7 @@ exports[`TimelinePosition should match snapshot when not selected 1`] = `
 
 exports[`TimelinePosition should match snapshot when selected 1`] = `
 <div
-  class="text-center mb-8 max-w-32"
+  class="text-center mb-8 w-32"
 >
   <p
     class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-blue-600"

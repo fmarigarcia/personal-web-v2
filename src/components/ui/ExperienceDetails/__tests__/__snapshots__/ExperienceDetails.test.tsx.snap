@@ -2,7 +2,7 @@
 
 exports[`ExperienceDetails should match snapshot 1`] = `
 <div
-  class="flex-1 max-w-4xl mx-auto w-full"
+  class="lg:flex-1 lg:max-w-4xl max-w-none mx-auto w-full"
 >
   <div
     class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg h-full flex flex-col transition-all duration-300"

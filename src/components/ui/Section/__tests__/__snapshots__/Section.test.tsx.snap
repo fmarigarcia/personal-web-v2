@@ -2,11 +2,11 @@
 
 exports[`Section should match snapshot 1`] = `
 <section
-  class="relative px-6 min-h-screen section-navbar-offset bg-white"
+  class="relative px-6 min-h-screen section-navbar-offset max-w-screen overflow-hidden bg-white"
   id="test-section"
 >
   <div
-    class="flex flex-col justify-center py-20"
+    class="flex flex-col justify-center lg:py-20 py-10"
   >
     <div>
       Test content
@@ -17,11 +17,11 @@ exports[`Section should match snapshot 1`] = `
 
 exports[`Section should match snapshot with gradient 1`] = `
 <section
-  class="relative px-6 min-h-screen section-navbar-offset bg-gradient-to-br from-gray-50 to-gray-100 custom-hero"
+  class="relative px-6 min-h-screen section-navbar-offset max-w-screen overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 custom-hero"
   id="test-section"
 >
   <div
-    class="flex flex-col justify-center py-20"
+    class="flex flex-col justify-center lg:py-20 py-10"
   >
     <div>
       Test content

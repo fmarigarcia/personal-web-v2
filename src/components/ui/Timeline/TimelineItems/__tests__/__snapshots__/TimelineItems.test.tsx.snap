@@ -5,7 +5,7 @@ exports[`TimelineItems should match snapshot 1`] = `
   class="flex justify-between items-start relative z-10"
 >
   <button
-    class="flex flex-col items-center group cursor-pointer min-w-0 max-w-40"
+    class="flex flex-col items-center group cursor-pointer w-40"
   >
     <div
       data-testid="timeline-position"
@@ -30,7 +30,7 @@ exports[`TimelineItems should match snapshot 1`] = `
     </div>
   </button>
   <button
-    class="flex flex-col items-center group cursor-pointer min-w-0 max-w-40"
+    class="flex flex-col items-center group cursor-pointer w-40"
   >
     <div
       data-testid="timeline-position"

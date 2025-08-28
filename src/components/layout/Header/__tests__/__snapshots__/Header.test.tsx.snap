@@ -77,26 +77,6 @@ exports[`Header should match snapshot 1`] = `
             🇪🇸
           </button>
         </div>
-        <button
-          aria-expanded="false"
-          aria-label="Open mobile menu"
-          class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
-          type="button"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
       </div>
     </nav>
   </div>
