@@ -3,7 +3,7 @@
 exports[`ExperienceDetailsTechnologies should match snapshot 1`] = `
 <div>
   <h4
-    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+    class="text-sm font-semibold text-gray-900 dark:text-green-200 mb-4 uppercase tracking-wide"
   >
     experience.technologiesSkills
   </h4>
@@ -35,7 +35,7 @@ exports[`ExperienceDetailsTechnologies should match snapshot 1`] = `
 exports[`ExperienceDetailsTechnologies should match snapshot with empty technologies 1`] = `
 <div>
   <h4
-    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+    class="text-sm font-semibold text-gray-900 dark:text-green-200 mb-4 uppercase tracking-wide"
   >
     experience.technologiesSkills
   </h4>
@@ -48,7 +48,7 @@ exports[`ExperienceDetailsTechnologies should match snapshot with empty technolo
 exports[`ExperienceDetailsTechnologies should match snapshot with many technologies 1`] = `
 <div>
   <h4
-    class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide"
+    class="text-sm font-semibold text-gray-900 dark:text-green-200 mb-4 uppercase tracking-wide"
   >
     experience.technologiesSkills
   </h4>

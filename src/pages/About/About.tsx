@@ -30,7 +30,7 @@ export const About: React.FC = () => {
                     <div className="order-2 lg:order-1 space-y-6">
                         {/* Description - Centered on mobile, left-aligned on desktop */}
                         <div className="text-center lg:text-left">
-                            <div className="prose prose-lg text-stone-700 mx-auto lg:mx-0">
+                            <div className="prose prose-lg text-stone-700 dark:text-zinc-300 mx-auto lg:mx-0">
                                 <p className="text-xl leading-relaxed">
                                     {t('about.description')}
                                 </p>
@@ -42,12 +42,12 @@ export const About: React.FC = () => {
                             {skillGroups.map((group) => (
                                 <div
                                     key={group.id}
-                                    className="p-4 bg-white border border-stone-200 rounded-lg"
+                                    className="p-4 bg-white dark:bg-zinc-900 border border-stone-200 dark:border-zinc-700 rounded-lg"
                                 >
-                                    <h4 className="font-semibold text-stone-800 mb-2 text-center lg:text-left">
+                                    <h4 className="font-semibold text-stone-800 dark:text-green-400 mb-2 text-center lg:text-left">
                                         {t(group.titleKey)}
                                     </h4>
-                                    <div className="text-sm text-stone-600 space-y-1">
+                                    <div className="text-sm text-stone-600 dark:text-zinc-300 space-y-1">
                                         {group.skills.map((skill) => (
                                             <div
                                                 key={skill.id}

@@ -9,12 +9,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
     return (
         <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-stone-800 dark:text-green-400 mb-4">
                 {title}
             </h2>
-            <div className="w-24 h-1 bg-stone-950 mx-auto" />
+            <div className="w-24 h-1 bg-stone-950 dark:bg-green-400 mx-auto" />
             {subtitle && (
-                <p className="text-xl text-stone-600 max-w-3xl mx-auto mt-6">
+                <p className="text-xl text-stone-600 dark:text-zinc-400 max-w-3xl mx-auto mt-6">
                     {subtitle}
                 </p>
             )}

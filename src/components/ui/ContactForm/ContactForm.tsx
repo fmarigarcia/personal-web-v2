@@ -22,10 +22,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm p-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm dark:shadow-lg dark:shadow-green-400/5 p-8 border dark:border-zinc-700">
             <h3
                 id="contact-form-title"
-                className="text-2xl font-bold text-gray-900 mb-6"
+                className="text-2xl font-bold text-gray-900 dark:text-green-400 mb-6"
             >
                 {t('contact.form.title')}
             </h3>

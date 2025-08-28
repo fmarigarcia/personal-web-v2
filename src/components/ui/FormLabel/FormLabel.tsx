@@ -13,11 +13,13 @@ export const FormLabel: React.FC<FormLabelProps> = ({
 }) => {
     return (
         <label
-            className={`block text-sm font-medium text-gray-700 mb-2 ${className}`}
+            className={`block text-sm font-medium text-gray-700 dark:text-green-200 mb-2 ${className}`}
             {...props}
         >
             {children}
-            {required && <span className="text-red-500 ml-1">*</span>}
+            {required && (
+                <span className="text-red-500 dark:text-green-400 ml-1">*</span>
+            )}
         </label>
     );
 };

@@ -135,7 +135,7 @@ describe('Timeline', () => {
             'relative',
             'lg:px-16',
             'max-w-full',
-            'overflow-scroll'
+            'overflow-x-scroll'
         );
     });
 

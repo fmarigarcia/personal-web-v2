@@ -16,13 +16,13 @@ export const TimelinePosition: React.FC<TimelinePositionProps> = ({
     const { t } = useTranslation();
 
     return (
-        <div className="text-center mb-8 w-32">
+        <div className="text-center mb-8 w-36">
             <p
                 className={clsx(
                     'text-sm font-bold transition-colors duration-300 leading-tight mb-1',
                     {
-                        'text-stone-950': isSelected,
-                        'text-stone-700 group-hover:text-stone-950':
+                        'text-stone-950 dark:text-green-400': isSelected,
+                        'text-stone-700 dark:text-green-200 group-hover:text-stone-950 dark:group-hover:text-green-400':
                             !isSelected,
                     }
                 )}
@@ -32,10 +32,10 @@ export const TimelinePosition: React.FC<TimelinePositionProps> = ({
             </p>
             <p
                 className={clsx(
-                    'text-xs transition-colors duration-300 leading-tight',
+                    'text-xs transition-colors duration-300 leading-tight h-7',
                     {
-                        'text-stone-900': isSelected,
-                        'text-stone-500 group-hover:text-stone-700':
+                        'text-stone-900 dark:text-green-200': isSelected,
+                        'text-stone-500 dark:text-zinc-400 group-hover:text-stone-700 dark:group-hover:text-zinc-300':
                             !isSelected,
                     }
                 )}

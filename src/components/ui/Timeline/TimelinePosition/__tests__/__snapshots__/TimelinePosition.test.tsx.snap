@@ -2,16 +2,16 @@
 
 exports[`TimelinePosition should match snapshot when not selected 1`] = `
 <div
-  class="text-center mb-8 w-32"
+  class="text-center mb-8 w-36"
 >
   <p
-    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-700 group-hover:text-stone-950"
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-700 dark:text-green-200 group-hover:text-stone-950 dark:group-hover:text-green-400"
     title="Test Company / Division"
   >
     Test Company
   </p>
   <p
-    class="text-xs transition-colors duration-300 leading-tight text-stone-500 group-hover:text-stone-700"
+    class="text-xs transition-colors duration-300 leading-tight h-7 text-stone-500 dark:text-zinc-400 group-hover:text-stone-700 dark:group-hover:text-zinc-300"
   >
     test.position.key
   </p>
@@ -20,16 +20,16 @@ exports[`TimelinePosition should match snapshot when not selected 1`] = `
 
 exports[`TimelinePosition should match snapshot when selected 1`] = `
 <div
-  class="text-center mb-8 w-32"
+  class="text-center mb-8 w-36"
 >
   <p
-    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-950"
+    class="text-sm font-bold transition-colors duration-300 leading-tight mb-1 text-stone-950 dark:text-green-400"
     title="Test Company / Division"
   >
     Test Company
   </p>
   <p
-    class="text-xs transition-colors duration-300 leading-tight text-stone-900"
+    class="text-xs transition-colors duration-300 leading-tight h-7 text-stone-900 dark:text-green-200"
   >
     test.position.key
   </p>

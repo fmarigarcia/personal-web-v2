@@ -41,8 +41,8 @@ export const THEMES = {
 
 // UI & Component constants
 export const STAR_COLORS = {
-    [THEMES.LIGHT]: ['#44403c', '#44403c', '#44403c', '#44403c', '#44403c'],
-    [THEMES.DARK]: ['#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1', '#d6d3d1'],
+    [THEMES.LIGHT]: ['#44403c', '#44403c', '#44403c', '#44403c', '#44403c'], // stone-700
+    [THEMES.DARK]: ['#4ade80', '#4ade80', '#4ade80', '#4ade80', '#4ade80'], // green-400 for terminal vibe
 };
 export const DEFAULT_STAR_SIZE = 20;
 export const DEFAULT_MAX_STARS = 5;

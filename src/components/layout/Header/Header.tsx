@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
 
     return (
         <header
-            className="fixed top-0 w-full z-50 bg-stone-50/90 backdrop-blur-md "
+            className="fixed top-0 w-full z-50 bg-stone-50/90 dark:bg-zinc-950/90 backdrop-blur-md transition-colors duration-300"
             role="banner"
         >
             <div className="container mx-auto px-6 py-4">

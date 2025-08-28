@@ -16,14 +16,14 @@ export const ThemeToggle: React.FC = () => {
     return (
         <button
             onClick={actions.toggleTheme}
-            className="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-50 hover:bg-stone-100 border border-stone-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-stone-50 hover:bg-stone-100 border border-stone-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:border-zinc-700 transition-colors duration-200"
             aria-label={`Switch to ${data.isDark ? 'light' : 'dark'} mode`}
             title={`Switch to ${data.isDark ? 'light' : 'dark'} mode`}
         >
             {data.isDark ? (
                 // Sun icon for light mode
                 <svg
-                    className="w-5 h-5 text-stone-950"
+                    className="w-5 h-5 text-stone-950 dark:text-green-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export const ThemeToggle: React.FC = () => {
             ) : (
                 // Moon icon for dark mode
                 <svg
-                    className="w-5 h-5 text-stone-600"
+                    className="w-5 h-5 text-stone-600 dark:text-green-200"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

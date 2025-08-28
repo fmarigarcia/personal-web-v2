@@ -14,7 +14,7 @@ export const ExperienceDetailsTechnologies: React.FC<
 
     return (
         <div>
-            <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-green-200 mb-4 uppercase tracking-wide">
                 {t('experience.technologiesSkills')}
             </h4>
             <div className="flex flex-wrap gap-2">

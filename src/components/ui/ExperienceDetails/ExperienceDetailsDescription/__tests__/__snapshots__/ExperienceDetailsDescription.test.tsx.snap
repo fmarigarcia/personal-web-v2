@@ -8,10 +8,10 @@ exports[`ExperienceDetailsDescription should match snapshot 1`] = `
     class="flex items-start"
   >
     <div
-      class="w-2 h-2 bg-stone-950 rounded-full mt-2 mr-4 flex-shrink-0"
+      class="w-2 h-2 bg-stone-950 dark:bg-green-400 rounded-full mt-2 mr-4 flex-shrink-0"
     />
     <span
-      class="text-stone-700 leading-relaxed"
+      class="text-stone-700 dark:text-zinc-300 leading-relaxed"
     >
       experience.exp1.desc1
     </span>
@@ -20,10 +20,10 @@ exports[`ExperienceDetailsDescription should match snapshot 1`] = `
     class="flex items-start"
   >
     <div
-      class="w-2 h-2 bg-stone-950 rounded-full mt-2 mr-4 flex-shrink-0"
+      class="w-2 h-2 bg-stone-950 dark:bg-green-400 rounded-full mt-2 mr-4 flex-shrink-0"
     />
     <span
-      class="text-stone-700 leading-relaxed"
+      class="text-stone-700 dark:text-zinc-300 leading-relaxed"
     >
       experience.exp1.desc2
     </span>
@@ -32,10 +32,10 @@ exports[`ExperienceDetailsDescription should match snapshot 1`] = `
     class="flex items-start"
   >
     <div
-      class="w-2 h-2 bg-stone-950 rounded-full mt-2 mr-4 flex-shrink-0"
+      class="w-2 h-2 bg-stone-950 dark:bg-green-400 rounded-full mt-2 mr-4 flex-shrink-0"
     />
     <span
-      class="text-stone-700 leading-relaxed"
+      class="text-stone-700 dark:text-zinc-300 leading-relaxed"
     >
       experience.exp1.desc3
     </span>

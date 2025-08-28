@@ -21,9 +21,11 @@ export const DotButton: React.FC<DotButtonProps> = ({
                 'transition-all duration-300 ease-in-out',
                 'hover:scale-125 focus:outline-none focus:ring-2',
                 'focus:ring-stone-400 focus:ring-offset-2',
+                'dark:focus:ring-green-400 dark:focus:ring-offset-zinc-950',
                 {
-                    'bg-stone-950 border-stone-950 scale-110': isActive,
-                    'bg-transparent border-stone-400 hover:border-stone-950':
+                    'bg-stone-950 border-stone-950 scale-110 dark:bg-green-400 dark:border-green-400 dark:shadow-lg dark:shadow-green-400/20':
+                        isActive,
+                    'bg-transparent border-stone-400 hover:border-stone-950 dark:border-zinc-600 dark:hover:border-green-400':
                         !isActive,
                 }
             )}
@@ -34,6 +36,7 @@ export const DotButton: React.FC<DotButtonProps> = ({
                 className={clsx(
                     'absolute right-full mr-3 px-2 py-1',
                     'bg-stone-800 text-white text-xs rounded',
+                    'dark:bg-zinc-900 dark:text-green-200 dark:border dark:border-zinc-700',
                     'opacity-0 pointer-events-none',
                     'transition-opacity duration-200',
                     'whitespace-nowrap top-1/2 -translate-y-1/2',

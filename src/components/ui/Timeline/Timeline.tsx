@@ -23,7 +23,7 @@ export const Timeline: React.FC<TimelineProps> = ({
     } = usePlatform();
     return (
         <div className="mb-12">
-            <div className="relative lg:px-16 max-w-full overflow-scroll">
+            <div className="relative lg:px-16 max-w-full overflow-x-scroll">
                 {isDesktop && <TimelineLine />}
                 <TimelineItems
                     experiences={experiences}

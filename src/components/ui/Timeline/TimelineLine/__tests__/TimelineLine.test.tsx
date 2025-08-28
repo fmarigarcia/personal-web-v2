@@ -12,7 +12,7 @@ describe('TimelineLine', () => {
             'left-16',
             'right-16',
             'h-0.5',
-            'bg-gray-300'
+            'bg-stone-300'
         );
     });
 

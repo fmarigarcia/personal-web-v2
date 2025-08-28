@@ -44,8 +44,14 @@ describe('TimelinePosition', () => {
         const companyElement = screen.getByText('Test Company');
         const positionElement = screen.getByText('test.position.key');
 
-        expect(companyElement).toHaveClass('text-stone-950');
-        expect(positionElement).toHaveClass('text-stone-900');
+        expect(companyElement).toHaveClass(
+            'text-stone-950',
+            'dark:text-green-400'
+        );
+        expect(positionElement).toHaveClass(
+            'text-stone-900',
+            'dark:text-green-200'
+        );
     });
 
     it('should apply unselected styles when isSelected is false', () => {
@@ -56,11 +62,15 @@ describe('TimelinePosition', () => {
 
         expect(companyElement).toHaveClass(
             'text-stone-700',
-            'group-hover:text-stone-950'
+            'dark:text-green-200',
+            'group-hover:text-stone-950',
+            'dark:group-hover:text-green-400'
         );
         expect(positionElement).toHaveClass(
             'text-stone-500',
-            'group-hover:text-stone-700'
+            'dark:text-zinc-400',
+            'group-hover:text-stone-700',
+            'dark:group-hover:text-zinc-300'
         );
     });
 
@@ -78,7 +88,7 @@ describe('TimelinePosition', () => {
         const { container } = render(<TimelinePosition {...defaultProps} />);
 
         const wrapper = container.firstChild as HTMLElement;
-        expect(wrapper).toHaveClass('text-center', 'mb-8', 'w-32');
+        expect(wrapper).toHaveClass('text-center', 'mb-8', 'w-36');
     });
 
     it('should match snapshot when selected', () => {

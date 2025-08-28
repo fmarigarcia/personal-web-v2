@@ -16,10 +16,12 @@ export const Hero: React.FC = () => {
             backgroundColor="gradient"
             className="flex items-center justify-center"
         >
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center pt-20">
                 <div className="mb-8">
                     <h1 className={headingClasses.h1}>{data.name}</h1>
-                    <h2 className={`${headingClasses.h3} text-stone-950 mb-6`}>
+                    <h2
+                        className={`${headingClasses.h3} text-stone-950 dark:text-green-200 mb-6`}
+                    >
                         {data.title}
                     </h2>
                     <p className={`${headingClasses.body} max-w-2xl mx-auto`}>

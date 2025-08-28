@@ -25,10 +25,12 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({
                     key={item.id}
                     onClick={() => onNavClick(item.id)}
                     className={clsx(
-                        'text-sm font-medium transition-colors hover:text-stone-950',
+                        'text-sm font-medium transition-colors hover:text-stone-950 dark:hover:text-green-400',
                         {
-                            'text-stone-950': currentSection === item.id,
-                            'text-stone-700': currentSection !== item.id,
+                            'text-stone-950 dark:text-green-400':
+                                currentSection === item.id,
+                            'text-stone-700 dark:text-green-200':
+                                currentSection !== item.id,
                         }
                     )}
                     type="button"
