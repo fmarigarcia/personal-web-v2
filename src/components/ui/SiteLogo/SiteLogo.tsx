@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Logo } from '@icons/Logo';
+import { Logo } from '@icons/logo';
 import { useTheme } from '@contexts/ThemeContext';
 import { LOGO_COLORS } from '@utils/constants';
 

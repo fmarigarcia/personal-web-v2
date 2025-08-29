@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CVDownloadButton should match snapshot 1`] = `
+<button
+  aria-label="Download CV"
+  class=""
+  variant="secondary"
+>
+  <span
+    class="flex items-center gap-2"
+  >
+    <span
+      data-testid="download-icon"
+    >
+      ↓
+    </span>
+    Download CV
+  </span>
+</button>
+`;

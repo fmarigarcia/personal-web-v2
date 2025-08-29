@@ -36,6 +36,7 @@
     },
     "experience": {
         "title": "Experience",
+        "downloadCV": "Download CV",
         "technologiesSkills": "Technologies & Skills",
         "hoverPreview": "Hover to preview • Click to select",
         "tapSelect": "Tap to select",

@@ -36,6 +36,7 @@
     },
     "experience": {
         "title": "Experiencia",
+        "downloadCV": "Descargar CV",
         "technologiesSkills": "Tecnologías y Habilidades",
         "hoverPreview": "Pasa el cursor para previsualizar • Clic para seleccionar",
         "tapSelect": "Toca para seleccionar",

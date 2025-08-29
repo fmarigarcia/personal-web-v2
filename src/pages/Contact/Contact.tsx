@@ -5,6 +5,7 @@ import {
     ContactMethodCard,
     SocialLinkButton,
     ContactForm,
+    CVDownloadButton,
 } from '@components/ui';
 import { usePlatform } from '@hooks/usePlatform';
 import { useContact } from './useContact';
@@ -48,13 +49,21 @@ export const Contact: React.FC = () => {
                             <h3 className="text-lg font-semibold text-stone-800 dark:text-green-200 mb-4">
                                 {t('contact.followMe')}
                             </h3>
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-4 mb-6">
                                 {socialLinks.map((social) => (
                                     <SocialLinkButton
                                         key={social.id}
                                         social={social}
                                     />
                                 ))}
+                            </div>
+
+                            {/* CV Download Button */}
+                            <div className="mt-6">
+                                <CVDownloadButton
+                                    variant="secondary"
+                                    className="text-sm px-4 py-2"
+                                />
                             </div>
                         </div>
                     </div>
