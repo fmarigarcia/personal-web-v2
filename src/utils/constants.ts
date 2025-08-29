@@ -47,6 +47,11 @@ export const STAR_COLORS = {
 export const DEFAULT_STAR_SIZE = 20;
 export const DEFAULT_MAX_STARS = 5;
 
+export const LOGO_COLORS = {
+    [THEMES.LIGHT]: '#44403c', // stone-700
+    [THEMES.DARK]: '#4ade80', // green-400 for terminal vibe
+};
+
 // Language configurations
 export const SUPPORTED_LANGUAGES = [
     { code: 'en', flag: '🇺🇸', label: 'English' },

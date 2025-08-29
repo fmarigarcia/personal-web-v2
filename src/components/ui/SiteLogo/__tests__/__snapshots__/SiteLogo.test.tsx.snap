@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteLogo should match snapshot 1`] = `
+<div
+  class="flex items-center"
+>
+  <button
+    aria-label="Go to home"
+    class="text-xl font-bold text-stone-800 dark:text-green-400 hover:text-stone-950 dark:hover:text-green-300 transition-colors"
+    type="button"
+  >
+    <svg
+      data-testid="logo-svg"
+      height="32"
+      width="32"
+    >
+      <path
+        fill="#000"
+      />
+    </svg>
+  </button>
+</div>
+`;

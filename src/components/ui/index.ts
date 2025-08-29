@@ -1,4 +1,4 @@
-export { Logo } from './Logo';
+export { SiteLogo } from './SiteLogo';
 export { NavigationLinks } from './NavigationLinks';
 export { LanguageToggle } from './LanguageToggle';
 export { ThemeToggle } from './ThemeToggle';

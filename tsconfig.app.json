@@ -31,7 +31,8 @@
             "@types/*": ["./src/types/*"],
             "@pages/*": ["./src/pages/*"],
             "@lib/*": ["./src/lib/*"],
-            "@data/*": ["./src/data/*"]
+            "@data/*": ["./src/data/*"],
+            "@icons/*": ["./src/icons/*"]
         }
     },
     "include": ["src"]
