@@ -9,8 +9,8 @@
     },
     "hero": {
         "name": "Francisco Marí García",
-        "title": "Senior Full Stack Engineer",
-        "description": "Specialized in scalable web architectures and high-performance solutions. Currently leading frontend development for Zara's e-commerce platform, optimizing the experience for millions of daily users.",
+        "title": "Senior Frontend Engineer",
+        "description": "Specialized in scalable web architectures and high-performance solutions. Currently working on frontend development for Zara's e-commerce platform, optimizing the experience for millions of daily users.",
         "getInTouch": "Get In Touch",
         "viewExperience": "View Experience"
     },
