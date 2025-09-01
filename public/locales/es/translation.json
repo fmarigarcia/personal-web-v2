@@ -43,7 +43,7 @@
         "exp1": {
             "position": "Ingeniero Frontend Senior",
             "duration": "Ene 2025 - Presente",
-            "desc1": "Liderando iniciativas técnicas para la optimización y evolución del frontend de la plataforma e-commerce global de Zara",
+            "desc1": "Desarrollando iniciativas técnicas para la optimización y evolución del frontend de la plataforma e-commerce global de Zara en el área de checkout",
             "desc2": "Implementando componentes React.js de alto rendimiento bajo arquitectura de micro-frontends con fuerte énfasis en accesibilidad y UX",
             "desc3": "Colaboración estrecha con equipos de diseño y producto para implementar características innovadoras que mejoran la experiencia de compra",
             "desc4": "Trabajando con tecnologías de vanguardia para servir a millones de usuarios diarios en todo el mundo"
@@ -65,20 +65,20 @@
             "desc4": "Diseñé arquitectura escalable para entorno de juego multi-terminal"
         },
         "exp4": {
-            "position": "Desarrollador Full Stack Junior",
+            "position": "Desarrollador ERP Junior",
             "duration": "Sep 2019 - Ene 2020",
-            "desc1": "Desarrollé aplicaciones web usando frameworks modernos de JavaScript",
-            "desc2": "Colaboré en múltiples proyectos de clientes con diversos requisitos técnicos",
-            "desc3": "Adquirí experiencia en el ciclo de vida del desarrollo full-stack",
-            "desc4": "Participé en revisiones de código y procesos de desarrollo ágil"
+            "desc1": "Desarrollé nuevas funcionalidades y mejoras para sistemas ERP usando programación VBA",
+            "desc2": "Creé integraciones de software externo conectado a sistemas ERP utilizando VB.Net",
+            "desc3": "Proporcioné soporte técnico a clientes y resolví problemas del sistema",
+            "desc4": "Desplegué soluciones en las instalaciones de los clientes, asegurando implementación exitosa y capacitación"
         },
         "exp5": {
-            "position": "Desarrollador Backend Junior",
+            "position": "Desarrollador COBOL Junior",
             "duration": "Ago 2018 - Ago 2019",
-            "desc1": "Inicié mi carrera profesional desarrollando soluciones backend para clientes empresariales",
-            "desc2": "Aprendí mejores prácticas de la industria en desarrollo de software",
-            "desc3": "Trabajé con sistemas de gran escala y arquitectura empresarial",
-            "desc4": "Establecí las bases en desarrollo backend e integración de sistemas"
+            "desc1": "Proporcioné soporte técnico de tercer nivel para Bankia, una de las principales instituciones bancarias de España",
+            "desc2": "Mantuve y reparé sistemas bancarios legacy usando COBOL y JCL en arquitectura mainframe IBM",
+            "desc3": "Debugueé y resolví problemas críticos en aplicaciones bancarias en producción",
+            "desc4": "Trabajé con sistemas mainframe de escala empresarial sirviendo a millones de clientes bancarios"
         }
     },
     "projects": {
@@ -114,5 +114,32 @@
         "github": "GitHub",
         "linkedin": "LinkedIn",
         "twitter": "Twitter"
+    },
+    "technologies": {
+        "react": "React.js",
+        "typescript": "TypeScript",
+        "nodejs": "Node.js",
+        "elixir": "Elixir",
+        "phaser": "Phaser.js",
+        "websocket": "WebSocket",
+        "vba": "VBA",
+        "vbnet": "VB.Net",
+        "cobol": "COBOL",
+        "jcl": "JCL",
+        "ibmMainframe": "IBM Mainframe",
+        "microfrontends": "Micro-frontends",
+        "accessibility": "Accesibilidad",
+        "uxui": "UX/UI",
+        "performanceOptimization": "Optimización de Rendimiento",
+        "gdpr": "GDPR",
+        "saas": "SaaS",
+        "realtimeSystems": "Sistemas en Tiempo Real",
+        "gaming": "Gaming",
+        "erpSystems": "Sistemas ERP",
+        "systemIntegration": "Integración de Sistemas",
+        "technicalSupport": "Soporte Técnico",
+        "clientDeployment": "Despliegue en Cliente",
+        "bankingSystems": "Sistemas Bancarios",
+        "legacySystems": "Sistemas Legacy"
     }
 }

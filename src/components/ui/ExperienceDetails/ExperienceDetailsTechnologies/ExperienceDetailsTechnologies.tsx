@@ -20,7 +20,7 @@ export const ExperienceDetailsTechnologies: React.FC<
             <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => (
                     <Chip key={`${experienceId}-${tech}`} variant="primary">
-                        {tech}
+                        {t(tech)}
                     </Chip>
                 ))}
             </div>

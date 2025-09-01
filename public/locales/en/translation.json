@@ -43,7 +43,7 @@
         "exp1": {
             "position": "Senior Frontend Engineer",
             "duration": "Jan 2025 - Present",
-            "desc1": "Leading technical initiatives for optimization and evolution of Zara's global e-commerce platform frontend",
+            "desc1": "Developing technical initiatives for optimization and evolution of Zara's global e-commerce platform frontend checkout area",
             "desc2": "Implementing high-performance React.js components under micro-frontend architecture with strong emphasis on accessibility and UX",
             "desc3": "Close collaboration with design and product teams for implementing innovative features that enhance shopping experience",
             "desc4": "Working with cutting-edge technologies to serve millions of daily users worldwide"
@@ -65,20 +65,20 @@
             "desc4": "Designed scalable architecture for multi-terminal gaming environment"
         },
         "exp4": {
-            "position": "Junior Full Stack Developer",
+            "position": "Junior ERP Developer",
             "duration": "Sep 2019 - Jan 2020",
-            "desc1": "Developed web applications using modern JavaScript frameworks",
-            "desc2": "Collaborated on multiple client projects with diverse technical requirements",
-            "desc3": "Gained experience in full-stack development lifecycle",
-            "desc4": "Participated in code reviews and agile development processes"
+            "desc1": "Developed new features and enhancements for ERP systems using VBA programming",
+            "desc2": "Created external software integrations connected to ERP systems using VB.Net",
+            "desc3": "Provided technical support to clients and troubleshot system issues",
+            "desc4": "Deployed solutions onsite for clients, ensuring smooth implementation and training"
         },
         "exp5": {
-            "position": "Junior Backend Developer",
+            "position": "Junior COBOL Developer",
             "duration": "Aug 2018 - Aug 2019",
-            "desc1": "Started professional career developing backend solutions for enterprise clients",
-            "desc2": "Learned industry best practices in software development",
-            "desc3": "Worked with large-scale systems and enterprise architecture",
-            "desc4": "Foundation in backend development and system integration"
+            "desc1": "Provided third-tier technical support for Bankia, one of Spain's major banking institutions",
+            "desc2": "Maintained and fixed legacy banking systems using COBOL and JCL on IBM mainframe architecture",
+            "desc3": "Debugged and resolved critical issues in production banking applications",
+            "desc4": "Worked with enterprise-scale mainframe systems serving millions of banking customers"
         }
     },
     "projects": {
@@ -114,5 +114,32 @@
         "github": "GitHub",
         "linkedin": "LinkedIn",
         "twitter": "Twitter"
+    },
+    "technologies": {
+        "react": "React.js",
+        "typescript": "TypeScript",
+        "nodejs": "Node.js",
+        "elixir": "Elixir",
+        "phaser": "Phaser.js",
+        "websocket": "WebSocket",
+        "vba": "VBA",
+        "vbnet": "VB.Net",
+        "cobol": "COBOL",
+        "jcl": "JCL",
+        "ibmMainframe": "IBM Mainframe",
+        "microfrontends": "Micro-frontends",
+        "accessibility": "Accessibility",
+        "uxui": "UX/UI",
+        "performanceOptimization": "Performance Optimization",
+        "gdpr": "GDPR",
+        "saas": "SaaS",
+        "realtimeSystems": "Real-time Systems",
+        "gaming": "Gaming",
+        "erpSystems": "ERP Systems",
+        "systemIntegration": "System Integration",
+        "technicalSupport": "Technical Support",
+        "clientDeployment": "Client Deployment",
+        "bankingSystems": "Banking Systems",
+        "legacySystems": "Legacy Systems"
     }
 }
