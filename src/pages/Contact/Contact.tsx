@@ -4,8 +4,8 @@ import {
     Section,
     ContactMethodCard,
     SocialLinkButton,
-    ContactForm,
     CVDownloadButton,
+    ContactForm,
 } from '@components/ui';
 import { usePlatform } from '@hooks/usePlatform';
 import { useContact } from './useContact';
@@ -13,8 +13,8 @@ import { useContact } from './useContact';
 export const Contact: React.FC = () => {
     const { t } = useTranslation();
     const { data, actions } = useContact();
-    const { form, isSubmitting, contactMethods, socialLinks } = data;
-    const { handleInputChange, handleSubmit } = actions;
+    const { form, contactMethods, socialLinks, formRef } = data;
+    const { handleSubmit } = actions;
     const {
         data: { isDesktop },
     } = usePlatform();
@@ -72,9 +72,8 @@ export const Contact: React.FC = () => {
                     {isDesktop && (
                         <ContactForm
                             form={form}
-                            isSubmitting={isSubmitting}
-                            onInputChange={handleInputChange}
                             onSubmit={handleSubmit}
+                            ref={formRef}
                         />
                     )}
                 </div>

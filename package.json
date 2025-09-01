@@ -11,6 +11,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@formspree/core": "^4.0.0",
+    "@formspree/react": "^3.0.0",
     "@tailwindcss/vite": "^4.1.11",
     "clsx": "^2.1.1",
     "i18next": "^25.3.4",

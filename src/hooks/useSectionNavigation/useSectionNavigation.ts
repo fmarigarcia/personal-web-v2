@@ -114,7 +114,12 @@ export const useSectionNavigation = (
     // Desktop-only: Handle keyboard navigation
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
-            if (isMobile || isNavigating.current) {
+            if (
+                isMobile ||
+                isNavigating.current ||
+                document.activeElement?.tagName.toLowerCase() === 'input' ||
+                document.activeElement?.tagName.toLowerCase() === 'textarea'
+            ) {
                 return;
             }
 

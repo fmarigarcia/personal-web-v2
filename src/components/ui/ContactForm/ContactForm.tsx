@@ -1,23 +1,22 @@
-import type { FormEvent, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiPaperAirplane } from 'react-icons/hi2';
 import { FormLabel, FormInput, FormTextarea, Button } from '@components/ui';
-import type { ContactForm as ContactFormData } from '../../../types/forms';
+//@ts-expect-error random
+import type { ContactForm as ContactFormData } from '@types/forms';
+import { ValidationError, type SubmitHandler } from '@formspree/react';
+import type { FieldValues } from '@formspree/core';
+import type { RefObject } from 'react';
 
 interface ContactFormProps {
     form: ContactFormData;
-    isSubmitting: boolean;
-    onInputChange: (
-        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => void;
-    onSubmit: (e: FormEvent) => void;
+    onSubmit: SubmitHandler<FieldValues, void>;
+    ref: RefObject<HTMLFormElement | null>;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
     form,
-    isSubmitting,
-    onInputChange,
     onSubmit,
+    ref,
 }) => {
     const { t } = useTranslation();
 
@@ -33,6 +32,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 onSubmit={onSubmit}
                 className="space-y-6"
                 aria-labelledby="contact-form-title"
+                ref={ref}
             >
                 <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -43,8 +43,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                             type="text"
                             id="name"
                             name="name"
-                            value={form.name}
-                            onChange={onInputChange}
                             required
                             placeholder={t('contact.form.namePlaceholder')}
                         />
@@ -57,8 +55,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                             type="email"
                             id="email"
                             name="email"
-                            value={form.email}
-                            onChange={onInputChange}
                             required
                             placeholder={t('contact.form.emailPlaceholder')}
                         />
@@ -73,8 +69,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                         type="text"
                         id="subject"
                         name="subject"
-                        value={form.subject}
-                        onChange={onInputChange}
                         required
                         placeholder={t('contact.form.subjectPlaceholder')}
                     />
@@ -87,25 +81,31 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     <FormTextarea
                         id="message"
                         name="message"
-                        value={form.message}
-                        onChange={onInputChange}
                         required
                         rows={5}
                         placeholder={t('contact.form.messagePlaceholder')}
                     />
                 </div>
 
+                <div>
+                    <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={form.errors}
+                    />
+                </div>
+
                 <Button
                     type="submit"
-                    variant={isSubmitting ? 'disabled' : 'primary'}
-                    disabled={isSubmitting}
+                    variant={form.submitting ? 'disabled' : 'primary'}
+                    disabled={form.submitting}
                     className="w-full"
                 >
                     <span className="flex items-center justify-center gap-2">
-                        {isSubmitting
+                        {form.submitting
                             ? t('contact.sending')
                             : t('contact.sendMessage')}
-                        {!isSubmitting && (
+                        {!form.submitting && (
                             <HiPaperAirplane
                                 className="w-5 h-5"
                                 data-testid="send-icon"
