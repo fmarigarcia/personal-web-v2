@@ -40,15 +40,23 @@
         "technologiesSkills": "Tecnologías y Habilidades",
         "hoverPreview": "Pasa el cursor para previsualizar • Clic para seleccionar",
         "tapSelect": "Toca para seleccionar",
-        "exp1": {
+        "exp6": {
             "position": "Ingeniero Frontend Senior",
-            "duration": "Ene 2025 - Presente",
+            "duration": "Jul 2026 - Presente",
+            "desc1": "Desarrollando el frontend del lobby de casino para Valsea, una plataforma de iGaming que sirve a jugadores en múltiples mercados",
+            "desc2": "Formo parte del equipo de retención, construyendo funcionalidades y experiencias que mantienen a los jugadores activos y fidelizados",
+            "desc3": "Implementando componentes React.js de alto rendimiento con un fuerte enfoque en UX, accesibilidad y responsividad",
+            "desc4": "Colaborando con equipos de diseño, producto y backend para lanzar campañas promocionales y contenido orientado al jugador"
+        },
+        "exp5": {
+            "position": "Ingeniero Frontend Senior",
+            "duration": "Ene 2025 - Jul 2026",
             "desc1": "Desarrollando iniciativas técnicas para la optimización y evolución del frontend de la plataforma e-commerce global de Zara en el área de checkout",
             "desc2": "Implementando componentes React.js de alto rendimiento bajo arquitectura de micro-frontends con fuerte énfasis en accesibilidad y UX",
             "desc3": "Colaboración estrecha con equipos de diseño y producto para implementar características innovadoras que mejoran la experiencia de compra",
             "desc4": "Trabajando con tecnologías de vanguardia para servir a millones de usuarios diarios en todo el mundo"
         },
-        "exp2": {
+        "exp4": {
             "position": "Ingeniero Full Stack Senior",
             "duration": "Jul 2022 - Ene 2025",
             "desc1": "Lideré el desarrollo técnico de plataforma SaaS de RRHH para la industria hotelera, escalando de 5k a +30k usuarios activos",
@@ -64,7 +72,7 @@
             "desc3": "Implementé funcionalidades de juego en tiempo real con conexiones WebSocket",
             "desc4": "Diseñé arquitectura escalable para entorno de juego multi-terminal"
         },
-        "exp4": {
+        "exp2": {
             "position": "Desarrollador ERP Junior",
             "duration": "Sep 2019 - Ene 2020",
             "desc1": "Desarrollé nuevas funcionalidades y mejoras para sistemas ERP usando programación VBA",
@@ -72,7 +80,7 @@
             "desc3": "Proporcioné soporte técnico a clientes y resolví problemas del sistema",
             "desc4": "Desplegué soluciones en las instalaciones de los clientes, asegurando implementación exitosa y capacitación"
         },
-        "exp5": {
+        "exp1": {
             "position": "Desarrollador COBOL Junior",
             "duration": "Ago 2018 - Ago 2019",
             "desc1": "Proporcioné soporte técnico de tercer nivel para Bankia, una de las principales instituciones bancarias de España",

@@ -40,15 +40,23 @@
         "technologiesSkills": "Technologies & Skills",
         "hoverPreview": "Hover to preview • Click to select",
         "tapSelect": "Tap to select",
-        "exp1": {
+        "exp6": {
             "position": "Senior Frontend Engineer",
-            "duration": "Jan 2025 - Present",
+            "duration": "Jul 2026 - Present",
+            "desc1": "Developing the frontend of the casino lobby for Valsea, an iGaming platform serving players across multiple markets",
+            "desc2": "Part of the retention team, building features and experiences that keep players engaged and coming back",
+            "desc3": "Implementing high-performance React.js components with a strong focus on UX, accessibility and responsiveness",
+            "desc4": "Collaborating with design, product and backend teams to ship promotional campaigns and player-facing content"
+        },
+        "exp5": {
+            "position": "Senior Frontend Engineer",
+            "duration": "Jan 2025 - Jul 2026",
             "desc1": "Developing technical initiatives for optimization and evolution of Zara's global e-commerce platform frontend checkout area",
             "desc2": "Implementing high-performance React.js components under micro-frontend architecture with strong emphasis on accessibility and UX",
             "desc3": "Close collaboration with design and product teams for implementing innovative features that enhance shopping experience",
             "desc4": "Working with cutting-edge technologies to serve millions of daily users worldwide"
         },
-        "exp2": {
+        "exp4": {
             "position": "Senior Full Stack Engineer",
             "duration": "Jul 2022 - Jan 2025",
             "desc1": "Led technical development of HR SaaS platform for hospitality industry, scaling from 5k to +30k active users",
@@ -64,7 +72,7 @@
             "desc3": "Implemented real-time gaming features with WebSocket connections",
             "desc4": "Designed scalable architecture for multi-terminal gaming environment"
         },
-        "exp4": {
+        "exp2": {
             "position": "Junior ERP Developer",
             "duration": "Sep 2019 - Jan 2020",
             "desc1": "Developed new features and enhancements for ERP systems using VBA programming",
@@ -72,7 +80,7 @@
             "desc3": "Provided technical support to clients and troubleshot system issues",
             "desc4": "Deployed solutions onsite for clients, ensuring smooth implementation and training"
         },
-        "exp5": {
+        "exp1": {
             "position": "Junior COBOL Developer",
             "duration": "Aug 2018 - Aug 2019",
             "desc1": "Provided third-tier technical support for Bankia, one of Spain's major banking institutions",

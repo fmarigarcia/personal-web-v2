@@ -22,7 +22,7 @@ export const TimelineItems: React.FC<TimelineItemsProps> = ({
         data: { isDesktop },
     } = usePlatform();
     return (
-        <div className="flex justify-between items-start relative z-10">
+        <div className="flex justify-between gap-0 md:gap-1 xl:gap-3 items-start relative z-10">
             {experiences.map((exp) => {
                 const isSelected = selectedExp.id === exp.id;
 
